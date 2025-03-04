@@ -1,0 +1,1765 @@
+footer {
+	text-align: right;
+	color: #ffffff;
+	margin-right: 3%;
+	text-size-adjust: auto;
+	font-size: large;
+	background: var(--fondo);
+	font-family: 'Open Sans', sans-serif;
+	width: 90%;
+}
+
+@font-face {
+  font-family: 'BECK_FONT';
+  src: url('../fonts/BECK_FONT.ttf') format('truetype'); /* Ajusta la ruta según donde esté tu archivo de fuente */
+}
+
+.beck-font {
+  font-family: 'BECK_FONT', sans-serif;
+}
+
+.beck-font {
+  font-family: 'BECK_FONT', sans-serif;
+}
+
+.beck-font {
+  font-family: 'BECK_FONT', sans-serif;
+}
+
+:root {
+	--rojo: #9c09e5;
+	--fondo: #141414;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: var(--fondo);
+	font-family: 'Open Sans', sans-serif;
+}
+
+.contenedor {
+	width: 90%;
+	margin: auto;
+}
+
+header {
+	padding: 30px 0;
+}
+
+header .contenedor {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+header .logotipo {
+	font-family: 'Bebas Neue', cursive;
+	font-weight: normal;
+	font-size: 40px;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+}
+
+header nav a {
+	color: #AAA;
+	text-decoration: none;
+	margin-right: 20px;
+}
+
+header nav a:hover,
+header nav a.activo {
+	color: #FFF;
+}
+
+/* ---- ----- ----- Pelicula Principal ----- ----- ----- */
+.pelicula-principal {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/jojobaner2.jpg), center;
+
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principal .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principal .titulo {
+	font-weight: 600;
+	font-family: Impact, serif;
+	font-size: 6.12em;
+	font-style: italic;
+	margin-bottom: 0.4em;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+
+}
+
+.pelicula-principal .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principal .boton {
+	background: rgba(0,0,0, 0.5);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 1.12em;
+}
+
+.pelicula-principal .boton:hover {
+	background: #fff;
+	color: #000;
+}
+
+.pelicula-principal .boton i {
+	margin-right: 1.25em;
+}
+
+
+/* ---- ----- ----- Media Queries ----- ----- ----- */
+@media screen and (max-width: 800px) {
+	header .logotipo {
+		margin-bottom: 10px;
+		font-size: 30px;
+	}
+
+	header .contenedor {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.pelicula-principal {
+		font-size: 14px;
+	}
+
+	.pelicula-principal .descripcion {
+		max-width: 100%;
+	}
+}
+
+
+/* ---- ----- ----- Temporada1 ----- ----- ----- */
+.pelicula-principal1 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/phantomblood.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principal1 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principal1 .titulo {
+	font-weight: 600;
+	font-family: Impact, serif;
+	font-size: 3.12em;
+	font-style: italic;
+	margin-bottom: 0.4em;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+}
+
+.pelicula-principal1 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principal1 .boton {
+	background: rgba(0,0,0, 0.5);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 1.12em;
+}
+
+.pelicula-principal1 .boton:hover {
+	background: #fff;
+	color: #000;
+}
+
+.pelicula-principal1 .boton i {
+	margin-right: 1.25em;
+}
+
+
+/* ---- ----- ----- Temporada2 ----- ----- ----- */
+.pelicula-principal2 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/bt.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principal2 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principal2 .titulo {
+	font-weight: 600;
+	font-family: Impact, serif;
+	font-size: 3.12em;
+	font-style: italic;
+	margin-bottom: 0.4em;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+}
+
+.pelicula-principal2 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principal2 .boton {
+	background: rgba(0,0,0, 0.5);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 1.12em;
+}
+
+.pelicula-principal2 .boton:hover {
+	background: #fff;
+	color: #000;
+}
+
+.pelicula-principal2 .boton i {
+	margin-right: 1.25em;
+}
+
+
+
+
+/* ---- ----- ----- Temporada3 ----- ----- ----- */
+.pelicula-principal3 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/sc.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principal3 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principal3 .titulo {
+	font-weight: 600;
+	font-family: Impact, serif;
+	font-size: 3.12em;
+	font-style: italic;
+	margin-bottom: 0.4em;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+}
+
+.pelicula-principal3 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principal3 .boton {
+	background: rgba(0,0,0, 0.5);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 1.12em;
+}
+
+.pelicula-principal3 .boton:hover {
+	background: #fff;
+	color: #000;
+}
+
+.pelicula-principal3 .boton i {
+	margin-right: 1.25em;
+}
+
+
+/* ---- ----- ----- Temporada4 ----- ----- ----- */
+.pelicula-principal4 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/uib.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principal4 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principal4 .titulo {
+	font-weight: 600;
+	font-family: Impact, serif;
+	font-size: 3.12em;
+	font-style: italic;
+	margin-bottom: 0.4em;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+}
+
+.pelicula-principal4 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principal4 .boton {
+	background: rgba(0,0,0, 0.5);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 1.12em;
+}
+
+.pelicula-principal4 .boton:hover {
+	background: #fff;
+	color: #000;
+}
+
+.pelicula-principal4 .boton i {
+	margin-right: 1.25em;
+}
+
+
+
+/* ---- ----- ----- Temporada5 ----- ----- ----- */
+.pelicula-principal5 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/gw.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principal5 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principal5 .titulo {
+	font-weight: 600;
+	font-family: Impact, serif;
+	font-size: 3.12em;
+	font-style: italic;
+	margin-bottom: 0.4em;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+}
+
+.pelicula-principal5 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principal5 .boton {
+	background: rgba(0,0,0, 0.5);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 1.12em;
+}
+
+.pelicula-principal5 .boton:hover {
+	background: #fff;
+	color: #000;
+}
+
+.pelicula-principal5 .boton i {
+	margin-right: 1.25em;
+}
+
+
+/* ---- ----- ----- Temporada6 ----- ----- ----- */
+.pelicula-principal6 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Stone-Ocean-Header-1000x600.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principal6 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principal6 .titulo {
+	font-weight: 600;
+	font-family: Impact, serif;
+	font-size: 3.12em;
+	font-style: italic;
+	margin-bottom: 0.4em;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+}
+
+.pelicula-principal6 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principal6 .boton {
+	background: rgba(0,0,0, 0.5);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 1.12em;
+}
+
+.pelicula-principal6 .boton:hover {
+	background: #fff;
+	color: #000;
+}
+
+.pelicula-principal6 .boton i {
+	margin-right: 1.25em;
+}
+
+/* ---- ----- ----- Valoracions ----- ----- ----- */
+.valoraciones {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.valoraciones .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.valoraciones .titulo {
+	font-weight: 600;
+	font-family: Impact, serif;
+	font-size: 3.12em;
+	font-style: italic;
+	margin-bottom: 0.4em;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+}
+
+.valoraciones .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.valoraciones .boton {
+	background: rgba(0,0,0, 0.5);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 1.12em;
+}
+
+.valoraciones .boton:hover {
+	background: #fff;
+	color: #000;
+}
+
+.valoraciones .boton i {
+	margin-right: 1.25em;
+}
+.valoraciones td, th {
+	border: 1px solid white;
+	width: 200px;
+}
+.valoraciones td{
+	text-align: center;
+}
+
+
+/* ---- ----- ----- Temporada1 ----- ----- ----- */
+.ep {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background-position: center center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.ep .contenedor {
+	margin: 8px auto 6.25em;
+}
+
+.ep .titulo {
+	font-weight: 600;
+	font-size: 3.12em;
+	margin-bottom: 0.4em;
+}
+
+.ep .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.ep .boton {
+	background: rgba(51, 49, 49, 0.5);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 40%;
+}
+
+.ep .boton:hover {
+	background: #fff;
+	color: #333131;
+}
+
+.ep .boton i {
+	margin-right: 1.25em;
+}
+
+/* ---- ----- ----- Monster ----- ----- ----- */
+.pelicula-principalMonster {
+	font-size: 16px;
+	font-family:'Monster', serif;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Monster.png) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalMonster .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalMonster .titulo {
+	font-weight: 600;
+	font-size: 8.12em;
+	color: red;
+	margin-bottom: 0.4em;
+	font-family: "EB Garamond", serif;
+	text-shadow: 0 0 12px #FF0000;
+	text-align: left;
+
+}
+
+.pelicula-principalMonster .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principalMonster .boton {
+	background: rgba(0,0,0, 0.5);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 1.12em;
+}
+
+.pelicula-principalMonster .boton:hover {
+	background: #fff;
+	color: #000;
+}
+
+.pelicula-principalMonster .boton i {
+	margin-right: 1.25em;
+}
+
+
+
+
+
+/* ---- ----- ----- Berserk ----- ----- ----- */
+.pelicula-principalBerserk {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Berserkbanner.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalBerserk .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalBerserk .titulo {
+	font-weight: 600;
+	font-size: 8.12em;
+	color: #ffffff;
+	margin-bottom: 0.4em;
+	font-family: "Gill Sans MT", serif;
+	text-shadow: 4px 0 #ff0000, -4px 0 #ff0000, 0 4px #ff0000, 0 -4px #ff0000,
+	2px 2px #ff0000, -2px -2px #ff0000, 2px -2px #ff0000, -2px 2px #ff0000;
+	text-align: left;
+}
+
+.pelicula-principalBerserk .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principalBerserk .boton {
+	background: rgb(42, 42, 42);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 1.12em;
+}
+
+.pelicula-principalBerserk .boton:hover {
+	background: #fff;
+	color: #2a2a2a;
+}
+
+.pelicula-principalBerserk .boton i {
+	margin-right: 1.25em;
+}
+
+
+
+/* ---- ----- ----- Berserk La Edad Dorada ----- ----- ----- */
+.pelicula-principalBerserk1 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Berserkbannerlaedaddorada.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalBerserk1 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalBerserk1 .titulo {
+	font-weight: 600;
+	font-size: 3.12em;
+	margin-bottom: 0.4em;
+}
+
+.pelicula-principalBerserk1 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principalBerserk1 .boton {
+	background: rgba(0,0,0, 0.5);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 1.12em;
+}
+
+.pelicula-principalBerserk1 .boton:hover {
+	background: #fff;
+	color: #000;
+}
+
+.pelicula-principalBerserk1 .boton i {
+	margin-right: 1.25em;
+}
+
+
+/* ---- ----- ----- Berserk El espadachin negro ----- ----- ----- */
+.pelicula-principalBerserk2 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Berserkbannerelespadachin.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalBerserk2 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalBerserk2 .titulo {
+	font-weight: 600;
+	font-size: 3.12em;
+	margin-bottom: 0.4em;
+}
+
+.pelicula-principalBerserk2 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principalBerserk2 .boton {
+	background: rgba(0,0,0, 0.5);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 1.12em;
+}
+
+.pelicula-principalBerserk2 .boton:hover {
+	background: #fff;
+	color: #000;
+}
+
+.pelicula-principalBerserk2 .boton i {
+	margin-right: 1.25em;
+}
+
+
+/* ---- ----- ----- Berserk Castigo ----- ----- ----- */
+.pelicula-principalBerserk3 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Berserkbannercondena.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalBerserk3 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalBerserk3 .titulo {
+	font-weight: 600;
+	font-size: 3.12em;
+	margin-bottom: 0.4em;
+}
+
+.pelicula-principalBerserk3 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principalBerserk3 .boton {
+	background: rgba(0,0,0, 0.5);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 1.12em;
+}
+
+.pelicula-principalBerserk3 .boton:hover {
+	background: #fff;
+	color: #000;
+}
+
+.pelicula-principalBerserk3 .boton i {
+	margin-right: 1.25em;
+}
+
+
+
+
+
+/* ---- ----- ----- Berserk ----- ----- ----- */
+.pelicula-principalBerserk4 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Berserkbannerhalcon.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalBerserk4 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalBerserk4 .titulo {
+	font-weight: 600;
+	font-size: 3.12em;
+	margin-bottom: 0.4em;
+}
+
+.pelicula-principalBerserk4 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principalBerserk4 .boton {
+	background: rgba(0,0,0, 0.5);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 1.12em;
+}
+
+.pelicula-principalBerserk4 .boton:hover {
+	background: #fff;
+	color: #000;
+}
+
+.pelicula-principalBerserk4 .boton i {
+	margin-right: 1.25em;
+}
+
+
+
+
+/* ---- ----- ----- Berserk Fantasia ----- ----- ----- */
+.pelicula-principalBerserk5 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Berserkbannerfantasia.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalBerserk5 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalBerserk5 .titulo {
+	font-weight: 600;
+	font-size: 3.12em;
+	margin-bottom: 0.4em;
+}
+
+.pelicula-principalBerserk5 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principalBerserk5 .boton {
+	background: rgba(0,0,0, 0.5);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 1.12em;
+}
+
+.pelicula-principalBerserk5 .boton:hover {
+	background: #fff;
+	color: #000;
+}
+
+.pelicula-principalBerserk5 .boton i {
+	margin-right: 1.25em;
+}
+
+
+
+/* ---- ----- ----- Jujutsu Kaisen ----- ----- ----- */
+.pelicula-principalJuJu {
+	font-size: 16px;
+	font-family:'Monster', serif;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/jjkbanner.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalJuJu .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalJuJu .titulo {
+	font-weight: 600;
+	font-size: 8.12em;
+	color: #000000;
+	margin-bottom: 0.4em;
+	font-family: "Comic Sans MS", cursive;
+	text-shadow: 0 0 18px #ffdd00;
+	text-align: left;
+
+}
+
+.pelicula-principalJuJu .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principalJuJu .boton {
+	background: rgba(0,0,0, 0.5);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 1.12em;
+}
+
+.pelicula-principalJuJu .boton:hover {
+	background: #fff;
+	color: #000;
+}
+
+.pelicula-principalJuJu .boton i {
+	margin-right: 1.25em;
+}
+
+
+
+
+
+/* ---- ----- ----- Jujutsu Kaisen ----- ----- ----- */
+.pelicula-principalJuJu2 {
+	font-size: 16px;
+	font-family:'Monster', serif;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/jjk2banner.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalJuJu2 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalJuJu2 .titulo {
+	font-weight: 600;
+	font-size: 8.12em;
+	color: #000000;
+	margin-bottom: 0.4em;
+	font-family: "Comic Sans MS", cursive;
+	text-shadow: 0 0 18px #ffdd00;
+	text-align: left;
+
+}
+
+.pelicula-principalJuJu2 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principalJuJu2 .boton {
+	background: rgba(0,0,0, 0.5);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 1.12em;
+}
+
+.pelicula-principalJuJu2 .boton:hover {
+	background: #fff;
+	color: #000;
+}
+
+.pelicula-principalJuJu2 .boton i {
+	margin-right: 1.25em;
+}
+
+
+
+
+
+/* ---- ----- ----- Jujutsu Kaisen 0 ----- ----- ----- */
+.pelicula-principalJuJu0 {
+	font-size: 16px;
+	font-family:'Monster', serif;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/jjk0banner.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalJuJu0 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalJuJu0 .titulo {
+	font-weight: 600;
+	font-size: 8.12em;
+	color: #000000;
+	margin-bottom: 0.4em;
+	font-family: "Comic Sans MS", cursive;
+	text-shadow: 0 0 18px #ffdd00;
+
+}
+
+.pelicula-principalJuJu0 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principalJuJu0 .boton {
+	background: rgba(0,0,0, 0.5);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 1.12em;
+}
+
+.pelicula-principalJuJu0 .boton:hover {
+	background: #fff;
+	color: #000;
+}
+
+.pelicula-principalJuJu0 .boton i {
+	margin-right: 1.25em;
+}
+
+
+
+
+
+.pelicula-principalpancreas {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Panbanner.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalpancreas .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalpancreas .titulo {
+	font-weight: 600;
+	font-size: 3.12em;
+	margin-bottom: 0.4em;
+
+}
+
+.pelicula-principalpancreas .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principalpancreas .boton {
+	background: rgba(0,0,0, 0.5);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 1.12em;
+}
+
+.pelicula-principalpancreas .boton:hover {
+	background: #fff;
+	color: #000;
+}
+
+.pelicula-principalpancreas .boton i {
+	margin-right: 1.25em;
+}
+
+
+
+
+/* ---- ----- ----- Video ----- ----- ----- */
+
+video {
+	align-items: center;
+	align-content: center;
+	text-align: center;
+}
+
+
+
+
+/* Estilo para el contenedor del formulario de inicio de sesión */
+.login-panel {
+	background: linear-gradient(to bottom, #333, #555); /* Fondo con gradiente */
+	width: 400px;
+	margin: 0 auto;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	text-align: center;
+	color: #000000;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: border-box;
+}
+
+/* Estilo para los campos de entrada */
+.input-field {
+	margin-bottom: 15px;
+}
+
+.input-field label {
+	display: block;
+	font-weight: bold;
+}
+
+.input-field input {
+	width: 90%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+/* Estilo para el botón de inicio de sesión */
+.login-button {
+	background-color: #c211f3;
+	color: #000000;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+/* Estilo para el "enlace de contraseña olvidada" */
+.forgot-password {
+	color: #000000;
+	text-decoration: none;
+}
+
+/* Estilo para la casilla de aceptación de términos y condiciones */
+.terms-checkbox {
+	margin-top: 10px;
+}
+.dropdown {
+	display: inline-block;
+	position: relative;
+}
+.dropdown-content {
+	display: none;
+	position: absolute;
+	width: 150%;
+	overflow: auto;
+	box-shadow: 0 10px 10px 0 rgba(0,0,0,0.4);
+}
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+.dropdown-content a {
+	display: block;
+	color: deeppink;
+	padding: 5px;
+	text-decoration: none;
+	background-color: grey;
+}
+.dropdown-content a:hover {
+	color: #FFFFFF;
+	background-color: #00A4BD;
+}
+
+
+body{
+	font-family: 'Nunito', sans-serif;
+	text-align: right;
+
+}
+
+.a{color: #E7484F}
+.b{color: #F68B1D}
+.c{color: #FCED00}
+.d{color: #009E4F}
+.e{color: #00AAC3}
+.f{color:  #732982}
+
+
+.container{
+	margin-top: 150px;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.rainbow{
+	background-color: #343A40;
+	border-radius: 4px;
+	color: #fff;
+	cursor: pointer;
+	padding: 8px 16px;
+
+}
+
+.rainbow-1:hover{
+	background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
+	animation:slidebg 5s linear infinite;
+	text-align: right;
+}
+
+.rainbow-2:hover{
+	background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
+	animation:slidebg 5s linear infinite;
+	text-align: left;
+}
+
+.rainbow-3:hover{
+	background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, red);
+	animation:slidebg 2s linear infinite;
+}
+
+.rainbow-4:hover{
+	background-image:     linear-gradient(
+			to right,
+			#E7484F,
+			#F68B1D,
+			#FCED00,
+			#009E4F,
+			#00AAC3,
+			#732982
+	);
+	animation:slidebg 2s linear infinite;
+}
+
+
+.rainbow-5:hover{
+	background-image:     linear-gradient(
+			to right,
+			#E7484F,
+			#E7484F 16.65%,
+			#F68B1D 16.65%,
+			#F68B1D 33.3%,
+			#FCED00 33.3%,
+			#FCED00 49.95%,
+			#009E4F 49.95%,
+			#009E4F 66.6%,
+			#00AAC3 66.6%,
+			#00AAC3 83.25%,
+			#732982 83.25%,
+			#732982 100%,
+			#E7484F 100%
+
+
+
+	);
+	animation:slidebg 2s linear infinite;
+}
+
+
+@keyframes slidebg {
+	to {
+		background-position:20vw;
+	}
+}
+
+.follow{
+	margin-top: 40px;
+}
+
+.follow a{
+	color: black;
+	padding: 8px 16px;
+	text-decoration: none;
+}
+
+
+
+.pelicula-principalcontact {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Panbanner.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalcontact .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalcontact .titulo {
+	font-weight: 600;
+	font-size: 3.12em;
+	margin-bottom: 0.4em;
+	align-content: center;
+
+}
+
+.pelicula-principalcontact .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principalcontact .boton {
+	background: rgba(0,0,0, 0.5);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 1.12em;
+}
+
+.pelicula-principalcontact .boton:hover {
+	background: #fff;
+	color: #000;
+}
+
+.pelicula-principalcontact .boton i {
+	margin-right: 1.25em;
+}
+
+.formulari{
+	color: #fff;
+	text-align: center;
+}
+
+
+
+
+.ep ol {
+    list-style-type: none;
+    padding: 0;
+}
+
+.ep ol li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #1a1a1a; /* Un negro un poco menos oscuro */
+    border-radius: 5px;
+}
+
+.ep ol li a {
+    text-decoration: none;
+    color: #ff0000; /* Rojo para el nombre de los episodios */
+    font-weight: 600;
+    letter-spacing: 0.5px; /* Añadir espaciado entre letras */
+    font-family: "EB Garamond", serif; /* Aplicar la misma tipografía que el título Monster */
+    text-shadow: 0 0 10px #ff0000; /* Añadir brillo rojo */
+    font-size: 0.9em; /* Hacer la letra un poco más pequeña */
+}
+
+.ep ol li .boton {
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "EB Garamond", serif; /* Aplicar la misma tipografía que el título Monster */
+    letter-spacing: 0.5px; /* Añadir espaciado entre letras */
+    text-shadow: 0 0 10px #ff0000; /* Añadir brillo rojo */
+    font-size: 0.9em; /* Hacer la letra un poco más pequeña */
+}
+
+.ep ol li .boton:hover {
+    background-color: #cc0000;
+}
+
+.pelicula-principal .contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.pelicula-principal .titulo {
+    align-self: flex-start;
+    margin-bottom: 10px;
+}
+
+.pelicula-principal .descripcion {
+    margin-bottom: 20px;
+}
+
+
+.pelicula-principalMonster {
+	font-size: 16px;
+	font-family:'Monster', serif;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Monster.png) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalMonster .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalMonster .titulo {
+	font-weight: 600;
+	font-size: 8.12em;
+	color: red;
+	margin-bottom: 0.4em;
+	font-family: "EB Garamond", serif;
+	text-shadow: 0 0 12px #FF0000;
+
+}
+
+.pelicula-principal .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principalMonster .boton {
+	background: rgba(0,0,0, 0.5);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 1.12em;
+}
+
+.pelicula-principalMonster .boton:hover {
+	background: #fff;
+	color: #000;
+}
+
+.pelicula-principalMonster .boton i {
+	margin-right: 1.25em;
+}
+
+/* BECK */
+.pelicula-principalBECK {
+    font-size: 16px;
+    font-family: 'BECK', serif;
+    min-height: 40.62em;
+    color: #fff;
+    background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Fondobeck.jpg) center;
+    background-size: cover;
+    margin-bottom: 3.12em;
+    display: flex;
+    align-items: center;
+}
+
+.pelicula-principalBECK .contenedor {
+    margin: 0 auto 6.25em;
+    display: flex;
+    flex-direction: column; /* Align items in a column */
+    align-items: flex-start; /* Align items to the left */
+}
+
+.pelicula-principalBECK .titulo {
+    font-weight: 600;
+    font-size: 2em; /* Adjust the font size */
+    color: red;
+    margin-bottom: 0.4em;
+    font-family: "EB Garamond", serif;
+    text-shadow: 0 0 12px #FF0000;
+}
+
+.pelicula-principalBECK .titulo img {
+    height: auto;
+    margin-bottom: 20px; /* Add some space between the image and the text */
+}
+
+.pelicula-principalBECK .texto {
+    display: flex;
+    flex-direction: column;
+}
+
+.pelicula-principalBECK .descripcion {
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.75em;
+    max-width: 50%;
+    margin-bottom: 1.25em;
+    text-align: justify; /* Justify the text */
+}
+
+.pelicula-principalBECK .boton {
+	background: rgba(0,0,0, 0.5);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 1.12em;
+    width: 7%; /* Set the width to 10% */
+}
+
+.pelicula-principalBECK .boton:hover {
+    background: #fff;
+    color: #000;
+}
+
+.pelicula-principalBECK .boton i {
+    margin-right: 0.3em; /* Adjust the margin */
+}
+
+@font-face {
+	font-family: 'BECK_FONT';
+	src: url('/Fonts/HouseBrokenClean.otf') format('opentype'),
+		 url('/Fonts/HouseBrokenClean.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+  }
+  
+  ol.titulo.beck-font {
+	font-family: 'BECK_FONT', sans-serif;
+  }
+
+.lista-episodios ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.lista-episodios li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 15px;
+    background-color: #2c2c2c; /* Un negro un poco menos oscuro */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añadir sombra */
+    transition: transform 0.2s; /* Añadir transición para el hover */
+}
+
+.lista-episodios li:hover {
+    transform: scale(1.02); /* Aumentar ligeramente el tamaño al pasar el ratón */
+}
+
+.lista-episodios li button {
+    background-color: #ffffff; /* Botón en blanco */
+    color: #000; /* Texto en negro */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "EB Garamond", serif; /* Aplicar la misma tipografía que el título Monster */
+    letter-spacing: 0.5px; /* Añadir espaciado entre letras */
+    text-shadow: 0 0 10px #ffffff; /* Añadir brillo blanco */
+    font-size: 0.9em; /* Hacer la letra un poco más pequeña */
+    transition: background-color 0.3s; /* Añadir transición para el hover */
+}
+
+.lista-episodios li button:hover {
+    background-color: #cccccc; /* Color de fondo al pasar el ratón */
+}
+
+.lista-episodios li span {
+    color: #ffffff; /* Blanco para el nombre de los episodios */
+    font-weight: 600;
+    letter-spacing: 0.5px; /* Añadir espaciado entre letras */
+    font-family: "EB Garamond", serif; /* Aplicar la misma tipografía que el título Monster */
+    text-shadow: 0 0 10px #ffffff; /* Añadir brillo blanco */
+    font-size: 1.8em; /* Ajustar el tamaño de la letra */
+}
+
+.titulo-episodio {
+    color: #ffffff; /* Blanco para el título del episodio */
+    font-size: 2em; /* Ajustar el tamaño del título */
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.boton-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+}
+

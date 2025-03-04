@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>Formulari</title>
+</head>
+<body>
+
+<header>
+    <div class="contenedor">
+        <h2 class="logotipo" onclick="location.href='index.html'">JoJo-flix</h2>
+        <nav>
+            <a href="index.html" class="activo">Inicio</a>
+            <a href="#">Programas</a>
+            <a href="#">Películas</a>
+            <a href="#">Más Recientes</a>
+            <a href="login.html">LOG IN</a>
+            <a href="#seccio1">Dades personals</a>
+            <a href="#seccio2">Peu de pàgina</a>
+        </nav>
+    </div>
+
+</header>
+<div id="seccio1" class="formulari">
+    <h1>Formulari d'Usuari</h1>
+    <h2>Dades Personals</h2>
+    <form action="http://virtual187.ies-sabadell.cat/virtual187/uf5/HelloWorld.php" method="POST">
+        <label for="nomCognoms">Nom i Cognoms:</label>
+        <input type="text" id="nomCognoms" name="nomCognoms" required>
+        <br>
+        <label for="dataNaixement">Data de Naixement:</label>
+        <input type="date" id="dataNaixement" name="dataNaixement" required>
+        <br><br>
+        <label>Nivell Acadèmic Actual:</label><br>
+        <input type="radio" id="eso" name="nivellAcademic" value="ESO" required>
+        <label for="eso">ESO</label><br>
+        <input type="radio" id="batx" name="nivellAcademic" value="BATX/Graus" required>
+        <label for="batx">BATX/Graus</label><br>
+        <input type="radio" id="universitari" name="nivellAcademic" value="Estudis Universitaris" required>
+        <label for="universitari">Estudis Universitaris</label><br>
+        <input type="radio" id="altres" name="nivellAcademic" value="Altres" required>
+        <label for="altres">Altres</label><br><br>
+        <label for="temesInteres">Temes d'Interès/Preferències:</label><br>
+        <select id="temesInteres" name="temesInteres" multiple>
+            <option value="Informatica">Informàtica</option>
+            <option value="Ciencia">Ciència</option>
+            <option value="Art">Art</option>
+            <option value="Cine">Cine</option>
+            <option value="Esports">Esports</option>
+            <option value="Musica">Musica</option>
+        </select><br><br>
+
+        <label for="observacions">Observacions (màxim 50 caràcters):</label><br>
+        <textarea id="observacions" name="observacions" rows="8" maxlength="50"></textarea><br><br>
+
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Esborrar">
+    </form>
+</div><div id="seccio2">
+
+<footer>
+    <p>Creat per: Òscar Arnabat i Jordi Cañadas</p>
+    <p><a href="https://agora.xtec.cat/ies-sabadell/" target="_blank">Institut Sabadell</a></p>
+</footer>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>
