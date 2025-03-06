@@ -9,6 +9,8 @@ footer {
 	width: 90%;
 }
 
+
+
 @font-face {
   font-family: 'BECK_FONT';
   src: url('../fonts/BECK_FONT.ttf') format('truetype'); /* Ajusta la ruta según donde esté tu archivo de fuente */
@@ -137,6 +139,11 @@ header nav a.activo {
 	margin-right: 1.25em;
 }
 
+.boton .play-icon {
+    width: 20px; /* Ajusta el tamaño según tus necesidades */
+    height: auto;
+    vertical-align: middle;
+}
 
 /* ---- ----- ----- Media Queries ----- ----- ----- */
 @media screen and (max-width: 800px) {
@@ -683,10 +690,6 @@ header nav a.activo {
 	margin-right: 1.25em;
 }
 
-
-
-
-
 /* ---- ----- ----- Berserk ----- ----- ----- */
 .pelicula-principalBerserk {
 	font-size: 16px;
@@ -1009,244 +1012,6 @@ header nav a.activo {
 	margin-right: 1.25em;
 }
 
-
-
-/* ---- ----- ----- Jujutsu Kaisen ----- ----- ----- */
-.pelicula-principalJuJu {
-	font-size: 16px;
-	font-family:'Monster', serif;
-	min-height: 40.62em;
-	color: #fff;
-	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/jjkbanner.jpg) center;
-	background-size: cover;
-	margin-bottom: 3.12em;
-	display: flex;
-	align-items: end;
-}
-
-.pelicula-principalJuJu .contenedor {
-	margin: 0 auto 6.25em;
-}
-
-.pelicula-principalJuJu .titulo {
-	font-weight: 600;
-	font-size: 8.12em;
-	color: #000000;
-	margin-bottom: 0.4em;
-	font-family: "Comic Sans MS", cursive;
-	text-shadow: 0 0 18px #ffdd00;
-	text-align: left;
-
-}
-
-.pelicula-principalJuJu .descripcion {
-	font-weight: normal;
-	font-size: 1em;
-	line-height: 1.75em;
-	max-width: 50%;
-	margin-bottom: 1.25em;
-}
-
-.pelicula-principalJuJu .boton {
-	background: rgba(0,0,0, 0.5);
-	border: none;
-	border-radius: 0.31em;
-	padding: 0.93em 1.87em;
-	color: #fff;
-	margin-right: 1.25em;
-	cursor: pointer;
-	transition: .3s ease all;
-	font-size: 1.12em;
-}
-
-.pelicula-principalJuJu .boton:hover {
-	background: #fff;
-	color: #000;
-}
-
-.pelicula-principalJuJu .boton i {
-	margin-right: 1.25em;
-}
-
-
-
-
-
-/* ---- ----- ----- Jujutsu Kaisen ----- ----- ----- */
-.pelicula-principalJuJu2 {
-	font-size: 16px;
-	font-family:'Monster', serif;
-	min-height: 40.62em;
-	color: #fff;
-	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/jjk2banner.jpg) center;
-	background-size: cover;
-	margin-bottom: 3.12em;
-	display: flex;
-	align-items: end;
-}
-
-.pelicula-principalJuJu2 .contenedor {
-	margin: 0 auto 6.25em;
-}
-
-.pelicula-principalJuJu2 .titulo {
-	font-weight: 600;
-	font-size: 8.12em;
-	color: #000000;
-	margin-bottom: 0.4em;
-	font-family: "Comic Sans MS", cursive;
-	text-shadow: 0 0 18px #ffdd00;
-	text-align: left;
-
-}
-
-.pelicula-principalJuJu2 .descripcion {
-	font-weight: normal;
-	font-size: 1em;
-	line-height: 1.75em;
-	max-width: 50%;
-	margin-bottom: 1.25em;
-}
-
-.pelicula-principalJuJu2 .boton {
-	background: rgba(0,0,0, 0.5);
-	border: none;
-	border-radius: 0.31em;
-	padding: 0.93em 1.87em;
-	color: #fff;
-	margin-right: 1.25em;
-	cursor: pointer;
-	transition: .3s ease all;
-	font-size: 1.12em;
-}
-
-.pelicula-principalJuJu2 .boton:hover {
-	background: #fff;
-	color: #000;
-}
-
-.pelicula-principalJuJu2 .boton i {
-	margin-right: 1.25em;
-}
-
-
-
-
-
-/* ---- ----- ----- Jujutsu Kaisen 0 ----- ----- ----- */
-.pelicula-principalJuJu0 {
-	font-size: 16px;
-	font-family:'Monster', serif;
-	min-height: 40.62em;
-	color: #fff;
-	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/jjk0banner.jpg) center;
-	background-size: cover;
-	margin-bottom: 3.12em;
-	display: flex;
-	align-items: end;
-}
-
-.pelicula-principalJuJu0 .contenedor {
-	margin: 0 auto 6.25em;
-}
-
-.pelicula-principalJuJu0 .titulo {
-	font-weight: 600;
-	font-size: 8.12em;
-	color: #000000;
-	margin-bottom: 0.4em;
-	font-family: "Comic Sans MS", cursive;
-	text-shadow: 0 0 18px #ffdd00;
-
-}
-
-.pelicula-principalJuJu0 .descripcion {
-	font-weight: normal;
-	font-size: 1em;
-	line-height: 1.75em;
-	max-width: 50%;
-	margin-bottom: 1.25em;
-}
-
-.pelicula-principalJuJu0 .boton {
-	background: rgba(0,0,0, 0.5);
-	border: none;
-	border-radius: 0.31em;
-	padding: 0.93em 1.87em;
-	color: #fff;
-	margin-right: 1.25em;
-	cursor: pointer;
-	transition: .3s ease all;
-	font-size: 1.12em;
-}
-
-.pelicula-principalJuJu0 .boton:hover {
-	background: #fff;
-	color: #000;
-}
-
-.pelicula-principalJuJu0 .boton i {
-	margin-right: 1.25em;
-}
-
-
-
-
-
-.pelicula-principalpancreas {
-	font-size: 16px;
-	min-height: 40.62em;
-	color: #fff;
-	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Panbanner.jpg) center;
-	background-size: cover;
-	margin-bottom: 3.12em;
-	display: flex;
-	align-items: end;
-}
-
-.pelicula-principalpancreas .contenedor {
-	margin: 0 auto 6.25em;
-}
-
-.pelicula-principalpancreas .titulo {
-	font-weight: 600;
-	font-size: 3.12em;
-	margin-bottom: 0.4em;
-
-}
-
-.pelicula-principalpancreas .descripcion {
-	font-weight: normal;
-	font-size: 1em;
-	line-height: 1.75em;
-	max-width: 50%;
-	margin-bottom: 1.25em;
-}
-
-.pelicula-principalpancreas .boton {
-	background: rgba(0,0,0, 0.5);
-	border: none;
-	border-radius: 0.31em;
-	padding: 0.93em 1.87em;
-	color: #fff;
-	margin-right: 1.25em;
-	cursor: pointer;
-	transition: .3s ease all;
-	font-size: 1.12em;
-}
-
-.pelicula-principalpancreas .boton:hover {
-	background: #fff;
-	color: #000;
-}
-
-.pelicula-principalpancreas .boton i {
-	margin-right: 1.25em;
-}
-
-
-
-
 /* ---- ----- ----- Video ----- ----- ----- */
 
 video {
@@ -1254,173 +1019,6 @@ video {
 	align-content: center;
 	text-align: center;
 }
-
-
-
-
-/* Estilo para el contenedor del formulario de inicio de sesión */
-.login-panel {
-	background: linear-gradient(to bottom, #333, #555); /* Fondo con gradiente */
-	width: 400px;
-	margin: 0 auto;
-	padding: 20px;
-	border-radius: 10px;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	text-align: center;
-	color: #000000;
-	background: -webkit-linear-gradient(#df2892, #ffffff);
-	-webkit-background-clip: border-box;
-}
-
-/* Estilo para los campos de entrada */
-.input-field {
-	margin-bottom: 15px;
-}
-
-.input-field label {
-	display: block;
-	font-weight: bold;
-}
-
-.input-field input {
-	width: 90%;
-	padding: 10px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-}
-
-/* Estilo para el botón de inicio de sesión */
-.login-button {
-	background-color: #c211f3;
-	color: #000000;
-	border: none;
-	padding: 10px 20px;
-	border-radius: 5px;
-	cursor: pointer;
-}
-
-/* Estilo para el "enlace de contraseña olvidada" */
-.forgot-password {
-	color: #000000;
-	text-decoration: none;
-}
-
-/* Estilo para la casilla de aceptación de términos y condiciones */
-.terms-checkbox {
-	margin-top: 10px;
-}
-.dropdown {
-	display: inline-block;
-	position: relative;
-}
-.dropdown-content {
-	display: none;
-	position: absolute;
-	width: 150%;
-	overflow: auto;
-	box-shadow: 0 10px 10px 0 rgba(0,0,0,0.4);
-}
-.dropdown:hover .dropdown-content {
-	display: block;
-}
-.dropdown-content a {
-	display: block;
-	color: deeppink;
-	padding: 5px;
-	text-decoration: none;
-	background-color: grey;
-}
-.dropdown-content a:hover {
-	color: #FFFFFF;
-	background-color: #00A4BD;
-}
-
-
-body{
-	font-family: 'Nunito', sans-serif;
-	text-align: right;
-
-}
-
-.a{color: #E7484F}
-.b{color: #F68B1D}
-.c{color: #FCED00}
-.d{color: #009E4F}
-.e{color: #00AAC3}
-.f{color:  #732982}
-
-
-.container{
-	margin-top: 150px;
-}
-
-.text-center {
-	text-align: center;
-}
-
-.rainbow{
-	background-color: #343A40;
-	border-radius: 4px;
-	color: #fff;
-	cursor: pointer;
-	padding: 8px 16px;
-
-}
-
-.rainbow-1:hover{
-	background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
-	animation:slidebg 5s linear infinite;
-	text-align: right;
-}
-
-.rainbow-2:hover{
-	background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
-	animation:slidebg 5s linear infinite;
-	text-align: left;
-}
-
-.rainbow-3:hover{
-	background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, red);
-	animation:slidebg 2s linear infinite;
-}
-
-.rainbow-4:hover{
-	background-image:     linear-gradient(
-			to right,
-			#E7484F,
-			#F68B1D,
-			#FCED00,
-			#009E4F,
-			#00AAC3,
-			#732982
-	);
-	animation:slidebg 2s linear infinite;
-}
-
-
-.rainbow-5:hover{
-	background-image:     linear-gradient(
-			to right,
-			#E7484F,
-			#E7484F 16.65%,
-			#F68B1D 16.65%,
-			#F68B1D 33.3%,
-			#FCED00 33.3%,
-			#FCED00 49.95%,
-			#009E4F 49.95%,
-			#009E4F 66.6%,
-			#00AAC3 66.6%,
-			#00AAC3 83.25%,
-			#732982 83.25%,
-			#732982 100%,
-			#E7484F 100%
-
-
-
-	);
-	animation:slidebg 2s linear infinite;
-}
-
 
 @keyframes slidebg {
 	to {
@@ -1437,68 +1035,6 @@ body{
 	padding: 8px 16px;
 	text-decoration: none;
 }
-
-
-
-.pelicula-principalcontact {
-	font-size: 16px;
-	min-height: 40.62em;
-	color: #fff;
-	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Panbanner.jpg) center;
-	background-size: cover;
-	margin-bottom: 3.12em;
-	display: flex;
-	align-items: end;
-}
-
-.pelicula-principalcontact .contenedor {
-	margin: 0 auto 6.25em;
-}
-
-.pelicula-principalcontact .titulo {
-	font-weight: 600;
-	font-size: 3.12em;
-	margin-bottom: 0.4em;
-	align-content: center;
-
-}
-
-.pelicula-principalcontact .descripcion {
-	font-weight: normal;
-	font-size: 1em;
-	line-height: 1.75em;
-	max-width: 50%;
-	margin-bottom: 1.25em;
-}
-
-.pelicula-principalcontact .boton {
-	background: rgba(0,0,0, 0.5);
-	border: none;
-	border-radius: 0.31em;
-	padding: 0.93em 1.87em;
-	color: #fff;
-	margin-right: 1.25em;
-	cursor: pointer;
-	transition: .3s ease all;
-	font-size: 1.12em;
-}
-
-.pelicula-principalcontact .boton:hover {
-	background: #fff;
-	color: #000;
-}
-
-.pelicula-principalcontact .boton i {
-	margin-right: 1.25em;
-}
-
-.formulari{
-	color: #fff;
-	text-align: center;
-}
-
-
-
 
 .ep ol {
     list-style-type: none;
@@ -1643,8 +1179,9 @@ body{
 }
 
 .pelicula-principalBECK .titulo img {
-    height: auto;
-    margin-bottom: 20px; /* Add some space between the image and the text */
+	height: auto;
+    margin-bottom: 2px; /* Add some space between the image and the text */
+    margin-left: -20px; /* Move the image more to the left */
 }
 
 .pelicula-principalBECK .texto {
@@ -1671,7 +1208,7 @@ body{
 	cursor: pointer;
 	transition: .3s ease all;
 	font-size: 1.12em;
-    width: 7%; /* Set the width to 10% */
+    width: 10%/* Set the width to 10% */
 }
 
 .pelicula-principalBECK .boton:hover {
@@ -1763,3 +1300,27 @@ body{
     margin-top: 1em;
 }
 
+.boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #ff0000; /* Ajusta el color según tus necesidades */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.boton .play-icon {
+    width: 20px; /* Ajusta el tamaño según tus necesidades */
+    height: auto;
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
+    vertical-align: middle;
+}
+
+.boton:hover {
+    background-color: #cc0000; /* Ajusta el color según tus necesidades */
+}
