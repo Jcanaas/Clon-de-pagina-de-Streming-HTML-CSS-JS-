@@ -1324,3 +1324,12 @@ video {
 .boton:hover {
     background-color: #cc0000; /* Ajusta el color según tus necesidades */
 }
+
+.titulo-episodio {
+    font-weight: 600;
+    font-size: 3em; /* Ajusta el tamaño de la fuente según sea necesario */
+    color: red;
+    margin-bottom: 0.4em;
+    font-family: "EB Garamond", serif;
+    text-shadow: 0 0 12px #FF0000;
+}

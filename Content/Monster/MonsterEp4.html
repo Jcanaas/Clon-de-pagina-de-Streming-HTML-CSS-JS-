@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-<html lang="cat">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="keywords" content="Netlix,series,anime,pelis,Jordi,Oscar,Pon-un-10">
-  <meta name="author" content="Oscar-Arnabat, Jordi-Cañadas">
-  <link rel="stylesheet" href="../css/estilos.css">
+  <meta name="author" content="Jordi-Cañadas">
+  <link rel="stylesheet" href="../../css/estilos.css">
+  <link rel="stylesheet" href="../../css/botones_ant_sig.css">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <title>JoJo-Flix</title>
 </head>
 <body>
 <header>
   <div class="contenedor">
-    <h2 class="logotipo" onclick="location.href='index.html'">JoJo-flix</h2>
+    <h2 class="logotipo" onclick="location.href='../../index.html'">JoJo-flix</h2>
     <nav>
-      <a href="../index.html" class="activo">Inicio</a>
-      <a href="#">Programas</a>
-      <a href="#">Películas</a>
-      <a href="#">Más Recientes</a>
-      <a href="#">LOG IN</a>
+      <a href="../../index.html" class="activo">Inicio</a>
+      <a href="../BECK/BECK_List_Ep.html">Temporadas</a>
+      <a href="../../form.html">Formulario de satisfacción</a>
+      <a href="../../signin.html">SIGN IN</a>
+      <a href="../../login.html">LOG IN</a>
     </nav>
   </div>
 </header>
@@ -28,15 +29,41 @@
     <div class="contenedor">
       <h3 class="titulo">MONSTER</h3>
       <p class="descripcion">
-        El doctor Kenzo Tenma es un prometedor neurocirujano japonés que ejerce en el Eisler Memorial Hospital de Dusseldorf. Lo tiene todo en la vida; un trabajo que le apasiona y en el que demuestra una habilidad increíble, y una novia rica y guapa. Sin embargo, un día decide ignorar una orden de su superior y salva a un niño desconocido en lugar de la vida del alcalde de la ciudad.				</p>
+        El doctor Kenzo Tenma es un prometedor neurocirujano japonés que ejerce en el Eisler Memorial Hospital de Dusseldorf. Lo tiene todo en la vida; un trabajo que le apasiona y en el que demuestra una habilidad increíble, y una novia rica y guapa. Sin embargo, un día decide ignorar una orden de su superior y salva a un niño desconocido en lugar de la vida del alcalde de la ciudad.
       </p>
     </div>
   </div>
 
-    <div style="text-align:center;"><iframe src="https://mega.nz/embed/eLYUDDDK#AKUz6gCTzvW0eKh4JOGlQQCVwxoAnVDItMJ1UiTh8Po" width="960" height="540" frameborder="0" allowfullscreen></iframe></iframe></div>
-  <div><a class="rainbow rainbow-1" onclick="location.href='MonsterEp5.html'">Next</a></div>
+  <div style="text-align:center;">
+    <h3 id="episode-title" class="titulo-episodio"></h3>
+    <iframe src="https://mega.nz/embed/OfgE3Azb#AEsgFwDBLFOQAz-trXRumQC_zwsAjuBmkB1vFa1lbIg" width="1200" height="720" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <div class="botones" style="text-align:center; margin-top: 20px;">
+    <a id="prev-episode" class="btn-5">Anterior Episodio</a>
+    <a id="next-episode" class="btn-5">Siguiente Episodio</a>
+  </div>
 </main>
 <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
-<script src="js/main.js"></script>
+<script src="../../js/episodeTitlesMonster.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const currentFileName = window.location.pathname.split('/').pop();
+    const episodeNumber = parseInt(currentFileName.match(/\d+/)[0]);
+    const prevEpisodeNumber = episodeNumber - 1;
+    const nextEpisodeNumber = episodeNumber + 1;
+
+    const prevEpisodeLink = document.getElementById('prev-episode');
+    const nextEpisodeLink = document.getElementById('next-episode');
+
+    if (prevEpisodeNumber > 0) {
+      prevEpisodeLink.href = `MonsterEp${prevEpisodeNumber}.html`;
+    } else {
+      prevEpisodeLink.style.display = 'none';
+    }
+
+    nextEpisodeLink.href = `MonsterEp${nextEpisodeNumber}.html`;
+  });
+</script>
 </body>
 </html>
