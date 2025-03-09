@@ -1,70 +1,80 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estilos.css">
-    <title>Formulari</title>
+    <title>Formulario de Satisfacción</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/spiner.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/spores.css">
 </head>
-<body>
+<body class="min-h-screen bg-slate-300">
+    <canvas id="spores"></canvas>
+    <header>
+        <div class="contenedor">
+            <h2 class="logotipo" onclick="location.href='index.html'">JoJo-flix</h2>
+            <nav>
+                <a href="index.html" class="activo">Inicio</a>
+                <a href="Content/BECK/BECK_List_Ep.html">Temporadas</a>
+                <a href="form.html">Formulario de satisfacción</a>
+                <a href="signin.html">SIGN IN</a>
+                <a href="login.html">LOG IN</a>
+            </nav>
+        </div>
+    </header>
+    <section class="waves">
+        <div class="air air1"></div>
+        <div class="air air2"></div>
+        <div class="air air3"></div>
+        <div class="air air4"></div>
+    </section>
 
-<header>
-    <div class="contenedor">
-        <h2 class="logotipo" onclick="location.href='index.html'">JoJo-flix</h2>
-        <nav>
-            <a href="index.html" class="activo">Inicio</a>
-            <a href="#">Programas</a>
-            <a href="#">Películas</a>
-            <a href="#">Más Recientes</a>
-            <a href="login.html">LOG IN</a>
-            <a href="#seccio1">Dades personals</a>
-            <a href="#seccio2">Peu de pàgina</a>
-        </nav>
+    <div class="max-w-3xl mx-auto p-10 relative z-10 login-container">
+        <h1 class="text-4xl pt-16">Formulario de Satisfacción</h1>
+        <div class="bg-white rounded-lg shadow-xl p-10 mt-5">
+            <form id="formulario" class="space-y-3" action="save_feedback.php" method="POST">
+                <div class="flex flex-col space-y-2">
+                    <label for="nomCognoms" class="font-regular font-medium">Nom i Cognoms:</label>
+                    <input id="nomCognoms" type="text" name="nomCognoms" placeholder="Nom i Cognoms" class="border border-gray-300 px-3 py-2 rounded-lg" required />
+                </div>
+
+                <div class="flex flex-col space-y-2">
+                    <label for="observacions" class="font-regular font-medium">Observacions (màxim 50 caràcters):</label>
+                    <textarea id="observacions" name="observacions" rows="4" class="border border-gray-300 px-3 py-2 rounded-lg" maxlength="50"></textarea>
+                </div>
+
+                <div class="flex flex-col space-y-2">
+                    <label class="font-regular font-medium">Satisfacció:</label>
+                    <div class="rating flex space-x-1">
+                        <input type="radio" id="estrella5" name="satisfaccio" value="5" required /><label for="estrella5" title="5 estrelles">★</label>
+                        <input type="radio" id="estrella4" name="satisfaccio" value="4" required /><label for="estrella4" title="4 estrelles">★</label>
+                        <input type="radio" id="estrella3" name="satisfaccio" value="3" required /><label for="estrella3" title="3 estrelles">★</label>
+                        <input type="radio" id="estrella2" name="satisfaccio" value="2" required /><label for="estrella2" title="2 estrelles">★</label>
+                        <input type="radio" id="estrella1" name="satisfaccio" value="1" required /><label for="estrella1" title="1 estrella">★</label>
+                    </div>
+                </div>
+
+                <div id="botones" class="flex gap-5">
+                    <button 
+                        type="submit"
+                        class="flex-1 bg-pink-600 text-white flex justify-center gap-2 items-center p-3"
+                    >
+                        Enviar
+                    </button>
+
+                    <button 
+                        class="flex-1 bg-gray-800 text-white flex justify-center gap-2 items-center p-3"
+                        type="reset"
+                    >
+                        Reset
+                    </button>
+                </div>           
+            </form>
+        </div>
     </div>
 
-</header>
-<div id="seccio1" class="formulari">
-    <h1>Formulario de satisfacción </h1>
-    <h2>Dades Personals</h2>
-    <form action="http://virtual187.ies-sabadell.cat/virtual187/uf5/HelloWorld.php" method="POST">
-        <label for="nomCognoms">Nom i Cognoms:</label>
-        <input type="text" id="nomCognoms" name="nomCognoms" required>
-        <br>
-        <label for="dataNaixement">Data de Naixement:</label>
-        <input type="date" id="dataNaixement" name="dataNaixement" required>
-        <br><br>
-        <label>Nivell Acadèmic Actual:</label><br>
-        <input type="radio" id="eso" name="nivellAcademic" value="ESO" required>
-        <label for="eso">ESO</label><br>
-        <input type="radio" id="batx" name="nivellAcademic" value="BATX/Graus" required>
-        <label for="batx">BATX/Graus</label><br>
-        <input type="radio" id="universitari" name="nivellAcademic" value="Estudis Universitaris" required>
-        <label for="universitari">Estudis Universitaris</label><br>
-        <input type="radio" id="altres" name="nivellAcademic" value="Altres" required>
-        <label for="altres">Altres</label><br><br>
-        <label for="temesInteres">Temes d'Interès/Preferències:</label><br>
-        <select id="temesInteres" name="temesInteres" multiple>
-            <option value="Informatica">Informàtica</option>
-            <option value="Ciencia">Ciència</option>
-            <option value="Art">Art</option>
-            <option value="Cine">Cine</option>
-            <option value="Esports">Esports</option>
-            <option value="Musica">Musica</option>
-        </select><br><br>
-
-        <label for="observacions">Observacions (màxim 50 caràcters):</label><br>
-        <textarea id="observacions" name="observacions" rows="8" maxlength="50"></textarea><br><br>
-
-        <input type="submit" value="Enviar">
-        <input type="reset" value="Esborrar">
-    </form>
-</div><div id="seccio2">
-
-<footer>
-    <p>Creat per: Òscar Arnabat i Jordi Cañadas</p>
-    <p><a href="https://agora.xtec.cat/ies-sabadell/" target="_blank">Institut Sabadell</a></p>
-</footer>
-</div>
-<script src="js/main.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>
