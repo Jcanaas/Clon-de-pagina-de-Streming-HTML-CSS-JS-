@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,22 +38,22 @@
         <div class="bg-white rounded-lg shadow-xl p-10 mt-5">
             <form id="formulario" class="space-y-3" action="save_feedback.php" method="POST">
                 <div class="flex flex-col space-y-2">
-                    <label for="nomCognoms" class="font-regular font-medium">Nom i Cognoms:</label>
-                    <input id="nomCognoms" type="text" name="nomCognoms" placeholder="Nom i Cognoms" class="border border-gray-300 px-3 py-2 rounded-lg" required />
+                    <label for="nomCognoms" class="font-regular font-medium">Nombre y Apellidos:</label>
+                    <input id="nomCognoms" type="text" name="nomCognoms" placeholder="Nombre y Apellidos" class="border border-gray-300 px-3 py-2 rounded-lg" required />
                 </div>
 
                 <div class="flex flex-col space-y-2">
-                    <label for="observacions" class="font-regular font-medium">Observacions (màxim 50 caràcters):</label>
+                    <label for="observacions" class="font-regular font-medium">Observaciones (máximo 50 caracteres):</label>
                     <textarea id="observacions" name="observacions" rows="4" class="border border-gray-300 px-3 py-2 rounded-lg" maxlength="50"></textarea>
                 </div>
 
                 <div class="flex flex-col space-y-2">
-                    <label class="font-regular font-medium">Satisfacció:</label>
+                    <label class="font-regular font-medium">Satisfacción:</label>
                     <div class="rating flex space-x-1">
-                        <input type="radio" id="estrella5" name="satisfaccio" value="5" required /><label for="estrella5" title="5 estrelles">★</label>
-                        <input type="radio" id="estrella4" name="satisfaccio" value="4" required /><label for="estrella4" title="4 estrelles">★</label>
-                        <input type="radio" id="estrella3" name="satisfaccio" value="3" required /><label for="estrella3" title="3 estrelles">★</label>
-                        <input type="radio" id="estrella2" name="satisfaccio" value="2" required /><label for="estrella2" title="2 estrelles">★</label>
+                        <input type="radio" id="estrella5" name="satisfaccio" value="5" required /><label for="estrella5" title="5 estrellas">★</label>
+                        <input type="radio" id="estrella4" name="satisfaccio" value="4" required /><label for="estrella4" title="4 estrellas">★</label>
+                        <input type="radio" id="estrella3" name="satisfaccio" value="3" required /><label for="estrella3" title="3 estrellas">★</label>
+                        <input type="radio" id="estrella2" name="satisfaccio" value="2" required /><label for="estrella2" title="2 estrellas">★</label>
                         <input type="radio" id="estrella1" name="satisfaccio" value="1" required /><label for="estrella1" title="1 estrella">★</label>
                     </div>
                 </div>
@@ -74,9 +74,17 @@
                     </button>
                 </div>           
             </form>
+            <div class="mt-5 text-center">
+                <p>O si lo prefieres, deja tus comentarios en <a href="https://github.com/Jcanaas/JoJo-Flix/issues" class="text-blue">GitHub</a>.</p>
+            </div>
         </div>
-    </div>
+        <br />
+        <br />
+        <br />
+        <br />
 
+    </div>
+    
     <script src="js/login.js"></script>
 </body>
 </html>
