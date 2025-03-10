@@ -1,10 +1,11 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    echo "Método permitido.";
     $nombre = htmlspecialchars($_POST['nomCognoms']);
     $observaciones = htmlspecialchars($_POST['observacions']);
     $satisfaccion = htmlspecialchars($_POST['rate']);
 
-    $file = fopen("feedback.txt", "a");
+    $file = fopen("feedback$nombre.txt", "a");
     fwrite($file, "Nombre: $nombre\nObservaciones: $observaciones\nSatisfacción: $satisfaccion\n\n");
     fclose($file);
 

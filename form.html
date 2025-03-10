@@ -36,14 +36,14 @@
     <div class="max-w-3xl mx-auto p-10 relative z-10 login-container">
         <h1 class="text-4xl pt-16">Formulario de Satisfacción</h1>
         <div class="bg-white rounded-lg shadow-xl p-10 mt-5">
-            <form id="formulario" class="space-y-3" action="save_feedback.php" method="POST">
+            <form id="formulario" class="space-y-3" onsubmit="enviarFormulario(event)">
                 <div class="flex flex-col space-y-2">
                     <label for="nomCognoms" class="font-regular font-medium">Nombre y Apellidos:</label>
                     <input id="nomCognoms" type="text" name="nomCognoms" placeholder="Nombre y Apellidos" class="border border-gray-300 px-3 py-2 rounded-lg" required />
                 </div>
 
                 <div class="flex flex-col space-y-2">
-                    <label for="observacions" class="font-regular font-medium">Observaciones (máximo 50 caracteres):</label>
+                    <label for="observacions" class="font-regular font-medium">Comentarios (máximo 50 caracteres):</label>
                     <textarea id="observacions" name="observacions" rows="4" class="border border-gray-300 px-3 py-2 rounded-lg" maxlength="50"></textarea>
                 </div>
 
@@ -60,36 +60,50 @@
                         <label title="text" for="star2"></label>
                         <input value="1" name="rate" id="star1" type="radio">
                         <label title="text" for="star1"></label>
-                      </div>
+                    </div>
                 </div>
 
                 <div id="botones" class="flex gap-5">
-                    <button 
-                        type="submit"
-                        class="flex-1 bg-pink-600 text-white flex justify-center gap-2 items-center p-3"
-                    >
+                    <button type="submit" class="flex-1 bg-pink-600 text-white flex justify-center gap-2 items-center p-3">
                         Enviar
                     </button>
-
-                    <button 
-                        class="flex-1 bg-gray-800 text-white flex justify-center gap-2 items-center p-3"
-                        type="reset"
-                    >
+                    <button class="flex-1 bg-gray-800 text-white flex justify-center gap-2 items-center p-3" type="reset">
                         Reset
                     </button>
                 </div>           
             </form>
-            <div class="mt-5 text-center">
-                <p>O si lo prefieres, deja tus comentarios en <a href="https://github.com/Jcanaas/JoJo-Flix/issues" class="text-blue">GitHub</a>.</p>
-            </div>
+            <div id="mensaje" class="mt-5 text-center"></div>
         </div>
-        <br />
-        <br />
-        <br />
-        <br />
-
     </div>
-    
-    <script src="js/login.js"></script>
+
+    <script>
+        const scriptURL = "https://script.google.com/macros/s/AKfycbxOCKjNlxWxAJB73sNqozTDsXJ8JH5uW_oChizI_f8Kwnka-VXCfa1bjfE-ueWXi3mGEg/exec";
+
+        function enviarFormulario(event) {
+            event.preventDefault();
+
+            const nombre = document.getElementById('nomCognoms').value;
+            const comentario = document.getElementById('observacions').value;
+            const satisfaccion = document.querySelector('input[name="rate"]:checked').value;
+
+            const datos = {
+                nombre: nombre,
+                comentario: comentario,
+                satisfaccion: satisfaccion
+            };
+
+            fetch(scriptURL, {
+                method: "POST",
+                body: JSON.stringify(datos),
+                headers: { "Content-Type": "application/json" }
+            })
+            .then(response => response.text())
+            .then(mensaje => {
+                document.getElementById('mensaje').innerText = mensaje;
+                document.getElementById('formulario').reset();
+            })
+            .catch(error => console.error("Error al enviar el comentario", error));
+        }
+    </script>
 </body>
 </html>
