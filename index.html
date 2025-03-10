@@ -1,82 +1,85 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/estilos.css">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-
-	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-	<title>JoJo-Flix</title>
-	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>JoJo-Flix</title>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 </head>
 <body>
-	<header>
-		<div class="contenedor">
-			<h2 class="logotipo" onclick="location.href='index.html'">JoJo-flix</h2>
-			<nav>
-				<a href="index.html" class="activo">Inicio</a>
-				<a href="Content/Jojo_s/JoJoTemporadas.html">Temporades</a>
-				<a href="form.html">Formulario de satisfacción </a>
-				<a href="signin.html">SIGN IN</a>
-				<a href="login.html">LOG IN</a>
-			</nav>
-		</div>
-	</header>
+    <header>
+        <div class="contenedor">
+            <h2 class="logotipo" onclick="location.href='index.html'">JoJo-flix</h2>
+            <nav>
+                <a href="form.html">Formulario de satisfacción</a>
+                <a href="signin.html">SIGN IN</a>
+                <a href="login.html">LOG IN</a>
+                <div class="group">
+                    <input type="text" id="searchInput" class="input" placeholder="Buscar..." onkeyup="searchMovie()">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M10 2a8 8 0 105.293 14.707l5.387 5.387a1 1 0 001.414-1.414l-5.387-5.387A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/>
+                    </svg>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-	<main>
-		<div class="pelicula-principal">
-			<div class="contenedor">
-				<h3 class="titulo">JoJo's Bizarre Adventure</h3>
-				<p class="descripcion">
-					En Inglaterra de los 1880, Dio Brando trama un plan para tomar la fortuna de su familia adoptiva, los Joestar, pero su hermano, Jonathan Joestar, lo trata de detener. Usando una misteriosa máscara de piedra, Dio se convierte en un vampiro mientras que Jonathan aprende hamon para combatirlo.
-				</p>
-				<button role="button" class="boton" onclick="location.href='Content/Jojo_s/JoJoTemporadas.html'">
-					<img src="img/play.png" alt="Play Icon" class="play-icon"> Ver
-				</button>
-			</div>
-		</div>
-		<div class="pelicula-principalBECK">
-			<div class="contenedor">
-				
-				<img src="img/Beck.png" alt="BECK: Mongolian Chop Squad Logo">
-				
-				<div class="texto">
-					<p class="descripcion">
-						<br>
-						Yukio Tanaka, conocido por todos como Koyuki, es un chico de catorce años insatisfecho con el rumbo que de momento parece llevar su monótona vida. Sin embargo, todo dará un vuelco cuando el joven salva a un perro de extraña apariencia de unos macarras y conoce a su dueño, Minami Ryûsuke.
-					</p>
-					<button role="button" class="boton" onclick="location.href='Content/BECK/BECK_List_Ep.html'">
-						<img src="img/play.png" alt="Play Icon" class="play-icon"> Ver
-					</button>
-				</div>
-			</div>
-		</div>
-		<div class="pelicula-principalMonster">
-			<div class="contenedor">
-				<h3 class="titulo">MONSTER</h3>
-				<p class="descripcion">
-					El doctor Kenzo Tenma es un prometedor neurocirujano japonés que ejerce en el Eisler Memorial Hospital de Dusseldorf. Lo tiene todo en la vida; un trabajo que le apasiona y en el que demuestra una habilidad increíble, y una novia rica y guapa. Sin embargo, un día decide ignorar una orden de su superior y salva a un niño desconocido en lugar de la vida del alcalde de la ciudad.				</p>
-				<button role="button" class="boton" onclick="location.href='Content/Monster/MonsterlistEp.html'">
-					<img src="img/play.png" alt="Play Icon" class="play-icon"> Ver
-				</button>
-			</div>
-		</div>
-		<div class="pelicula-principalBerserk">
-			<div class="contenedor">
-				<h3 class="titulo">BERSERK</h3>
-				<p class="descripcion">
-					Un joven y bravo guerrero llamado Guts lucha como un mercenario en primera línea. Por azares del destino, Guts se acaba uniendo al carismático y mortal joven llamado Griffith. Liderando al grupo de mercenarios conocidos como la Banda del Halcón, Griffith empuña su formidable fuerza como ningún otro lo ha hecho. Conducidos por cuestiones de estatus, los miembros de la Banda del Halcón pronto irán escalando en el camino de la gloria tras su alianza con el reino de Midland, hasta que un desafortunado suceso provocará un revés en la Banda que pondrá al mundo de rodillas.
-				</p>
-				<div>
-					<button role="button" class="boton" onclick="location.href='Berserk arcos.html'">
-						<img src="img/play.png" alt="Play Icon" class="play-icon"> Ver
-					</button>
-				</div>
-			</div>
-		</div>
-	</main>
+    <main>
+        <div class="pelicula-principal">
+            <div class="contenedor">
+                <h3 class="titulo">JoJo's Bizarre Adventure</h3>
+                <p class="descripcion">
+                    En Inglaterra de los 1880, Dio Brando trama un plan para tomar la fortuna de su familia adoptiva, los Joestar, pero su hermano, Jonathan Joestar, lo trata de detener. Usando una misteriosa máscara de piedra, Dio se convierte en un vampiro mientras que Jonathan aprende hamon para combatirlo.
+                </p>
+                <button role="button" class="boton" onclick="location.href='Content/Jojo_s/JoJoTemporadas.html'">
+                    <img src="img/play.png" alt="Play Icon" class="play-icon"> Ver
+                </button>
+            </div>
+        </div>
+        <div class="pelicula-principalBECK">
+            <div class="contenedor">
+                <img src="img/Beck.png" alt="BECK: Mongolian Chop Squad Logo">
+                <div class="texto">
+                    <p class="descripcion">
+                        <br>
+                        Yukio Tanaka, conocido por todos como Koyuki, es un chico de catorce años insatisfecho con el rumbo que de momento parece llevar su monótona vida. Sin embargo, todo dará un vuelco cuando el joven salva a un perro de extraña apariencia de unos macarras y conoce a su dueño, Minami Ryûsuke.
+                    </p>
+                    <button role="button" class="boton" onclick="location.href='Content/BECK/BECK_List_Ep.html'">
+                        <img src="img/play.png" alt="Play Icon" class="play-icon"> Ver
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="pelicula-principalMonster">
+            <div class="contenedor">
+                <h3 class="titulo">MONSTER</h3>
+                <p class="descripcion">
+                    El doctor Kenzo Tenma es un prometedor neurocirujano japonés que ejerce en el Eisler Memorial Hospital de Dusseldorf. Lo tiene todo en la vida; un trabajo que le apasiona y en el que demuestra una habilidad increíble, y una novia rica y guapa. Sin embargo, un día decide ignorar una orden de su superior y salva a un niño desconocido en lugar de la vida del alcalde de la ciudad.
+                </p>
+                <button role="button" class="boton" onclick="location.href='Content/Monster/MonsterlistEp.html'">
+                    <img src="img/play.png" alt="Play Icon" class="play-icon"> Ver
+                </button>
+            </div>
+        </div>
+        <div class="pelicula-principalBerserk">
+            <div class="contenedor">
+                <h3 class="titulo">BERSERK</h3>
+                <p class="descripcion">
+                    Un joven y bravo guerrero llamado Guts lucha como un mercenario en primera línea. Por azares del destino, Guts se acaba uniendo al carismático y mortal joven llamado Griffith. Liderando al grupo de mercenarios conocidos como la Banda del Halcón, Griffith empuña su formidable fuerza como ningún otro lo ha hecho. Conducidos por cuestiones de estatus, los miembros de la Banda del Halcón pronto irán escalando en el camino de la gloria tras su alianza con el reino de Midland, hasta que un desafortunado suceso provocará un revés en la Banda que pondrá al mundo de rodillas.
+                </p>
+                <div>
+                    <button role="button" class="boton" onclick="location.href='Berserk arcos.html'">
+                        <img src="img/play.png" alt="Play Icon" class="play-icon"> Ver
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
 
-	<script src="js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
