@@ -794,3 +794,46 @@ section .air.air4 {
   color: #1E3A8A; /* Tailwind's blue-800 color */
   text-decoration: underline;
 }
+
+/* From Uiverse.io by andrew-demchenk0 */ 
+.rating {
+  display: flex;
+  flex-direction: row; /* Cambia a row para alinear de izquierda a derecha */
+  justify-content: flex-start;
+}
+
+.rating:not(:checked) > input {
+  position: absolute;
+  appearance: none;
+}
+
+.rating:not(:checked) > label {
+  float: none; /* Elimina el float */
+  cursor: pointer;
+  font-size: 30px;
+  color: #666;
+}
+
+.rating:not(:checked) > label:before {
+  content: '★';
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+  color: #e58e09;
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: #ff9e0b;
+}
+
+.rating > input:checked ~ label {
+  color: #ffa723;
+}
+
+
+

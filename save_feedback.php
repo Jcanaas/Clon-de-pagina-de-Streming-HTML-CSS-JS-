@@ -1,14 +1,15 @@
-<!-- filepath: c:\jojoflix\save_feedback.php -->
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nomCognoms = htmlspecialchars($_POST['nomCognoms']);
-    $observacions = htmlspecialchars($_POST['observacions']);
-    $satisfaccio = htmlspecialchars($_POST['satisfaccio']);
+    $nombre = htmlspecialchars($_POST['nomCognoms']);
+    $observaciones = htmlspecialchars($_POST['observacions']);
+    $satisfaccion = htmlspecialchars($_POST['rate']);
 
-    $data = "Nom i Cognoms: $nomCognoms\nObservacions: $observacions\nSatisfacció: $satisfaccio\n\n";
+    $file = fopen("feedback.txt", "a");
+    fwrite($file, "Nombre: $nombre\nObservaciones: $observaciones\nSatisfacción: $satisfaccion\n\n");
+    fclose($file);
 
-    file_put_contents('feedback.txt', $data, FILE_APPEND | LOCK_EX);
-    echo "Gracias por tu feedback!";
+    header("Location: thank_you.html");
+    exit();
 } else {
     echo "Método no permitido.";
 }
