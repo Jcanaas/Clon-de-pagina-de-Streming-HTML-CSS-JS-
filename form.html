@@ -36,7 +36,7 @@
     <div class="max-w-3xl mx-auto p-10 relative z-10 login-container">
         <h1 class="text-4xl pt-16">Formulario de Satisfacción</h1>
         <div class="bg-white rounded-lg shadow-xl p-10 mt-5">
-            <form id="formulario" class="space-y-3" onsubmit="enviarFormulario(event)">
+            <form id="formulario" class="space-y-3">
                 <div class="flex flex-col space-y-2">
                     <label for="nomCognoms" class="font-regular font-medium">Nombre y Apellidos:</label>
                     <input id="nomCognoms" type="text" name="nomCognoms" placeholder="Nombre y Apellidos" class="border border-gray-300 px-3 py-2 rounded-lg" required />
@@ -73,39 +73,31 @@
                 </div>           
             </form>
             <div id="mensaje" class="mt-5 text-center"></div>
+            <div class="mt-5 text-center">
+                O si lo prefieres puedes dejar tu comentario en mi <a href="https://github.com/Jcanaas/JoJo-Flix/issues" target="_blank" class="text-blue">GitHub</a>.
+            </div>
         </div>
     </div>
 
     <script>
-        const scriptURL = "https://script.google.com/macros/s/AKfycbxOCKjNlxWxAJB73sNqozTDsXJ8JH5uW_oChizI_f8Kwnka-VXCfa1bjfE-ueWXi3mGEg/exec";
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxF_mdvSbBRi7FOhpR4YwdbGIeuhgOJniZ7zG_8b_qzM9Y-4HeSUlY-qSoo3aK9WKotyg/exec'
+        const form = document.getElementById('formulario');
 
-        function enviarFormulario(event) {
-            event.preventDefault();
-
-            const nombre = document.getElementById('nomCognoms').value;
-            const comentario = document.getElementById('observacions').value;
-            const satisfaccion = document.querySelector('input[name="rate"]:checked').value;
-
-            const datos = {
-                nombre: nombre,
-                comentario: comentario,
-                satisfaccion: satisfaccion
-            };
-
-            fetch(scriptURL, {
-                method: "POST",
-                body: JSON.stringify(datos),
-                headers: { "Content-Type": "application/json" }
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => response.json())
+            .then(data => {
+                if (data.result === 'success') {
+                    form.reset(); // Borra el contenido del formulario
+                    window.location.href = 'thank_you.html'; // Redirige a thank_you.html
+                } else {
+                    alert("Error: " + data.error);
+                }
             })
-            .then(response => response.text())
-            .then(mensaje => {
-                document.getElementById('mensaje').innerText = mensaje;
-                document.getElementById('formulario').reset();
-            })
-            .catch(error => console.error("Error al enviar el comentario", error));
-        }
+            .catch(error => console.error('Error!', error.message));
+        });
     </script>
 </body>
 </html>
-
-<!-- vaya puta mierda} -->

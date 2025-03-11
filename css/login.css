@@ -835,5 +835,86 @@ section .air.air4 {
   color: #ffa723;
 }
 
+.text-blue {
+  color: #1E3A8A; /* Tailwind's blue-800 color */
+  text-decoration: underline;
+}
 
+
+.loader {
+  font-family: "proxima-nova", sans-serif;
+  background-image: linear-gradient(90deg, #df2892 0%, #e0188d 10%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+  position: relative;
+}
+
+.loader::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #df2892;
+  box-shadow: 0 0 10px rgba(230, 169, 169, 0.316);
+  margin: 1rem auto;
+}
+.loader::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #df2892;
+  box-shadow: 0 0 10px rgba(230, 169, 169, 0.316);
+  margin: 1rem auto;
+}
+.Particle_heart {
+  position: absolute;
+  font-size: 1.5rem;
+  color: #df2892;
+  opacity: 0;
+  animation: floatHeart 5s linear infinite;
+}
+
+.Particle_heart:nth-child(1) {
+  left: 10%;
+  animation-delay: 0.5s;
+}
+
+.Particle_heart:nth-child(2) {
+  left: 30%;
+  animation-delay: 2.5s;
+}
+
+.Particle_heart:nth-child(3) {
+  left: 50%;
+  animation-delay: 1.5s;
+}
+
+.Particle_heart:nth-child(4) {
+  left: 70%;
+  animation-delay: 1s;
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(-100px) translateX(30px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-150px) translateX(60px);
+    opacity: 0;
+  }
+}
 
