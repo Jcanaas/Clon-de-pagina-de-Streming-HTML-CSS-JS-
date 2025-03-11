@@ -13,7 +13,7 @@ footer {
 
 @font-face {
   font-family: 'BECK_FONT';
-  src: url('../fonts/BECK_FONT.ttf') format('truetype'); /* Ajusta la ruta según donde esté tu archivo de fuente */
+  src: url('../fonts/BECK_FONT.ttf') format('truetype');
 }
 
 .beck-font {
@@ -107,6 +107,8 @@ header nav a.activo {
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	color: #df2892;
+	max-width: 110%; /* Asegura que el título no exceda el ancho de su contenedor */
+
 
 }
 
@@ -118,32 +120,7 @@ header nav a.activo {
 	margin-bottom: 1.25em;
 }
 
-.pelicula-principal .boton {
-	background: rgba(0,0,0, 0.5);
-	border: none;
-	border-radius: 0.31em;
-	padding: 0.93em 1.87em;
-	color: #fff;
-	margin-right: 1.25em;
-	cursor: pointer;
-	transition: .3s ease all;
-	font-size: 1.12em;
-}
 
-.pelicula-principal .boton:hover {
-	background: #fff;
-	color: #000;
-}
-
-.pelicula-principal .boton i {
-	margin-right: 1.25em;
-}
-
-.boton .play-icon {
-    width: 20px; /* Ajusta el tamaño según tus necesidades */
-    height: auto;
-    vertical-align: middle;
-}
 
 /* ---- ----- ----- Media Queries ----- ----- ----- */
 @media screen and (max-width: 800px) {
@@ -203,28 +180,6 @@ header nav a.activo {
 	margin-bottom: 1.25em;
 }
 
-.pelicula-principal1 .boton {
-	background: rgba(0,0,0, 0.5);
-	border: none;
-	border-radius: 0.31em;
-	padding: 0.93em 1.87em;
-	color: #fff;
-	margin-right: 1.25em;
-	cursor: pointer;
-	transition: .3s ease all;
-	font-size: 1.12em;
-}
-
-.pelicula-principal1 .boton:hover {
-	background: #fff;
-	color: #000;
-}
-
-.pelicula-principal1 .boton i {
-	margin-right: 1.25em;
-}
-
-
 /* ---- ----- ----- Temporada2 ----- ----- ----- */
 .pelicula-principal2 {
 	font-size: 16px;
@@ -260,30 +215,6 @@ header nav a.activo {
 	max-width: 50%;
 	margin-bottom: 1.25em;
 }
-
-.pelicula-principal2 .boton {
-	background: rgba(0,0,0, 0.5);
-	border: none;
-	border-radius: 0.31em;
-	padding: 0.93em 1.87em;
-	color: #fff;
-	margin-right: 1.25em;
-	cursor: pointer;
-	transition: .3s ease all;
-	font-size: 1.12em;
-}
-
-.pelicula-principal2 .boton:hover {
-	background: #fff;
-	color: #000;
-}
-
-.pelicula-principal2 .boton i {
-	margin-right: 1.25em;
-}
-
-
-
 
 /* ---- ----- ----- Temporada3 ----- ----- ----- */
 .pelicula-principal3 {
@@ -321,28 +252,6 @@ header nav a.activo {
 	margin-bottom: 1.25em;
 }
 
-.pelicula-principal3 .boton {
-	background: rgba(0,0,0, 0.5);
-	border: none;
-	border-radius: 0.31em;
-	padding: 0.93em 1.87em;
-	color: #fff;
-	margin-right: 1.25em;
-	cursor: pointer;
-	transition: .3s ease all;
-	font-size: 1.12em;
-}
-
-.pelicula-principal3 .boton:hover {
-	background: #fff;
-	color: #000;
-}
-
-.pelicula-principal3 .boton i {
-	margin-right: 1.25em;
-}
-
-
 /* ---- ----- ----- Temporada4 ----- ----- ----- */
 .pelicula-principal4 {
 	font-size: 16px;
@@ -377,27 +286,6 @@ header nav a.activo {
 	line-height: 1.75em;
 	max-width: 50%;
 	margin-bottom: 1.25em;
-}
-
-.pelicula-principal4 .boton {
-	background: rgba(0,0,0, 0.5);
-	border: none;
-	border-radius: 0.31em;
-	padding: 0.93em 1.87em;
-	color: #fff;
-	margin-right: 1.25em;
-	cursor: pointer;
-	transition: .3s ease all;
-	font-size: 1.12em;
-}
-
-.pelicula-principal4 .boton:hover {
-	background: #fff;
-	color: #000;
-}
-
-.pelicula-principal4 .boton i {
-	margin-right: 1.25em;
 }
 
 
@@ -438,28 +326,6 @@ header nav a.activo {
 	margin-bottom: 1.25em;
 }
 
-.pelicula-principal5 .boton {
-	background: rgba(0,0,0, 0.5);
-	border: none;
-	border-radius: 0.31em;
-	padding: 0.93em 1.87em;
-	color: #fff;
-	margin-right: 1.25em;
-	cursor: pointer;
-	transition: .3s ease all;
-	font-size: 1.12em;
-}
-
-.pelicula-principal5 .boton:hover {
-	background: #fff;
-	color: #000;
-}
-
-.pelicula-principal5 .boton i {
-	margin-right: 1.25em;
-}
-
-
 /* ---- ----- ----- Temporada6 ----- ----- ----- */
 .pelicula-principal6 {
 	font-size: 16px;
@@ -495,92 +361,6 @@ header nav a.activo {
 	max-width: 50%;
 	margin-bottom: 1.25em;
 }
-
-.pelicula-principal6 .boton {
-	background: rgba(0,0,0, 0.5);
-	border: none;
-	border-radius: 0.31em;
-	padding: 0.93em 1.87em;
-	color: #fff;
-	margin-right: 1.25em;
-	cursor: pointer;
-	transition: .3s ease all;
-	font-size: 1.12em;
-}
-
-.pelicula-principal6 .boton:hover {
-	background: #fff;
-	color: #000;
-}
-
-.pelicula-principal6 .boton i {
-	margin-right: 1.25em;
-}
-
-/* ---- ----- ----- Valoracions ----- ----- ----- */
-.valoraciones {
-	font-size: 16px;
-	min-height: 40.62em;
-	color: #fff;
-	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%) center;
-	background-size: cover;
-	margin-bottom: 3.12em;
-	display: flex;
-	align-items: end;
-}
-
-.valoraciones .contenedor {
-	margin: 0 auto 6.25em;
-}
-
-.valoraciones .titulo {
-	font-weight: 600;
-	font-family: Impact, serif;
-	font-size: 3.12em;
-	font-style: italic;
-	margin-bottom: 0.4em;
-	background: -webkit-linear-gradient(#df2892, #ffffff);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	color: #df2892;
-}
-
-.valoraciones .descripcion {
-	font-weight: normal;
-	font-size: 1em;
-	line-height: 1.75em;
-	max-width: 50%;
-	margin-bottom: 1.25em;
-}
-
-.valoraciones .boton {
-	background: rgba(0,0,0, 0.5);
-	border: none;
-	border-radius: 0.31em;
-	padding: 0.93em 1.87em;
-	color: #fff;
-	margin-right: 1.25em;
-	cursor: pointer;
-	transition: .3s ease all;
-	font-size: 1.12em;
-}
-
-.valoraciones .boton:hover {
-	background: #fff;
-	color: #000;
-}
-
-.valoraciones .boton i {
-	margin-right: 1.25em;
-}
-.valoraciones td, th {
-	border: 1px solid white;
-	width: 200px;
-}
-.valoraciones td{
-	text-align: center;
-}
-
 
 /* ---- ----- ----- Temporada1 ----- ----- ----- */
 .ep {
@@ -669,26 +449,7 @@ header nav a.activo {
 	margin-bottom: 1.25em;
 }
 
-.pelicula-principalMonster .boton {
-	background: rgba(0,0,0, 0.5);
-	border: none;
-	border-radius: 0.31em;
-	padding: 0.93em 1.87em;
-	color: #fff;
-	margin-right: 1.25em;
-	cursor: pointer;
-	transition: .3s ease all;
-	font-size: 1.12em;
-}
 
-.pelicula-principalMonster .boton:hover {
-	background: #fff;
-	color: #000;
-}
-
-.pelicula-principalMonster .boton i {
-	margin-right: 1.25em;
-}
 
 /* ---- ----- ----- Berserk ----- ----- ----- */
 .pelicula-principalBerserk {
@@ -725,29 +486,6 @@ header nav a.activo {
 	margin-bottom: 1.25em;
 }
 
-.pelicula-principalBerserk .boton {
-	background: rgb(42, 42, 42);
-	border: none;
-	border-radius: 0.31em;
-	padding: 0.93em 1.87em;
-	color: #fff;
-	margin-right: 1.25em;
-	cursor: pointer;
-	transition: .3s ease all;
-	font-size: 1.12em;
-}
-
-.pelicula-principalBerserk .boton:hover {
-	background: #fff;
-	color: #2a2a2a;
-}
-
-.pelicula-principalBerserk .boton i {
-	margin-right: 1.25em;
-}
-
-
-
 /* ---- ----- ----- Berserk La Edad Dorada ----- ----- ----- */
 .pelicula-principalBerserk1 {
 	font-size: 16px;
@@ -776,27 +514,6 @@ header nav a.activo {
 	line-height: 1.75em;
 	max-width: 50%;
 	margin-bottom: 1.25em;
-}
-
-.pelicula-principalBerserk1 .boton {
-	background: rgba(0,0,0, 0.5);
-	border: none;
-	border-radius: 0.31em;
-	padding: 0.93em 1.87em;
-	color: #fff;
-	margin-right: 1.25em;
-	cursor: pointer;
-	transition: .3s ease all;
-	font-size: 1.12em;
-}
-
-.pelicula-principalBerserk1 .boton:hover {
-	background: #fff;
-	color: #000;
-}
-
-.pelicula-principalBerserk1 .boton i {
-	margin-right: 1.25em;
 }
 
 
@@ -830,27 +547,6 @@ header nav a.activo {
 	margin-bottom: 1.25em;
 }
 
-.pelicula-principalBerserk2 .boton {
-	background: rgba(0,0,0, 0.5);
-	border: none;
-	border-radius: 0.31em;
-	padding: 0.93em 1.87em;
-	color: #fff;
-	margin-right: 1.25em;
-	cursor: pointer;
-	transition: .3s ease all;
-	font-size: 1.12em;
-}
-
-.pelicula-principalBerserk2 .boton:hover {
-	background: #fff;
-	color: #000;
-}
-
-.pelicula-principalBerserk2 .boton i {
-	margin-right: 1.25em;
-}
-
 
 /* ---- ----- ----- Berserk Castigo ----- ----- ----- */
 .pelicula-principalBerserk3 {
@@ -881,30 +577,6 @@ header nav a.activo {
 	max-width: 50%;
 	margin-bottom: 1.25em;
 }
-
-.pelicula-principalBerserk3 .boton {
-	background: rgba(0,0,0, 0.5);
-	border: none;
-	border-radius: 0.31em;
-	padding: 0.93em 1.87em;
-	color: #fff;
-	margin-right: 1.25em;
-	cursor: pointer;
-	transition: .3s ease all;
-	font-size: 1.12em;
-}
-
-.pelicula-principalBerserk3 .boton:hover {
-	background: #fff;
-	color: #000;
-}
-
-.pelicula-principalBerserk3 .boton i {
-	margin-right: 1.25em;
-}
-
-
-
 
 
 /* ---- ----- ----- Berserk ----- ----- ----- */
@@ -937,30 +609,6 @@ header nav a.activo {
 	margin-bottom: 1.25em;
 }
 
-.pelicula-principalBerserk4 .boton {
-	background: rgba(0,0,0, 0.5);
-	border: none;
-	border-radius: 0.31em;
-	padding: 0.93em 1.87em;
-	color: #fff;
-	margin-right: 1.25em;
-	cursor: pointer;
-	transition: .3s ease all;
-	font-size: 1.12em;
-}
-
-.pelicula-principalBerserk4 .boton:hover {
-	background: #fff;
-	color: #000;
-}
-
-.pelicula-principalBerserk4 .boton i {
-	margin-right: 1.25em;
-}
-
-
-
-
 /* ---- ----- ----- Berserk Fantasia ----- ----- ----- */
 .pelicula-principalBerserk5 {
 	font-size: 16px;
@@ -991,26 +639,6 @@ header nav a.activo {
 	margin-bottom: 1.25em;
 }
 
-.pelicula-principalBerserk5 .boton {
-	background: rgba(0,0,0, 0.5);
-	border: none;
-	border-radius: 0.31em;
-	padding: 0.93em 1.87em;
-	color: #fff;
-	margin-right: 1.25em;
-	cursor: pointer;
-	transition: .3s ease all;
-	font-size: 1.12em;
-}
-
-.pelicula-principalBerserk5 .boton:hover {
-	background: #fff;
-	color: #000;
-}
-
-.pelicula-principalBerserk5 .boton i {
-	margin-right: 1.25em;
-}
 
 /* ---- ----- ----- Video ----- ----- ----- */
 
@@ -1047,36 +675,20 @@ video {
     align-items: center;
     margin-bottom: 10px;
     padding: 10px;
-    background-color: #1a1a1a; /* Un negro un poco menos oscuro */
+    background-color: #1a1a1a; 
     border-radius: 5px;
 }
 
 .ep ol li a {
     text-decoration: none;
-    color: #ff0000; /* Rojo para el nombre de los episodios */
+    color: #ff0000;
     font-weight: 600;
-    letter-spacing: 0.5px; /* Añadir espaciado entre letras */
-    font-family: "EB Garamond", serif; /* Aplicar la misma tipografía que el título Monster */
-    text-shadow: 0 0 10px #ff0000; /* Añadir brillo rojo */
-    font-size: 0.9em; /* Hacer la letra un poco más pequeña */
+    letter-spacing: 0.5px;
+    font-family: "EB Garamond", serif; 
+    text-shadow: 0 0 10px #ff0000;
+    font-size: 0.9em; 
 }
 
-.ep ol li .boton {
-    background-color: #ff0000;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: "EB Garamond", serif; /* Aplicar la misma tipografía que el título Monster */
-    letter-spacing: 0.5px; /* Añadir espaciado entre letras */
-    text-shadow: 0 0 10px #ff0000; /* Añadir brillo rojo */
-    font-size: 0.9em; /* Hacer la letra un poco más pequeña */
-}
-
-.ep ol li .boton:hover {
-    background-color: #cc0000;
-}
 
 .pelicula-principal .contenedor {
     display: flex;
@@ -1128,26 +740,6 @@ video {
 	margin-bottom: 1.25em;
 }
 
-.pelicula-principalMonster .boton {
-	background: rgba(0,0,0, 0.5);
-	border: none;
-	border-radius: 0.31em;
-	padding: 0.93em 1.87em;
-	color: #fff;
-	margin-right: 1.25em;
-	cursor: pointer;
-	transition: .3s ease all;
-	font-size: 1.12em;
-}
-
-.pelicula-principalMonster .boton:hover {
-	background: #fff;
-	color: #000;
-}
-
-.pelicula-principalMonster .boton i {
-	margin-right: 1.25em;
-}
 
 /* BECK */
 .pelicula-principalBECK {
@@ -1198,27 +790,6 @@ video {
     text-align: justify; /* Justify the text */
 }
 
-.pelicula-principalBECK .boton {
-	background: rgba(0,0,0, 0.5);
-	border: none;
-	border-radius: 0.31em;
-	padding: 0.93em 1.87em;
-	color: #fff;
-	margin-right: 1.25em;
-	cursor: pointer;
-	transition: .3s ease all;
-	font-size: 1.12em;
-    width: 10%/* Set the width to 10% */
-}
-
-.pelicula-principalBECK .boton:hover {
-    background: #fff;
-    color: #000;
-}
-
-.pelicula-principalBECK .boton i {
-    margin-right: 0.3em; /* Adjust the margin */
-}
 
 @font-face {
 	font-family: 'BECK_FONT';
@@ -1294,36 +865,6 @@ video {
     margin-bottom: 1em;
 }
 
-.boton-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 1em;
-}
-
-.boton {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 20px;
-    background-color: #ff0000; /* Ajusta el color según tus necesidades */
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.boton .play-icon {
-    width: 20px; /* Ajusta el tamaño según tus necesidades */
-    height: auto;
-    margin-right: 10px; /* Espacio entre la imagen y el texto */
-    vertical-align: middle;
-}
-
-.boton:hover {
-    background-color: #cc0000; /* Ajusta el color según tus necesidades */
-}
 
 .titulo-episodio {
     font-weight: 600;
@@ -1388,4 +929,34 @@ nav {
   height: 1rem;
   pointer-events: none;
   z-index: 1;
+}
+
+.boton {
+    background: rgba(0,0,0, 0.5);
+    border: none;
+    border-radius: 0.31em;
+    padding: 0.93em 1.87em;
+    color: #fff;
+    margin-right: 1.25em;
+    cursor: pointer;
+    transition: .3s ease all;
+    font-size: 1.12em;
+}
+
+.boton:hover {
+    background: #fff;
+    color: #000;
+}
+
+.boton .play-icon {
+    width: 20px; /* Ajusta el tamaño según tus necesidades */
+    height: auto; /* Mantiene la proporción del ícono */
+    margin-right: 0.5em;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+.boton:hover .play-icon {
+    filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(50%) contrast(100%);
+	transition: .3s ease all;
 }

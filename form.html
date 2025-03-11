@@ -43,8 +43,8 @@
                 </div>
 
                 <div class="flex flex-col space-y-2">
-                    <label for="observacions" class="font-regular font-medium">Comentarios (máximo 50 caracteres):</label>
-                    <textarea id="observacions" name="observacions" rows="4" class="border border-gray-300 px-3 py-2 rounded-lg" maxlength="50"></textarea>
+                    <label for="observacions" class="font-regular font-medium">Comentarios (máximo 200 caracteres):</label>
+                    <textarea id="observacions" name="observacions" rows="4" class="border border-gray-300 px-3 py-2 rounded-lg" maxlength="200"></textarea>
                 </div>
 
                 <div class="flex flex-col space-y-2">
@@ -62,6 +62,9 @@
                         <label title="text" for="star1"></label>
                     </div>
                 </div>
+
+                <!-- Campo oculto para la fecha y hora -->
+                <input type="hidden" id="fechaHora" name="fechaHora">
 
                 <div id="botones" class="flex gap-5">
                     <button type="submit" class="flex-1 bg-pink-600 text-white flex justify-center gap-2 items-center p-3">
@@ -85,12 +88,18 @@
 
         form.addEventListener('submit', e => {
             e.preventDefault();
+
+            // Establecer la fecha y hora actual en el campo oculto
+            const fechaHora = new Date().toLocaleString();
+            document.getElementById('fechaHora').value = fechaHora;
             
             fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => response.json())
+            .then(response => {
+                form.reset(); // Borra el contenido del formulario
+                return response.json();
+            })
             .then(data => {
                 if (data.result === 'success') {
-                    form.reset(); // Borra el contenido del formulario
                     window.location.href = 'thank_you.html'; // Redirige a thank_you.html
                 } else {
                     alert("Error: " + data.error);
