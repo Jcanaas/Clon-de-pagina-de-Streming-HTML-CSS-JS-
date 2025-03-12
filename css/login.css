@@ -60,9 +60,14 @@ html {
 body {
   margin: 0;
   /* 1 */
-  line-height: inherit;
+  /* line-height: inherit; */
   /* 2 */
   background-color: black;
+
+  height: 100vh; /* Asegura que ocupe toda la pantalla */
+
+  overflow-y: auto; /* Permite el scroll vertical */
+
 }
 
 /*
