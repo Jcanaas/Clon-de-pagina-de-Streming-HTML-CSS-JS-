@@ -841,6 +841,7 @@ section .air.air4 {
   color: #ffa723;
 }
 
+
 .text-blue {
   color: #1E3A8A; /* Tailwind's blue-800 color */
   text-decoration: underline;
@@ -924,3 +925,10 @@ section .air.air4 {
   }
 }
 
+.hidden {
+  display: none;
+}
+
+.border-red-500 {
+  border-color: red;
+}
