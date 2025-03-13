@@ -824,23 +824,9 @@ video {
     transform: scale(1.02); /* Aumentar ligeramente el tamaño al pasar el ratón */
 }
 
-.lista-episodios li button {
-    background-color: #ffffff; /* Botón en blanco */
-    color: #000; /* Texto en negro */
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: "EB Garamond", serif; /* Aplicar la misma tipografía que el título Monster */
-    letter-spacing: 0.5px; /* Añadir espaciado entre letras */
-    text-shadow: 0 0 10px #ffffff; /* Añadir brillo blanco */
-    font-size: 0.9em; /* Hacer la letra un poco más pequeña */
-    transition: background-color 0.3s; /* Añadir transición para el hover */
-}
 
-.lista-episodios li button:hover {
-    background-color: #cccccc; /* Color de fondo al pasar el ratón */
-}
+
+
 
 .lista-episodios li span {
     color: #ffffff; /* Blanco para el nombre de los episodios */

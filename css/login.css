@@ -388,6 +388,12 @@ button,
   cursor: pointer;
 }
 
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
 /*
 Make sure disabled buttons don't get the pointer cursor.
 */
