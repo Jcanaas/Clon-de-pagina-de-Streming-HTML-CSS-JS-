@@ -12,7 +12,7 @@
 
 </head>
 <body class="min-h-screen bg-slate-300 overflow-y-auto">
-    <canvas id="spores"></canvas>
+
     <header>
         <div class="contenedor">
             <h2 class="logotipo" onclick="location.href='index.html'">JoJo-flix</h2>
@@ -64,7 +64,7 @@
                     </div>
                 </div>
 
-                <!-- Campo oculto para la fecha y hora -->
+
                 <input type="hidden" id="fechaHora" name="fechaHora">
 
                 <div id="botones" class="flex gap-5">
@@ -91,18 +91,17 @@
         form.addEventListener('submit', e => {
             e.preventDefault();
 
-            // Establecer la fecha y hora actual en el campo oculto
             const fechaHora = new Date().toLocaleString();
             document.getElementById('fechaHora').value = fechaHora;
             
             fetch(scriptURL, { method: 'POST', body: new FormData(form)})
             .then(response => {
-                form.reset(); // Borra el contenido del formulario
+                form.reset();
                 return response.json();
             })
             .then(data => {
                 if (data.result === 'success') {
-                    window.location.href = 'thank_you.html'; // Redirige a thank_you.html
+                    window.location.href = 'thank_you.html';
                 } else {
                     alert("Error: " + data.error);
                 }
