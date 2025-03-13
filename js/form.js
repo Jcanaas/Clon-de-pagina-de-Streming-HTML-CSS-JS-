@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+function validarForm(){
     const form = document.getElementById('formulario');
     const nombreInput = document.getElementById('nomCognoms');
     const comentariosInput = document.getElementById('observacions');
@@ -114,4 +114,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
         }
     });
-});
+
+} // final de la función validarForm()
+
+// añadí un evento tipo click al botón de envio del formulario para que se ejecute la funcion validarForm() al hacer click
+document.getElementById('btnEnviar').addEventListener('click', validarForm) 
