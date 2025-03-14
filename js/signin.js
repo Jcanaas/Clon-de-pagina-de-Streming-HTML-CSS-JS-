@@ -1,11 +1,10 @@
-document.addEventListener('DOMContentLoaded', function() {
-
+document.addEventListener('DOMContentLoaded', function () {
     const userData = {
         username: '',
         email: '',
         password: '',
         confirmPassword: ''
-    }
+    };
 
     const inputUsername = document.querySelector('#username');
     const inputEmail = document.querySelector('#email');
@@ -23,10 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     formulario.addEventListener('submit', enviarFormulario);
 
-    btnReset.addEventListener('click', function(e) {
+    btnReset.addEventListener('click', function (e) {
         e.preventDefault();
         resetFormulario();
-    })
+    });
 
     function enviarFormulario(e) {
         e.preventDefault();
@@ -34,79 +33,126 @@ document.addEventListener('DOMContentLoaded', function() {
         spinner.classList.add('flex');
         spinner.classList.remove('hidden');
 
-        setTimeout(() => {
-            spinner.classList.remove('flex');
-            spinner.classList.add('hidden');
+        // Datos a enviar al Google Apps Script
+        const data = {
+            accion: 'registrar',
+            correo: userData.email,
+            usuario: userData.username,
+            contrasena: userData.password
+        };
 
-            resetFormulario();
+        console.log('Datos enviados:', data);
 
-            const alertaExito = document.createElement('P');
-            alertaExito.classList.add('bg-green-500', 'text-white', 'p-2', 'text-center', 'rounded-lg', 'mt-10', 'font-bold', 'text-sm', 'uppercase');
-            alertaExito.textContent = 'Registro exitoso';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxuvhhyEa_vbIygLC2h1D1eLe8u1lyEfFuPx7EQ4pDk1OxOOfuB5MgeYSu-s7HX0SVdMw/exec';
 
-            formulario.appendChild(alertaExito);
+        // Enviar datos al Google Apps Script
+        fetch(scriptURL, {
+            method: 'POST',
+            redirect: 'follow', // Importante para manejar redirecciones
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'text/plain;charset=utf-8' // Cambiar a text/plain
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                spinner.classList.remove('flex');
+                spinner.classList.add('hidden');
 
-            setTimeout(() => {
-                alertaExito.remove();
-            }, 3000);
-        }, 3000);
+                if (data.status === "success") {
+                    mostrarAlertaExito(data.data);
+                    resetFormulario();
+                } else {
+                    mostrarAlertaError(`Error: ${data.message}`);
+                }
+            })
+            .catch(error => {
+                spinner.classList.remove('flex');
+                spinner.classList.add('hidden');
+                console.error('Error al enviar el formulario:', error);
+                mostrarAlertaError('Hubo un error al enviar el formulario. Por favor, inténtalo nuevamente.');
+            });
     }
 
     function validar(e) {
-        if(e.target.value.trim() === '') {
-            mostrarAlerta(`El Campo ${e.target.id} es obligatorio`, e.target.parentElement);
-            userData[e.target.name] = '';
+        const { id, value, name } = e.target;
+
+        if (value.trim() === '') {
+            mostrarAlerta(`El Campo ${id} es obligatorio`, e.target.parentElement);
+            userData[name] = '';
             comprobarFormulario();
             return;
         }
 
-        if(e.target.id === 'email' && !validarEmail(e.target.value)) {
+        if (id === 'email' && !validarEmail(value)) {
             mostrarAlerta('El email no es válido', e.target.parentElement);
-            userData[e.target.name] = '';
+            userData[name] = '';
             comprobarFormulario();
             return;
         }
 
-        if(e.target.id === 'password' && !validarPassword(e.target.value)) {
+        if (id === 'password' && !validarPassword(value)) {
             mostrarAlerta('La contraseña debe tener al menos 7 caracteres, una mayúscula y un número', e.target.parentElement);
-            userData[e.target.name] = '';
+            userData[name] = '';
             comprobarFormulario();
             return;
         }
 
-        if(e.target.id === 'confirm-password' && e.target.value !== document.querySelector('#password').value) {
+        if (id === 'confirm-password' && value !== document.querySelector('#password').value) {
             mostrarAlerta('Las contraseñas no coinciden', e.target.parentElement);
-            userData[e.target.name] = '';
+            userData[name] = '';
             comprobarFormulario();
             return;
         }
 
         limpiarAlerta(e.target.parentElement);
-
-        userData[e.target.name] = e.target.value.trim();
-
+        userData[name] = value.trim();
         comprobarFormulario();
     }
 
     function mostrarAlerta(mensaje, referencia) {
         limpiarAlerta(referencia);
-        
+
         const error = document.createElement('P');
         error.textContent = mensaje;
         error.classList.add('bg-red-600', 'text-white', 'p-2', 'text-center');
-       
+
         referencia.appendChild(error);
     }
 
     function limpiarAlerta(referencia) {
         const alerta = referencia.querySelector('.bg-red-600');
-        if(alerta) {
+        if (alerta) {
             alerta.remove();
         }
     }
 
+    function mostrarAlertaExito(mensaje) {
+        const alertaExito = document.createElement('P');
+        alertaExito.classList.add('bg-green-500', 'text-white', 'p-2', 'text-center', 'rounded-lg', 'mt-10', 'font-bold', 'text-sm', 'uppercase');
+        alertaExito.textContent = mensaje;
+
+        formulario.appendChild(alertaExito);
+
+        setTimeout(() => {
+            alertaExito.remove();
+        }, 3000);
+    }
+
+    function mostrarAlertaError(mensaje) {
+        const alertaError = document.createElement('P');
+        alertaError.classList.add('bg-red-600', 'text-white', 'p-2', 'text-center', 'rounded-lg', 'mt-10', 'font-bold', 'text-sm', 'uppercase');
+        alertaError.textContent = mensaje;
+
+        formulario.appendChild(alertaError);
+
+        setTimeout(() => {
+            alertaError.remove();
+        }, 3000);
+    }
+
     function validarEmail(email) {
-        const regex =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+        const regex = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
         return regex.test(email);
     }
 
@@ -116,11 +162,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function comprobarFormulario() {
-        if(Object.values(userData).includes('') || userData.password !== userData.confirmPassword) {
+        const camposVacios = Object.values(userData).some(valor => valor.trim() === '');
+        const contrasenasNoCoinciden = userData.password !== userData.confirmPassword;
+
+        if (camposVacios || contrasenasNoCoinciden) {
             btnSubmit.classList.add('opacity-50');
             btnSubmit.disabled = true;
             return;
-        } 
+        }
+
         btnSubmit.classList.remove('opacity-50');
         btnSubmit.disabled = false;
     }
@@ -134,4 +184,5 @@ document.addEventListener('DOMContentLoaded', function() {
         formulario.reset();
         comprobarFormulario();
     }
+    console.log('Datos enviados:', data); // Verifica los datos en la consola
 });
