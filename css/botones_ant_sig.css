@@ -1,0 +1,55 @@
+/* 5 */
+.btn-5 {
+    position: relative;
+    display: inline-block;
+    width: 130px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    border: none;
+    background: red;
+    background: linear-gradient(0deg, red 0%, red);
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: hidden;
+    transition: color 0.4s ease;
+}
+
+.btn-5:hover {
+    color: red;
+    background: transparent;
+    box-shadow: none;
+}
+
+.btn-5:before,
+.btn-5:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: red;
+    box-shadow:
+        -1px -1px 5px 0px #fff,
+        7px 7px 20px 0px #0003,
+        4px 4px 5px 0px #0002;
+    transition: 400ms ease all;
+}
+
+.btn-5:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+}
+
+.btn-5:hover:before,
+.btn-5:hover:after {
+    width: 100%;
+    transition: 800ms ease all;
+}
