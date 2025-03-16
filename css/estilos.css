@@ -946,3 +946,11 @@ nav {
     filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(50%) contrast(100%);
 	transition: .3s ease all;
 }
+
+
+.boton-container {
+    display: flex;
+    justify-content: center; /* Alinea horizontalmente al centro */
+    align-items: center; /* Alinea verticalmente al centro */
+    margin-top: 20px; /* Espaciado superior opcional */
+}
