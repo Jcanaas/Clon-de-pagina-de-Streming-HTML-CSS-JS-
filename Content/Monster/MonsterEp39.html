@@ -37,7 +37,7 @@
 
   <div style="text-align:center;">
     <h3 id="episode-title" class="titulo-episodio"></h3>
-    <iframe src="https://mega.nz/embed/OfgE3Azb#AEsgFwDBLFOQAz-trXRumQC_zwsAjuBmkB1vFa1lbIg" width="1200" height="720" frameborder="0" allowfullscreen></iframe>
+    <iframe id="episode-iframe" width="1700" height="900" frameborder="0" allowfullscreen></iframe>
   </div>
 
   <div class="botones" style="text-align:center; margin-top: 20px;">
@@ -49,6 +49,83 @@
 <script src="../../js/episodeTitlesMonster.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    const episodeLinks = [
+      "https://mega.nz/embed/OfgE3Azb#AEsgFwDBLFOQAz-trXRumQC_zwsAjuBmkB1vFa1lbIg",
+      "https://mega.nz/embed/uCgU2IZQ#ABZkNgAN7RXj0QRNhrR5eQCdStgAMWll4_qJZIaCfh0",
+      "https://mega.nz/embed/2LBxzALB#AGf1KgCAxIvAlzYFu4zrdABMv3YAuT-BwNBh07tr2kU",
+      "https://mega.nz/embed/eLYUDDDK#AKUz6gCTzvW0eKh4JOGlQQCVwxoAnVDItMJ1UiTh8Po",
+      "https://mega.nz/embed/2X5BGbbL#ANEN9ACJGbZF9W9008nGbQDJh9QASoD1RWht1NNoMkA",
+      "https://mega.nz/embed/CCxBhbzY#AHDHBACRLQ6MTkq7al6TYwCceYoAk8PojCrpvmrwYkY",
+      "https://mega.nz/embed/qHQRESoS#AOe1zwCGablOT-sHxiZ9owC_twUALraJThRwQ8YeLqM",
+      "https://mega.nz/embed/OaAzDSLD#ALXXfQDfKyBx8tZfzWO9mwB7FV4AgTEpcXOCHc2lgsg",
+      "https://mega.nz/embed/PLgDSCSZ#ANvSvAB2C717nec7HRFAeQBmbYkA7_dMe9Ih9B2f8MM",
+      "https://mega.nz/embed/vWByiCyK#AM01_AAeKMkMV9vNkJ_CeQCeTtwAas8tDMwta5BQXJ8",
+      "https://mega.nz/embed/DTAE3L7b#AK6g9QDOfOL3OSKYcbkXBgAiZ60ARTUu9xWV83Gmf5A",
+      "https://mega.nz/embed/uDgywZYB#ANscxQAMEloWecnZEUKlUwBBTWAA7413FqpZbhGzfoc",
+      "https://mega.nz/embed/GD4CATbK#AGINiQATBX9-KQeF71tOTADxrsYAWEblfrUgPO-6uHM",
+      "https://mega.nz/embed/qbxUDJIR#AByuywBOjW3kFbOKmpDwEgDZ4kIA3INR5MmKFJr0CEA",
+      "https://mega.nz/embed/CD5HlDYS#ADnl5gDfsz6_foxnIO8ODAA9W8QAOeaZv3LnQyAALzE",
+      "https://mega.nz/embed/7GwjDTgb#ADG_rABHzHJJD9_ZjO7TjABR7VUA6f6HSUT2y4wWYuY",
+      "https://mega.nz/embed/LfBSjagB#AG2EIADUiHTTn539LltC5ACk5z8A02ul0yPkGi4txkY",
+      "https://mega.nz/embed/jHQTASSZ#AF4b6QDk2gjmEypzKwHuCwDzpi4A6bDy5hmLoytm4dI",
+      "https://mega.nz/embed/2Hw13ShB#AIaqswCqP-eG7WbW4X_U5QDuTtEAmdTuhoWmbeFWFa4",
+      "https://mega.nz/embed/mfg3DaiD#APCLMgB1eslPn-mHK7FuTAByInkAT7dhT72RJistQ5c",
+      "https://mega.nz/embed/mK5FHIKC#APi3FwABnUF6QciZgMaT8QB82CwA6vTfetE2tYCzJuc",
+      "https://mega.nz/embed/eLwxVLJT#AB1IpACcJLsxb3HSV63MTAC-fRsAXLKvMSuPzleZ9IY",
+      "https://mega.nz/embed/vG5EVAaK#AG39pABrXu3BlrkWfm4bjABmBVkAR5u_wd0J336xOT4",
+      "https://mega.nz/embed/SL5jgaaZ#AGNfLQCOwhfk0e5Nn3vS3gBXwP8ASKjj5JHRJJ_q2Xg",
+      "https://mega.nz/embed/KLpWBRZa#AOSD9wA5NSddJrhXEBIVKgBXsGkAPVxnXUiyURB1RG4",
+      "https://mega.nz/embed/mGhSybgb#APAPNwBX75gpXFUuThp7_wD1g4QAQWvvKagNsU72MeM",
+      "https://mega.nz/embed/qPhEgK4Y#AOW4xwBFmVNrPwKnEBd3-ACz49MAxvQka-oz7xDkGww",
+      "https://mega.nz/embed/yHoGFSBA#AJ1ElgAJLMXt6QLTBxVOvwDJ2FQA4lFE7fyDKAe_Dng",
+      "https://mega.nz/embed/aLw1XLbA#AKLWkgDzD790EVzePOeuQwB_F4IAgjCEdNJCBDwF3qs",
+      "https://mega.nz/embed/bL5R1QjB#AFtM-QCmPJ29ysPkEaJa9wBqZ1UA_SrxvWMiPxGe1b8",
+      "https://mega.nz/embed/XZ4EkChB#L90iEbAQUrvpANGMGCzvL-2Vv9OtfPlVK_1gcVK6UMM",
+      "https://mega.nz/embed/mGgl0KAC#AJ4ungDlc8g6XkLT_MbCMgBUOHwARnD-OhHKvPxMd48",
+      "https://mega.nz/embed/6X4hja6L#AABMqACuo2CmoS48nqElaQCOFJEAfEMXpjfcn57ckbE",
+      "https://mega.nz/embed/nGggEAaa#AD30DwAnTpv-2G_i-otMMABNJ-oAWixY_gDCofrejjg",
+      "https://mega.nz/embed/CHpTgaTB#AB08qABVdYWQiJjETQuZAgA6mo4A7glYkH5wVU0A34w",
+      "https://mega.nz/embed/Xa4hDIqD#AI1JFgCBPOXtDhdE6H_0FwDsSFUA9QRV7Uo7JegGF9Q",
+      "https://mega.nz/embed/6WQx0AJZ#AOGuNgCI-fSRcpEvmbMNOQAzOB8AgIGHkR3_jJlYbu0",
+      "https://mega.nz/embed/qXx2jZYI#ADjmNwCgL935RIhpWMorVABzBXEA8En--eb5O1jSzng",
+      "https://mega.nz/embed/Xb4REKgQ#APTCuwCuZF14JpmPWXSjuQACBsQAQ7rJeISWoVnczKw",
+      "https://mega.nz/embed/WCxV0BLS#AHIyOgD_nNCoYyR3w8lKfwAl0rgASBWjqF0bc8MLxGs",
+      "https://mega.nz/embed/yK413TiL#AAL7LQDmME2i7QDkt4stwgBOQbQAgYOrosGXpbeUAWM",
+      "https://mega.nz/embed/mDImBSYJ#AMvKlAAn4RRB6lVdJUgH3QAKgy0AjlwgQf3HJCWs2yQ",
+      "https://mega.nz/embed/jeIWRIza#AHMHNQChxdzRSL-Yr9HUegBEI38Awqlf0c2t06-Y9PU",
+      "https://mega.nz/embed/7eYVjazS#AJkQcQAHzFeYT6KFqwB2EwCjsyIAcVykmDF3hasWdF4",
+      "https://mega.nz/embed/fWBXjTCK#AFPfwwAtW0vfZcNPyBZx3gDbM6YAAETO3wv0q8iMYYQ",
+      "https://mega.nz/embed/EdkW3bSA#tM1W37gO0ZstoBq6wzzsll52rGDIsGV_pYUXufWZIPc",
+      "https://mega.nz/embed/2GYRAbjb#AFfk5QDTBPN9sqVj1lDmSQBHDPIAHiktfbf6AtbRXSs",
+      "https://mega.nz/embed/XCZg1a7S#AOkCSAD1rOH0-_frBC4OKQCjLLEA-n-X9MQrlgQP73Y",
+      "https://mega.nz/embed/qShlRKDT#AIG5TgCUIeX0tf1tYlHXUwAYqUMAXM3k9I3LWWJImVU",
+      "https://mega.nz/embed/yP53QLib#ADesuwCKrhwy6Z6sVSxfEAAs5kEAwbIlMjQa9VV_0GE",
+      "https://mega.nz/embed/2ToS1S5C#AMCLxAD7DOWWLxu5lP15dgA824MAvrr2ls86dJTZMfs",
+      "https://mega.nz/embed/raIkTZ7D#ALeDagDhTEnmUGa4k_KelABwIjcAOKJs5qtHFZNGN5g",
+      "https://mega.nz/embed/XX4UVZQL#AOi2-gBPjR3J4Wv3G8RTDgCcCfYAbUxCybUxUxv6dRI",
+      "https://mega.nz/embed/TaIRQajQ#AM3KdwC4EignjRsLSuJ3awCWCzoAWR0NJyq02UqOXY8",
+      "https://mega.nz/embed/ze5CVSJS#AB_PqQD2B2CEalmSHh899wAVpq8A7YgUhGsurR5DXnY",
+      "https://mega.nz/embed/aCBBTDDb#AO2V3wAKTXhCgaqqCiRPwwBc-74AcnlfQiIh-goYhWQ",
+      "https://mega.nz/embed/XDgGkZLK#AFJBGQCsrRBbvV9XJy6oPgBW8WYAwE9YW8onIyfq5j4",
+      "https://mega.nz/embed/HXRQAJzB#AH6ltgAu6RWUklNIqLoYGgDGhIcA-3D1lLbwGajqAzk",
+      "https://mega.nz/embed/ObYVyIbJ#AKBr-QBlrQTL5bul_IRssgDy3yAAFTHly11alfyVpNw",
+      "https://mega.nz/embed/6Lp2TBaL#AGFGdQAxzEQBt8YFS8xpBACGj20Axf7vAaAUK0stv6E",
+      "https://mega.nz/embed/WfwEmabK#ALjzugBEsZoxEg9z6H4VvQCOAt0A2gfgMZGlKuinxwQ",
+      "https://mega.nz/embed/afIiUDAT#AHxaiAD6j7Y8P1Ta0hMojQCi28cA51RZPBe9r9IzhFU",
+      "https://mega.nz/embed/DDIljSZa#AIpXsQBwHNIKJE9lJuuJgwCZQLEA5vg-CtTrSibqk2M",
+      "https://mega.nz/embed/TLAGVZ4C#AJBlHgA7feL4huVbrXCVBQAnvaMAB9l3-LHc9q1FzxY",
+      "https://mega.nz/embed/XLIiyKSD#AI2xeQASpd77mVSZ8pUcTACLcWUAmyHG-9DStfJKhtE",
+      "https://mega.nz/embed/uaQXBJSL#AM5HGwAoHNn_LxXOWP_ZkgBxRtMAdTRw_zEOr1ig-Zk",
+      "https://mega.nz/embed/PCAQyByZ#ABmb0gBp6jors3CRT_VczADhvfAAZMN4K-MX-U9ZX2o",
+      "https://mega.nz/embed/GLxSlIqS#ABY_QgCeqG6fesah_yFbVwDONAsAqY0Xn4SVy__DqOI",
+      "https://mega.nz/embed/SCZ0EAhL#AMUAbwDF6DAvLfF590CeLAAh8uIAAI7lL9b5lPdIJhA",
+      "https://mega.nz/embed/baIABRLa#AOQURgCFh0Zi8dnDe35tJgBncHAAoZNHYlJFK3vMWP0",
+      "https://mega.nz/embed/2WxlXBAa#ADwdTAAjnVcdydhtgHNPUQA0gJYAKpN5HaSfOICqjjQ",
+      "https://mega.nz/embed/aPxyXa5D#AKmm6gDMwW-IO79oKFmM5gAfkVUAPGzOiCdoGSgE7JQ",
+      "https://mega.nz/embed/vfwlTCbQ#APKe3ABz2Eil0i_hpdscGwBUcwkAuoQXpZNTAqWMo3s",
+      "https://mega.nz/embed/DKAyjY5J#ANUolgDxMMtNdxfd7uxsnQD_xmIA6te-Tanbsu5HpQc"
+    ];
+
     const currentFileName = window.location.pathname.split('/').pop();
     const episodeNumber = parseInt(currentFileName.match(/\d+/)[0]);
     const prevEpisodeNumber = episodeNumber - 1;
@@ -56,6 +133,8 @@
 
     const prevEpisodeLink = document.getElementById('prev-episode');
     const nextEpisodeLink = document.getElementById('next-episode');
+    const episodeIframe = document.getElementById('episode-iframe');
+    const episodeTitleElement = document.getElementById('episode-title');
 
     if (prevEpisodeNumber > 0) {
       prevEpisodeLink.href = `MonsterEp${prevEpisodeNumber}.html`;
@@ -64,6 +143,14 @@
     }
 
     nextEpisodeLink.href = `MonsterEp${nextEpisodeNumber}.html`;
+
+    if (episodeNumber > 0 && episodeNumber <= episodeLinks.length) {
+      episodeIframe.src = episodeLinks[episodeNumber - 1];
+      episodeTitleElement.textContent = `Episodio ${episodeNumber}`;
+    } else {
+      episodeIframe.style.display = 'none';
+      episodeTitleElement.textContent = "Episodio no encontrado";
+    }
   });
 </script>
 </body>
