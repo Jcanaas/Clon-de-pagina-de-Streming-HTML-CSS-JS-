@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
             method: 'POST',
             body: JSON.stringify(data), // Enviar datos como JSON
             headers: {
-                'Content-Type': 'application/json;charset=utf-8' // Encabezado correcto para JSON
+                'Content-Type': 'text/plain;charset=utf-8' // Encabezado simple para evitar preflight
             }
         })
             .then(response => {
