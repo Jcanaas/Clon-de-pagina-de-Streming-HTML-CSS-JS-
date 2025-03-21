@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         console.log('Datos enviados:', data);
 
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzYsIwZaZOM4WjtaalXyr0yOL0g7hJADzeTSi9v79kRuHGGe69bjt-s6KHOf2N6lfuqPQ/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzsORwapCu088hn1FW4aFLSxJas6lJp0VPK6nwJbWMhsS2T_AoGdiAt9jKXqUGaa6jfaQ/exec';
 
         // Enviar datos al Google Apps Script
         fetch(scriptURL, {
