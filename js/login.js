@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         spinner.classList.add('flex');
         spinner.classList.remove('hidden');
 
-        // Datos a enviar al Google Apps Script
+        // Datos a enviar al Google Apps Script en formato JSON
         const data = {
             accion: 'login',
             usuario: loginData.usuario,
@@ -39,41 +39,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
         console.log('Datos enviados:', data);
 
-        const scriptURL = 'https://script.google.com/macros/s/AKfycby79hfSqLBKm0AZiGTF3TUi7pSh5bqhg1kA7Nngds-jHVaQNhWkmbgOg4LekfR1hW9ZZQ/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzsORwapCu088hn1FW4aFLSxJas6lJp0VPK6nwJbWMhsS2T_AoGdiAt9jKXqUGaa6jfaQ/exec';
 
         // Enviar datos al Google Apps Script
         fetch(scriptURL, {
             method: 'POST',
-            redirect: 'follow',
-            body: JSON.stringify(data),
+            body: JSON.stringify(data), // Enviar datos como JSON
             headers: {
-                'Content-Type': 'text/plain;charset=utf-8'
+                'Content-Type': 'text/plain;charset=utf-8' // Encabezado simple para evitar preflight
             }
         })
             .then(response => {
-                console.log('Estado de la respuesta:', response.status); // Verifica el estado HTTP
-                return response.json();
+                if (!response.ok) {
+                    throw new Error('Error en la solicitud: ' + response.status);
+                }
+                return response.json(); // Procesar la respuesta como JSON
             })
             .then(data => {
-                console.log('Respuesta del servidor:', data); // Muestra la respuesta del servidor
-                spinner.classList.remove('flex');
-                spinner.classList.add('hidden');
-
+                console.log('Respuesta del servidor:', data);
                 if (data.success) {
-                    mostrarAlertaExito('Inicio de sesión exitoso.');
-                    resetFormulario();
-
-                    // Redirigir al usuario después de un inicio de sesión exitoso
-                    setTimeout(() => {
-                        window.location.href = 'dashboard.html'; // Cambia 'dashboard.html' por la página deseada
-                    }, 2000);
+                    mostrarAlertaExito(data.message);
                 } else {
-                    mostrarAlertaError(`Error: ${data.message}`);
+                    mostrarAlertaError(data.message);
                 }
             })
             .catch(error => {
-                spinner.classList.remove('flex');
-                spinner.classList.add('hidden');
                 console.error('Error al enviar el formulario:', error);
                 mostrarAlertaError('Hubo un error al iniciar sesión. Por favor, inténtalo nuevamente.');
             });

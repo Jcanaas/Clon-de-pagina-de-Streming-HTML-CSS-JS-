@@ -1029,3 +1029,45 @@ nav {
 	max-width: 50%;
 	margin-bottom: 1.25em;
 }
+
+
+
+
+
+
+/* ---- ----- ----- DMC ----- ----- ----- */
+.pelicula-principalDMC {
+	font-size: 16px;
+
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/DMC_Banner.png) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalDMC .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalDMC .titulo {
+	font-weight: 600;
+	font-size: 8.12em;
+	color: red;
+	margin-bottom: 0.4em;
+	text-shadow: 0 0 12px #FF0000;
+	text-align: left;
+
+}
+
+.pelicula-principalDMC .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+
