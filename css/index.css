@@ -52,3 +52,21 @@
     pointer-events: none;
     z-index: 1;
   }
+
+  .user-button {
+    display: inline-block;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.user-icon {
+    width: 30px; /* Ajusta el tamaño según sea necesario */
+    height: 30px;
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    transition: transform 0.2s ease-in-out;
+    border: 1px solid #434343; /* Añade un borde blanco */
+}
+
+.user-icon:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+}
