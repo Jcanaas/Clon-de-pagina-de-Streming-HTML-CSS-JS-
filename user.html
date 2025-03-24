@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/user.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>Perfil de Usuario - JoJo-Flix</title>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="contenedor">
+            <h2 class="logotipo" onclick="location.href='index.html'">JoJo-flix</h2>
+            <nav>
+                <a href="form.html">Formulario de satisfacción</a>
+                <a href="signin.html">SIGN IN</a>
+                <a href="login.html">LOG IN</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="user-profile">
+            <div class="profile-header">
+                <h1>Bienvenido, <span id="username">Usuario</span></h1>
+                <img src="img/user_default.png" alt="Imagen de perfil" class="profile-image">
+            </div>
+            <div class="profile-content">
+                <h2>Tu lista de series y películas marcadas:</h2>
+                <ul id="user-list" class="user-list">
+                    <!-- Las series y películas se agregarán dinámicamente aquí -->
+                </ul>
+            </div>
+            <h1>Lamentablemente estoy pobre y no me puedo permirir un servidor, asi que no puedo crear sessiones para cada usuario :c</h1>
+        </section>
+    </main>
+
+    <script src="js/user.js"></script>
+</body>
+</html>
