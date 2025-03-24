@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const scriptURL = "https://script.google.com/macros/s/AKfycbzsORwapCu088hn1FW4aFLSxJas6lJp0VPK6nwJbWMhsS2T_AoGdiAt9jKXqUGaa6jfaQ/exec"; // Reemplaza con tu URL de despliegue
+        const scriptURL = "https://script.google.com/macros/s/AKfycbzsORwapCu088hn1FW4aFLSxJas6lJp0VPK6nwJbWMhsS2T_AoGdiAt9jKXqUGaa6jfaQ/exec"; // URL de tu script de Google Apps
 
         // Enviar la solicitud POST
         fetch(scriptURL, {
@@ -25,12 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 accion: 'signin',
                 usuario: usuario,
                 contrasena: contrasena,
-                correo: correo
-            })
+                correo: correo,
+            }),
+            mode: 'no-cors' // Aquí usamos no-cors
         })
-        .then(response => response.json())
-        .then(data => {
-            handleSignInResponse(data); // Maneja la respuesta del servidor
+        .then(() => {
+            // No podrás procesar la respuesta aquí
+            console.log("Solicitud enviada correctamente");
         })
         .catch(error => {
             console.error('Error al registrarse:', error);
@@ -38,24 +39,3 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-
-function handleSignInResponse(data) {
-    console.log("Respuesta del servidor:", data);
-
-    const mensaje = document.getElementById("mensaje");
-    if (data.success) {
-        // Si el registro es exitoso
-        mensaje.textContent = "¡Registro exitoso!";
-        mensaje.classList.remove("text-red-600");
-        mensaje.classList.add("text-green-600");
-
-        // Redirigir al usuario a otra página (opcional)
-        setTimeout(() => {
-            window.location.href = "/login.html"; // Cambia la URL según tu proyecto
-        }, 2000);
-    } else {
-        // Si hubo un error en el registro
-        mensaje.textContent = `Error: ${data.message}`;
-        mensaje.classList.add("text-red-600");
-    }
-}
