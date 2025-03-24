@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 accion: 'signin',
                 usuario: usuario,
                 contrasena: contrasena,
-                correo: correo,
+                correo: correo
             })
         })
         .then(response => response.json())
