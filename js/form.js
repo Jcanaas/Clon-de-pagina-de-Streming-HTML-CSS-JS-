@@ -2,6 +2,7 @@ function loadData(data) {
     console.log("Respuesta JSONP: ", data);
 
     const mensaje = document.getElementById("mensaje");
+
     if (data.mensaje) {
         // Si se recibe la respuesta con éxito
         mensaje.textContent = "¡Formulario enviado con éxito!";
@@ -12,6 +13,11 @@ function loadData(data) {
         mensaje.textContent = "Hubo un error.";
         mensaje.classList.add("text-red-600");
     }
+
+    // Redirigir a la página de agradecimiento después de 2 segundos
+    setTimeout(() => {
+        window.location.href = "thank_you.html";
+    }, 2000);
 }
 
 // Enviar formulario
