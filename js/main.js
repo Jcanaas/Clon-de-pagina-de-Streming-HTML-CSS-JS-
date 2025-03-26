@@ -42,3 +42,35 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+window.onload = function() {
+    // Genera un número aleatorio entre 0 y 1
+    const randomChance = Math.random();
+
+    // Si el número es menor o igual a 0.1 (10% de probabilidad), muestra el pop-up
+    if (randomChance <= 0.1) {
+        const popup = document.getElementById("popup");
+        popup.style.display = "flex"; // Muestra el modal
+    }
+};
+
+function closePopup() {
+    const popup = document.getElementById("popup");
+    popup.style.display = "none"; // Oculta el modal
+}
+document.addEventListener('DOMContentLoaded', function () {
+    const closeButton = document.getElementById('closeButton');
+    const openButton = document.getElementById('openButton');
+    const buttonContainer = document.querySelector('.button-container');
+
+    // Maneja el intercambio de posiciones al pasar el ratón sobre el botón "Cerrar"
+    closeButton.addEventListener('mouseenter', () => {
+        closeButton.style.order = '2';
+        openButton.style.order = '1';
+    });
+
+    // Restaura las posiciones originales cuando el ratón sale del contenedor
+    buttonContainer.addEventListener('mouseleave', () => {
+        closeButton.style.order = '1';
+        openButton.style.order = '2';
+    });
+});

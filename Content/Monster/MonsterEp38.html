@@ -11,6 +11,8 @@
   <title>JoJo-Flix</title>
   <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 </head>
+<canvas id="cenizasCanvas"></canvas>
+
 <body>
 <header>
   <div class="contenedor">
@@ -152,6 +154,72 @@
       episodeTitleElement.textContent = "Episodio no encontrado";
     }
   });
+</script>
+<script>
+  const canvas = document.getElementById("cenizasCanvas");
+  const ctx = canvas.getContext("2d");
+
+  // Ajustar el tamaño del canvas al tamaño de la ventana
+  function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener("resize", resizeCanvas);
+
+  // Array para almacenar las partículas
+  const particles = [];
+
+  // Crear partículas de ceniza
+  function createParticle() {
+      particles.push({
+          x: Math.random() * canvas.width,
+          y: canvas.height,
+          size: Math.random() * 5 + 2, // Tamaño inicial
+          speedX: Math.random() * 2 - 1, // Velocidad horizontal
+          speedY: Math.random() * -2 - 1, // Velocidad vertical
+          opacity: Math.random() * 0.5 + 0.5 // Opacidad inicial
+      });
+  }
+
+  // Dibujar las partículas
+  function drawParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size);
+          gradient.addColorStop(0, `rgba(255, 165, 0, ${p.opacity})`); // Centro brillante (naranja)
+          gradient.addColorStop(0.5, `rgba(255, 140, 0, ${p.opacity * 0.7})`); // Transición
+          gradient.addColorStop(1, `rgba(255, 69, 0, 0)`); // Borde transparente
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = gradient; // Usar el gradiente como color de relleno
+          ctx.fill();
+
+          // Actualizar posición, opacidad y tamaño de la partícula
+          p.x += p.speedX;
+          p.y += p.speedY;
+          p.opacity -= 0.001; // Desvanecimiento más lento
+          p.size -= 0.02; // Reducir el tamaño gradualmente
+
+          // Eliminar partículas si son demasiado pequeñas o completamente transparentes
+          if (p.opacity <= 0 || p.size <= 0 || p.y <= 0) {
+              particles.splice(i, 1);
+              i--;
+          }
+      }
+  }
+
+  // Crear nuevas partículas constantemente
+  function update() {
+      if (Math.random() < 0.1) createParticle();
+      drawParticles();
+      requestAnimationFrame(update);
+  }
+
+  // Iniciar la animación cuando la página se carga
+  update();
 </script>
 </body>
 </html>

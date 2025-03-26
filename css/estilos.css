@@ -468,14 +468,13 @@ header nav a.activo {
 }
 
 .pelicula-principalBerserk .titulo {
-	font-weight: 600;
-	font-size: 8.12em;
-	color: #ffffff;
-	margin-bottom: 0.4em;
-	font-family: "Gill Sans MT", serif;
-	text-shadow: 4px 0 #ff0000, -4px 0 #ff0000, 0 4px #ff0000, 0 -4px #ff0000,
-	2px 2px #ff0000, -2px -2px #ff0000, 2px -2px #ff0000, -2px 2px #ff0000;
-	text-align: left;
+    font-family:"Times New Roman", serif;
+    font-weight: 600;
+    font-size: 6.12em;
+    margin-bottom: 0.4em;
+    color: #ff0000; /* Rojo brillante */
+    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000; /* Efecto de brillo */
+    animation: parpadeo 15s infinite alternate; /* Animación de parpadeo */
 }
 
 .pelicula-principalBerserk .descripcion {
@@ -503,10 +502,28 @@ header nav a.activo {
 }
 
 .pelicula-principalBerserk1 .titulo {
-	font-weight: 600;
-	font-size: 3.12em;
-	margin-bottom: 0.4em;
+    font-family:"Times New Roman", serif;
+    font-weight: 600;
+    font-size: 6.12em;
+    margin-bottom: 0.4em;
+    color: #ff0000; /* Rojo brillante */
+    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000; /* Efecto de brillo */
+    animation: parpadeo 15s infinite alternate; /* Animación de parpadeo */
 }
+
+/* Animación de parpadeo */
+@keyframes parpadeo {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 
 .pelicula-principalBerserk1 .descripcion {
 	font-weight: normal;
@@ -534,9 +551,13 @@ header nav a.activo {
 }
 
 .pelicula-principalBerserk2 .titulo {
-	font-weight: 600;
-	font-size: 3.12em;
-	margin-bottom: 0.4em;
+    font-family:"Times New Roman", serif;
+    font-weight: 600;
+    font-size: 6.12em;
+    margin-bottom: 0.4em;
+    color: #ff0000; /* Rojo brillante */
+    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000; /* Efecto de brillo */
+    animation: parpadeo 15s infinite alternate; /* Animación de parpadeo */
 }
 
 .pelicula-principalBerserk2 .descripcion {
@@ -565,9 +586,13 @@ header nav a.activo {
 }
 
 .pelicula-principalBerserk3 .titulo {
-	font-weight: 600;
-	font-size: 3.12em;
-	margin-bottom: 0.4em;
+    font-family:"Times New Roman", serif;
+    font-weight: 600;
+    font-size: 6.12em;
+    margin-bottom: 0.4em;
+    color: #ff0000; /* Rojo brillante */
+    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000; /* Efecto de brillo */
+    animation: parpadeo 15s infinite alternate; /* Animación de parpadeo */
 }
 
 .pelicula-principalBerserk3 .descripcion {
@@ -596,9 +621,13 @@ header nav a.activo {
 }
 
 .pelicula-principalBerserk4 .titulo {
-	font-weight: 600;
-	font-size: 3.12em;
-	margin-bottom: 0.4em;
+    font-family:"Times New Roman", serif;
+    font-weight: 600;
+    font-size: 6.12em;
+    margin-bottom: 0.4em;
+    color: #ff0000; /* Rojo brillante */
+    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000; /* Efecto de brillo */
+    animation: parpadeo 15s infinite alternate; /* Animación de parpadeo */
 }
 
 .pelicula-principalBerserk4 .descripcion {
@@ -626,9 +655,13 @@ header nav a.activo {
 }
 
 .pelicula-principalBerserk5 .titulo {
-	font-weight: 600;
-	font-size: 3.12em;
-	margin-bottom: 0.4em;
+    font-family:"Times New Roman", serif;
+    font-weight: 600;
+    font-size: 6.12em;
+    margin-bottom: 0.4em;
+    color: #ff0000; /* Rojo brillante */
+    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000; /* Efecto de brillo */
+    animation: parpadeo 15s infinite alternate; /* Animación de parpadeo */
 }
 
 .pelicula-principalBerserk5 .descripcion {
@@ -1070,4 +1103,15 @@ nav {
 	margin-bottom: 1.25em;
 }
 
+
+/* Asegúrate de que el canvas esté en la capa superior */
+#cenizasCanvas {
+    position: fixed; /* Fija el canvas en la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho */
+    height: 100%; /* Ocupa todo el alto */
+    z-index: 9999; /* Asegura que esté por encima de todos los elementos */
+    pointer-events: none; /* Permite que los clics pasen a los elementos debajo */
+}
 

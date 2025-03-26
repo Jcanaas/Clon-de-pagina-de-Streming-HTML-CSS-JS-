@@ -5,24 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="css/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <title>JoJo-Flix</title>
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-
+    <style>
+        /* Estilo para el canvas */
+        #cenizasCanvas {
+            position: fixed; /* Fija el canvas en la pantalla */
+            top: 0;
+            left: 0;
+            width: 100%; /* Ocupa todo el ancho */
+            height: 100%; /* Ocupa todo el alto */
+            z-index: 9999; /* Asegura que esté por encima de todos los elementos */
+            pointer-events: none; /* Permite que los clics pasen a los elementos debajo */
+        }
+    </style>
 </head>
-<div id="popup" class="popup">
-    <div class="popup-content">
-        <p>Marta está a 5km de ti  (5 fotos 🔥🔥🔥)</p>
-        <div class="button-container">
-            <button id="closeButton" onclick="closePopup()">Cerrar</button>
-            <button id="openButton" onclick="alert('Abrir')">Abrir</button>
-        </div>
-    </div>
-</div>
 <body>
+    <!-- Canvas para las partículas -->
+    <canvas id="cenizasCanvas"></canvas>
+
     <header>
         <div class="contenedor">
             <h2 class="logotipo" onclick="location.href='index.html'">JoJo-flix</h2>
@@ -44,7 +48,7 @@
     </header>
 
     <main>
-        <div class="pelicula-principal">
+         <div class="pelicula-principal">
             <div class="contenedor">
                 <h3 class="titulo">JoJo's Bizarre Adventureㅤ</h3>
                 <p class="descripcion">
@@ -129,6 +133,71 @@
         </div>
     </main>
 
-    <script src="js/main.js"></script>
+    <script>
+        const canvas = document.getElementById("cenizasCanvas");
+        const ctx = canvas.getContext("2d");
+
+        // Ajustar el tamaño del canvas al tamaño de la ventana
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener("resize", resizeCanvas);
+
+        // Array para almacenar las partículas
+        const particles = [];
+
+        // Crear partículas de ceniza
+        function createParticle() {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: canvas.height,
+                size: Math.random() * 5 + 2, // Tamaño inicial
+                speedX: Math.random() * 2 - 1, // Velocidad horizontal
+                speedY: Math.random() * -2 - 1, // Velocidad vertical
+                opacity: Math.random() * 0.5 + 0.5 // Opacidad inicial
+            });
+        }
+
+        // Dibujar las partículas
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                const p = particles[i];
+                const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size);
+                gradient.addColorStop(0, `rgba(255, 165, 0, ${p.opacity})`); // Centro brillante (naranja)
+                gradient.addColorStop(0.5, `rgba(255, 140, 0, ${p.opacity * 0.7})`); // Transición
+                gradient.addColorStop(1, `rgba(255, 69, 0, 0)`); // Borde transparente
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = gradient; // Usar el gradiente como color de relleno
+                ctx.fill();
+
+                // Actualizar posición, opacidad y tamaño de la partícula
+                p.x += p.speedX;
+                p.y += p.speedY;
+                p.opacity -= 0.001; // Desvanecimiento más lento
+                p.size -= 0.02; // Reducir el tamaño gradualmente
+
+                // Eliminar partículas si son demasiado pequeñas o completamente transparentes
+                if (p.opacity <= 0 || p.size <= 0 || p.y <= 0) {
+                    particles.splice(i, 1);
+                    i--;
+                }
+            }
+        }
+
+        // Crear nuevas partículas constantemente
+        function update() {
+            if (Math.random() < 0.1) createParticle();
+            drawParticles();
+            requestAnimationFrame(update);
+        }
+
+        // Iniciar la animación cuando la página se carga
+        update();
+    </script>
 </body>
 </html>
