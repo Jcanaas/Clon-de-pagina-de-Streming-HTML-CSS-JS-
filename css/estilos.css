@@ -1115,3 +1115,44 @@ nav {
     pointer-events: none; /* Permite que los clics pasen a los elementos debajo */
 }
 
+/* ---- Cargar la fuente Chinese Rocks ---- */
+@font-face {
+    font-family: 'Chinese Rocks';
+    src: url('../Fonts/chineserocksrg.otf') format('opentype');
+}
+
+/* ---- ----- ----- RED DEAD REDEMPTION ----- ----- ----- */
+.pelicula-principalRDR {
+    font-size: 16px;
+	font-family: 'Chinese Rocks', serif; /* Cambiar a Chinese Rocks */
+    min-height: 40.62em;
+    color: #fff;
+    background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/rdr2.webp) center;
+    background-size: cover;
+    margin-bottom: 3.12em;
+    display: flex;
+    align-items: end;
+}
+
+.pelicula-principalRDR .contenedor {
+    
+}
+
+.pelicula-principalRDR .titulo {
+    font-weight: 600;
+    font-size: 5.12em;
+    color: rgb(255, 255, 255);
+    margin-bottom: 0.4em;
+    font-family: 'Chinese Rocks', serif; /* Cambiar a Chinese Rocks */
+    text-shadow: 0 0 12px #000000;
+    text-align: left;
+}
+
+.pelicula-principalRDR .descripcion {
+	font-family: 'Chinese Rocks', serif; /* Cambiar a Chinese Rocks */
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.75em;
+    max-width: 50%;
+    margin-bottom: 1.25em;
+}
