@@ -42,12 +42,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+
+
+
+
+
+// POP UP MARTA ESTA A 5KM DE TI
 window.onload = function() {
     // Genera un número aleatorio entre 0 y 1
     const randomChance = Math.random();
 
     // Si el número es menor o igual a 0.1 (10% de probabilidad), muestra el pop-up
-    if (randomChance <= 0.1) {
+    if (randomChance <= 0.5) {
         const popup = document.getElementById("popup");
         popup.style.display = "flex"; // Muestra el modal
     }

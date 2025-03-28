@@ -1156,3 +1156,58 @@ nav {
     max-width: 50%;
     margin-bottom: 1.25em;
 }
+
+
+/* ---- ----- ----- Cancion de Hielo y Fuego----- ----- ----- */
+
+@font-face {
+    font-family: 'GameofThrones';
+    src: url('../Fonts/GameofThrones.otf') format('opentype');
+}
+.pelicula-principalHF {
+    font-size: 16px;
+	font-family: 'GameofThrones', serif;
+    min-height: 40.62em;
+    color: #fff;
+    background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/hfbanner.webp) center;
+    background-size: cover;
+    margin-bottom: 3.12em;
+    display: flex;
+    align-items: end;
+}
+
+.pelicula-principalHF .contenedor {
+    
+}
+
+.pelicula-principalHF .titulo {
+    font-weight: 600;
+    font-size: 5.12em;
+    color: rgb(255, 255, 255); /* Color de respaldo */
+    margin-bottom: 0.4em;
+    font-family: 'GameofThrones', serif;
+    text-align: left;
+
+    /* Efecto de cobre */
+    background: linear-gradient(90deg, #b87333, #d4af37, #b87333); /* Degradado de cobre */
+    -webkit-background-clip: text; /* Recorta el fondo al texto */
+    -webkit-text-fill-color: transparent; /* Hace el texto transparente para mostrar el fondo */
+}
+
+.pelicula-principalHF .descripcion {
+	font-family: 'GameofThrones', serif;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.75em;
+    max-width: 50%;
+    margin-bottom: 1.25em; 
+	color: rgb(255, 255, 255); /* Color de respaldo */
+    margin-bottom: 0.4em;
+    font-family: 'GameofThrones', serif;
+    text-align: left;
+
+    /* Efecto de cobre */
+    background: linear-gradient(90deg, #b87333, #d4af37, #b87333); /* Degradado de cobre */
+    -webkit-background-clip: text; /* Recorta el fondo al texto */
+    -webkit-text-fill-color: transparent; /* Hace el texto transparente para mostrar el fondo */
+}
