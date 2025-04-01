@@ -1211,3 +1211,16 @@ nav {
     -webkit-background-clip: text; /* Recorta el fondo al texto */
     -webkit-text-fill-color: transparent; /* Hace el texto transparente para mostrar el fondo */
 }
+
+.titulo-episodiohf {
+    color: #ffffff;
+    font-size: 2em;
+    margin-bottom: 1em;
+    text-align: center;
+	color: rgb(255, 255, 255);
+    margin-bottom: 0.4em;
+    font-family: 'GameofThrones', serif;
+    background: linear-gradient(90deg, #b87333, #d4af37, #b87333); /* Degradado de cobre */
+    -webkit-background-clip: text; /* Recorta el fondo al texto */
+    -webkit-text-fill-color: transparent;
+}
