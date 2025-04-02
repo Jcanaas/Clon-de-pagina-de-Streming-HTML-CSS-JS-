@@ -37,8 +37,18 @@
                     </svg>
                 </div>
                 <a href="user.html" class="user-button">
-                    <img src="img/user_default.png" alt="User Profile" class="user-icon">
+                    <img id="userProfileImage" src="img/user_default.png" alt="User Profile" class="user-icon">
                 </a>
+                
+                <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    let savedImage = localStorage.getItem("profileImage");
+                    if (savedImage) {
+                        document.getElementById("userProfileImage").src = savedImage;
+                    }
+                });
+                </script>
+                
             </nav>
         </div>
     </header>

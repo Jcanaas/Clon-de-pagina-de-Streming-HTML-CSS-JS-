@@ -60,8 +60,8 @@
 }
 
 .user-icon {
-    width: 30px; /* Ajusta el tamaño según sea necesario */
-    height: 30px;
+    width: 40px; /* Ajusta el tamaño según sea necesario */
+    height: 40px;
     border-radius: 50%; /* Hace que la imagen sea circular */
     transition: transform 0.2s ease-in-out;
     border: 1px solid #434343; /* Añade un borde blanco */

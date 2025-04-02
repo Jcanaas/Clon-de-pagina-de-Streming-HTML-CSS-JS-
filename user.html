@@ -12,11 +12,44 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         h1 {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-            text-align: justify;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .profile-header {
+            text-align: center;
+            position: relative;
+        }
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .profile-image:hover {
+            transform: scale(1.5);
+        }
+        .image-selector {
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 180px;
+            transform: translateX(-50%);
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .image-selector img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 5px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .image-selector img:hover {
+            transform: scale(1.2);
         }
     </style>
 </head>
@@ -34,13 +67,17 @@
     <main>
         <section class="user-profile">
             <div class="profile-header">
-                <h1 style="font-size: 2.5rem; font-weight: bold; color: #333; text-align: center; margin-bottom: 20px;">Bienvenid@,&nbsp;<span id="nombreUsuario"></span>!</h1>
-                <div>
-                      <img src="img/user_default.png" alt="Imagen de perfil" class="profile-image">
+                <h1 style="font-size: 2.5rem; font-weight: bold; color: #333;">Bienvenid@, <span id="nombreUsuario"></span>!</h1>
+                <img src="img/user_default.png" alt="Imagen de perfil" class="profile-image" id="profileImage">
+                <div class="image-selector" id="imageSelector">
+                    <img src="img/user_pink.png" alt="User 1">
+                    <img src="img/user_green.png" alt="User 2">
+                    <img src="img/user_blue.png" alt="User 3">
+                    <img src="img/user_beck.png" alt="User 4">
                 </div>
             </div>
             <div class="profile-content">
-                <h1 style="font-size: 2rem; font-weight: bold; color: #333; text-align: center; margin-bottom: 20px;">Aqui tienes una lista de todas las series que estas viendo:</h1>
+                <h1 style="font-size: 2rem; font-weight: bold; color: #333;">Aquí tienes una lista de todas las series que estás viendo:</h1>
                 <ul id="user-list" class="user-list"></ul>
                 <h1>Último capítulo visto de BECK: Mongolian Chop Squad:</h1>
                 <p id="ultimoCapituloVistoBeck">Cargando...</p>
@@ -57,27 +94,33 @@
             } else {
                 window.location.href = "index.html";
             }
-
+            let profileImage = document.getElementById("profileImage");
+            let imageSelector = document.getElementById("imageSelector");
+            let savedImage = localStorage.getItem("profileImage");
+            if (savedImage) {
+                profileImage.src = savedImage;
+            }
+            profileImage.addEventListener("click", function() {
+                imageSelector.style.display = imageSelector.style.display === "block" ? "none" : "block";
+            });
+            document.querySelectorAll(".image-selector img").forEach(img => {
+                img.addEventListener("click", function() {
+                    let newSrc = img.src;
+                    profileImage.src = newSrc;
+                    localStorage.setItem("profileImage", newSrc);
+                    imageSelector.style.display = "none";
+                });
+            });
+            document.addEventListener("click", function(event) {
+                if (!profileImage.contains(event.target) && !imageSelector.contains(event.target)) {
+                    imageSelector.style.display = "none";
+                }
+            });
             let ultimoCapituloVistoBeck = localStorage.getItem("ultimoCapituloVistoBeck");
-            if (ultimoCapituloVistoBeck) {
-                document.querySelector("#ultimoCapituloVistoBeck").textContent = ultimoCapituloVistoBeck;
-            } else {
-                document.querySelector("#ultimoCapituloVistoBeck").textContent = "Aún no has visto ningún capítulo de Beck.";
-            }
-
+            document.querySelector("#ultimoCapituloVistoBeck").textContent = ultimoCapituloVistoBeck || "Aún no has visto ningún capítulo de Beck.";
             let ultimoCapituloVistoMonster = localStorage.getItem("ultimoCapituloVistoMonster");
-            if (ultimoCapituloVistoMonster) {
-                document.querySelector("#ultimoCapituloVistoMonster").textContent = ultimoCapituloVistoMonster;
-            } else {
-                document.querySelector("#ultimoCapituloVistoMonster").textContent = "Aún no has visto ningún capítulo de Monster.";
-            }
+            document.querySelector("#ultimoCapituloVistoMonster").textContent = ultimoCapituloVistoMonster || "Aún no has visto ningún capítulo de Monster.";
         });
-
-        function cerrarSesion() {
-            localStorage.removeItem("usuario");
-            window.location.href = "index.html";
-        }
     </script>
-    <script src="js/user.js"></script>
 </body>
 </html>
