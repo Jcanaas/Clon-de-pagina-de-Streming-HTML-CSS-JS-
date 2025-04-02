@@ -49,24 +49,32 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Content-Type': 'text/plain;charset=utf-8' // Encabezado simple para evitar preflight
             }
         })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Error en la solicitud: ' + response.status);
-                }
-                return response.json(); // Procesar la respuesta como JSON
-            })
-            .then(data => {
-                console.log('Respuesta del servidor:', data);
-                if (data.success) {
-                    mostrarAlertaExito(data.message);
-                } else {
-                    mostrarAlertaError(data.message);
-                }
-            })
-            .catch(error => {
-                console.error('Error al enviar el formulario:', error);
-                mostrarAlertaError('Hubo un error al iniciar sesión. Por favor, inténtalo nuevamente.');
-            });
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la solicitud: ' + response.status);
+            }
+            return response.json(); // Procesar la respuesta como JSON
+        })
+        .then(data => {
+            console.log('Respuesta del servidor:', data);
+            if (data.success) {
+                // Guardar el usuario en Local Storage
+                localStorage.setItem("usuario", loginData.usuario);
+
+                mostrarAlertaExito(data.message);
+
+                // Redirigir después de un tiempo (opcional)
+                setTimeout(() => {
+                    window.location.href = "user.html";
+                }, 2000);
+            } else {
+                mostrarAlertaError(data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error al enviar el formulario:', error);
+            mostrarAlertaError('Hubo un error al iniciar sesión. Por favor, inténtalo nuevamente.');
+        });
     }
 
     function validar(e) {

@@ -10,6 +10,15 @@
     <title>Perfil de Usuario - JoJo-Flix</title>
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            text-align: justify;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -25,19 +34,50 @@
     <main>
         <section class="user-profile">
             <div class="profile-header">
-                <h1>Bienvenido, <span id="username">Usuario</span></h1>
-                <img src="img/user_default.png" alt="Imagen de perfil" class="profile-image">
+                <h1 style="font-size: 2.5rem; font-weight: bold; color: #333; text-align: center; margin-bottom: 20px;">Bienvenid@,&nbsp;<span id="nombreUsuario"></span>!</h1>
+                <div>
+                      <img src="img/user_default.png" alt="Imagen de perfil" class="profile-image">
+                </div>
             </div>
             <div class="profile-content">
-                <h2>Tu lista de series y películas marcadas:</h2>
-                <ul id="user-list" class="user-list">
-                    <!-- Las series y películas se agregarán dinámicamente aquí -->
-                </ul>
+                <h1 style="font-size: 2rem; font-weight: bold; color: #333; text-align: center; margin-bottom: 20px;">Aqui tienes una lista de todas las series que estas viendo:</h1>
+                <ul id="user-list" class="user-list"></ul>
+                <h1>Último capítulo visto de BECK: Mongolian Chop Squad:</h1>
+                <p id="ultimoCapituloVistoBeck">Cargando...</p>
+                <h1>Último capítulo visto de Monster:</h1>
+                <p id="ultimoCapituloVistoMonster">Cargando...</p>
             </div>
-            <h1>Lamentablemente estoy pobre y no me puedo permirir un servidor, asi que no puedo crear sessiones para cada usuario :c</h1>
         </section>
     </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let usuario = localStorage.getItem("usuario");
+            if (usuario) {
+                document.querySelector("#nombreUsuario").textContent = usuario;
+            } else {
+                window.location.href = "index.html";
+            }
 
+            let ultimoCapituloVistoBeck = localStorage.getItem("ultimoCapituloVistoBeck");
+            if (ultimoCapituloVistoBeck) {
+                document.querySelector("#ultimoCapituloVistoBeck").textContent = ultimoCapituloVistoBeck;
+            } else {
+                document.querySelector("#ultimoCapituloVistoBeck").textContent = "Aún no has visto ningún capítulo de Beck.";
+            }
+
+            let ultimoCapituloVistoMonster = localStorage.getItem("ultimoCapituloVistoMonster");
+            if (ultimoCapituloVistoMonster) {
+                document.querySelector("#ultimoCapituloVistoMonster").textContent = ultimoCapituloVistoMonster;
+            } else {
+                document.querySelector("#ultimoCapituloVistoMonster").textContent = "Aún no has visto ningún capítulo de Monster.";
+            }
+        });
+
+        function cerrarSesion() {
+            localStorage.removeItem("usuario");
+            window.location.href = "index.html";
+        }
+    </script>
     <script src="js/user.js"></script>
 </body>
 </html>

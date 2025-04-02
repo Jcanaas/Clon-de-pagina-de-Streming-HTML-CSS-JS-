@@ -54,7 +54,7 @@ window.onload = function() {
     const randomChance = Math.random();
 
     // Si el número es menor o igual a 0.1 (10% de probabilidad), muestra el pop-up
-    if (randomChance <= 0.5) {
+    if (randomChance <= 0.1) {
         const popup = document.getElementById("popup");
         popup.style.display = "flex"; // Muestra el modal
     }
