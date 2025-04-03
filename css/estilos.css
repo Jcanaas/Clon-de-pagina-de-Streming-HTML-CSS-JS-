@@ -1224,3 +1224,12 @@ nav {
     -webkit-background-clip: text; /* Recorta el fondo al texto */
     -webkit-text-fill-color: transparent;
 }
+
+.error-message {
+    color: white;
+    background-color: red;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 3px;
+    font-size: 0.9rem;
+}

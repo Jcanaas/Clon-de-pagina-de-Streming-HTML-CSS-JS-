@@ -932,3 +932,13 @@ section .air.air4 {
 .border-red-500 {
   border-color: red;
 }
+
+
+.error-message {
+  color: white; /* Texto en blanco */
+  background-color: red; /* Fondo rojo */
+  padding: 5px; /* Espaciado interno */
+  margin-top: 5px; /* Espaciado superior */
+  border-radius: 8px; /* Bordes más redondeados */
+  font-size: 0.9rem; /* Tamaño de fuente */
+}

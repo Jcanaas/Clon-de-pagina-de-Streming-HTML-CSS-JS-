@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="css/olas.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <title>Perfil de Usuario - JoJo-Flix</title>
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
@@ -55,17 +55,32 @@
 </head>
 <body>
     <header>
+        <section class="waves">
+            <div class="air air1"></div>
+            <div class="air air2"></div>
+            <div class="air air3"></div>
+            <div class="air air4"></div>
+        </section>
+        <div class="max-w-3xl mx-auto p-10 relative z-10 login-container">
         <div class="contenedor">
             <h2 class="logotipo" onclick="location.href='index.html'">JoJo-flix</h2>
             <nav>
                 <a href="form.html">Formulario de satisfacción</a>
                 <a href="signin.html">SIGN IN</a>
-                <a href="login.html">LOG IN</a>
+                <a onclick="borrarLocalStorage()">Borrar Datos</a>
+
+<script>
+    function borrarLocalStorage() {
+        localStorage.clear();
+        alert("Todos los datos han sido eliminados.");
+    }
+</script>
+
             </nav>
         </div>
     </header>
     <main>
-        <section class="user-profile">
+        <section class="user-profile" >
             <div class="profile-header">
                 <h1 style="font-size: 2.5rem; font-weight: bold; color: #333;">Bienvenid@, <span id="nombreUsuario"></span>!</h1>
                 <img src="img/user_default.png" alt="Imagen de perfil" class="profile-image" id="profileImage">
@@ -94,6 +109,7 @@
                 <p id="ultimoCapituloVistoMonster">Cargando...</p>
             </div>
         </section>
+        
     </main>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -103,15 +119,23 @@
             } else {
                 window.location.href = "index.html";
             }
+
             let profileImage = document.getElementById("profileImage");
             let imageSelector = document.getElementById("imageSelector");
             let savedImage = localStorage.getItem("profileImage");
+
+            // Establecer la imagen por defecto si no hay una guardada
             if (savedImage) {
                 profileImage.src = savedImage;
+            } else {
+                profileImage.src = "img/user_pink.png"; // Valor por defecto
+                localStorage.setItem("profileImage", "img/user_pink.png"); // Guardar el valor por defecto
             }
+
             profileImage.addEventListener("click", function() {
                 imageSelector.style.display = imageSelector.style.display === "block" ? "none" : "block";
             });
+
             document.querySelectorAll(".image-selector img").forEach(img => {
                 img.addEventListener("click", function() {
                     let newSrc = img.src;
@@ -120,15 +144,41 @@
                     imageSelector.style.display = "none";
                 });
             });
+
             document.addEventListener("click", function(event) {
                 if (!profileImage.contains(event.target) && !imageSelector.contains(event.target)) {
                     imageSelector.style.display = "none";
                 }
             });
+
+            // Verificar y mostrar el último capítulo visto de BECK
             let ultimoCapituloVistoBeck = localStorage.getItem("ultimoCapituloVistoBeck");
-            document.querySelector("#ultimoCapituloVistoBeck").textContent = ultimoCapituloVistoBeck || "Aún no has visto ningún capítulo de Beck.";
+            if (ultimoCapituloVistoBeck) {
+                document.querySelector("#ultimoCapituloVistoBeck").textContent = ultimoCapituloVistoBeck;
+            } else {
+                document.querySelector("#ultimoCapituloVistoBeck").style.display = "none";
+                document.querySelector("#ultimoCapituloVistoBeck").previousElementSibling.style.display = "none";
+            }
+
+            // Verificar y mostrar el último capítulo visto de Monster
             let ultimoCapituloVistoMonster = localStorage.getItem("ultimoCapituloVistoMonster");
-            document.querySelector("#ultimoCapituloVistoMonster").textContent = ultimoCapituloVistoMonster || "Aún no has visto ningún capítulo de Monster.";
+            if (ultimoCapituloVistoMonster) {
+                document.querySelector("#ultimoCapituloVistoMonster").textContent = ultimoCapituloVistoMonster;
+            } else {
+                document.querySelector("#ultimoCapituloVistoMonster").style.display = "none";
+                document.querySelector("#ultimoCapituloVistoMonster").previousElementSibling.style.display = "none";
+            }
+
+            // Mostrar mensaje si no hay capítulos vistos
+            if (!ultimoCapituloVistoBeck && !ultimoCapituloVistoMonster) {
+                const profileContent = document.querySelector(".profile-content");
+                const noSeriesMessage = document.createElement("p");
+                noSeriesMessage.textContent = "Vaya, parece que no estás viendo ninguna serie :c";
+                noSeriesMessage.style.textAlign = "center";
+                noSeriesMessage.style.fontSize = "1.5rem";
+                noSeriesMessage.style.color = "#555";
+                profileContent.appendChild(noSeriesMessage);
+            }
         });
     </script>
 </body>
