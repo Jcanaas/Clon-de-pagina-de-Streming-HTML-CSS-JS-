@@ -6,7 +6,10 @@
   <link rel="stylesheet" href="../../css/estilos.css">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="icon" href="../../favicon.ico" type="image/x-icon">
-
+  
+  <!-- Fancybox CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.0/dist/jquery.fancybox.min.css">
+  
   <title>JoJo-Flix</title>
 </head>
 <body>
@@ -34,7 +37,6 @@
         </div>
     </div>
 
-    <!-- Texto traducido debajo del banner -->
     <div style="text-align: center; margin: 20px auto; padding: 20px; max-width: 60%; font-family: 'Chinese Rocks', sans-serif; color: white; font-size: 22px">
         <p style="font-family: 'Chinese Rocks'; color:white;">
             América, 1899. El final de la era del Salvaje Oeste ha comenzado. 
@@ -46,6 +48,7 @@
             Arthur debe elegir entre sus propios ideales y la lealtad a la banda que lo crió.
         </p>
     </div>
+
     <section style="color: white; padding: 20px; font-family: 'Chinese Rocks', sans-serif;">
       <h2 style="text-align: center; font-size: 36px;">Especificaciones del Sistema</h2>
       <div style="color:rgb(31, 31, 31); display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1000px; margin: 0 auto;">
@@ -71,33 +74,64 @@
           </div>
       </div>
     </section>
-    <section style=" padding: 20px; text-align: center; color: white;">
-      <h2 style="color: white; font-family: 'Chinese Rocks', sans-serif; font-size: 36px;">Galería</h2>
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
-          <img src="../../img/rdr2_1.jpg" alt="Paisaje de RDR2" style="width: 300px; height: auto; border-radius: 10px;">
-          <img src="../../img/rdr2_2.jpg" alt="Arthur Morgan" style="width: 300px; height: auto; border-radius: 10px;">
-          <img src="../../img/rdr2_3.jpg" alt="Banda Van der Linde" style="width: 300px; height: auto; border-radius: 10px;">
-      </div>
-  </section>
 
-  <section style="padding: 20px; text-align: center; font-family: 'Chinese Rocks', sans-serif; color: white;">
-    <h2 style="font-size: 36px;">Descargas</h2>
-    <div style="margin-top: 20px;">
+    <!-- Tres galerías alineadas horizontalmente -->
+    <section style="padding: 20px; text-align: center; color: white;">
+      <h2 style="color: white; font-family: 'Chinese Rocks', sans-serif; font-size: 36px;">Galerías</h2>
+      <div style="display: flex; justify-content: center; gap: 20px;">
+        <!-- Galería 1 -->
+        <div style="text-align: center;">
+          <a href="../../img/rdr2paisaje1.jpg" data-fancybox="gallery1" data-caption="Paisaje de RDR2">
+            <img src="../../img/rdr2paisaje1.jpg" alt="Paisaje de RDR2" style="width: 300px; height: auto; border-radius: 10px;">
+          </a>
+        </div>
+        
+        <!-- Galería 2 -->
+        <div style="text-align: center;">
+          <a href="../../img/arthurmorgan.webp" data-fancybox="gallery2" data-caption="Arthur Morgan">
+            <img src="../../img/arthurmorgan.webp" alt="Arthur Morgan" style="width: 300px; height: auto; border-radius: 10px;">
+          </a>
+        </div>
+        
+        <!-- Galería 3 -->
+      <div style="text-align: center;">
+        <a href="../../img/vanderlindegang.png" data-fancybox="gallery3" data-caption="Banda Van der Linde">
+          <img src="../../img/vanderlindegang.png" alt="Banda Van der Linde" style="width: 300px; height: auto; border-radius: 10px;">
+        </a>
+        <!-- Imágenes adicionales -->
+        <a href="../../img/vanderlindegang2.png" data-fancybox="gallery3" style="display:none;"></a>
+        <a href="../../img/vanderlindegang3.jpg" data-fancybox="gallery3" style="display:none;"></a>
+      </div>
+    </div
+    </section>
+
+    <section style="padding: 20px; text-align: center; color: white;">
+      <h2 style="font-size: 36px;">Descargas</h2>
+      <div style="margin-top: 20px;">
         <a href="../../files/rdr2-download.zip" download="rdr2-download.zip" 
            style="background-color: #28a745; color: white; padding: 15px 30px; text-decoration: none; font-size: 20px; border-radius: 5px; font-family: 'Chinese Rocks', sans-serif;">
             Descargar
         </a>
-    </div>
-</section>
+      </div>
+    </section>
 
     <section style="background-image: url('../../img/rdrfooter.png'); font-family: 'Chinese Rocks'; color: white; text-align: center; font-size: 60px; height: 250px; display: flex; align-items: center; justify-content: center;">
         <h1>Outlaws For Life</h1>
     </section>
 
-
 </main>
-<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
-<script src="js/main.js"></script>
-<script src="https://c.webfontfree.com/c.js?f=RDRCatalogueBold-Bold" type="text/javascript"></script>
+
+<!-- JQuery y Fancybox JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.0/dist/jquery.fancybox.min.js"></script>
+
+<script>
+  // Inicializa Fancybox en los enlaces
+  $('[data-fancybox]').fancybox({
+    loop: true, // Habilita el bucle
+    protect: true // Protege las imágenes de descarga
+  });
+</script>
+
 </body>
 </html>
