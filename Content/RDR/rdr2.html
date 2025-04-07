@@ -1,18 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../css/estilos.css">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="icon" href="../../favicon.ico" type="image/x-icon">
-  
-  <!-- Fancybox CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.0/dist/jquery.fancybox.min.css">
-  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../css/estilos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="../../favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.0/dist/jquery.fancybox.min.css" />
   <title>JoJo-Flix</title>
+
+  <style>
+    .loading-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1000;
+      display: none; /* Oculto por defecto */
+      background-color: rgba(0, 0, 0, 0.8);
+      text-align: center;
+      color: white;
+      font-family: 'Chinese Rocks', sans-serif;
+      font-size: 36px; /* Aumenta el tamaño del texto */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .loading-text::after {
+      content: '...';
+      animation: dots 1.5s steps(3, end) infinite;
+    }
+
+    @keyframes dots {
+      0% { content: ''; }
+      33% { content: '.'; }
+      66% { content: '..'; }
+      100% { content: '...'; }
+    }
+
+    .loading-container img {
+      filter: brightness(0) invert(1); /* Aplica un filtro para que el GIF sea blanco */
+      width: 200px; /* Aumenta el tamaño del GIF */
+      height: auto; /* Mantiene la proporción */
+    }
+  </style>
 </head>
-<body>
+<body style="background: #000000">
+
 <header>
   <div class="contenedor">
     <h2 class="logotipo" onclick="location.href='../../index.html'">JoJo-flix</h2>
@@ -27,111 +64,142 @@
 </header>
 
 <main>
-    <div class="pelicula-principalRDR">
-        <div class="contenedor">
-            <h3 class="titulo">RED DEAD REDEMPTION 2</h3>
-            <p class="descripcion">
-                En Red Dead Redemption 2, sigues a Arthur Morgan, un forajido en los últimos días del Salvaje Oeste. 
-                Mientras su banda huye de la ley, Arthur debe elegir entre la lealtad y su propia redención.
-            </p>
-        </div>
-    </div>
+  <!-- Loading Spinner -->
+  <section class="loading-container">
+    <img src="../../img/horsejuan.gif" alt="Loading GIF">
+    <div class="loading-text">Loading</div>
+  </section>
 
-    <div style="text-align: center; margin: 20px auto; padding: 20px; max-width: 60%; font-family: 'Chinese Rocks', sans-serif; color: white; font-size: 22px">
-        <p style="font-family: 'Chinese Rocks'; color:white;">
-            América, 1899. El final de la era del Salvaje Oeste ha comenzado. 
-            Después de que un robo salga terriblemente mal en la ciudad occidental de Blackwater, 
-            Arthur Morgan y la banda de Van der Linde se ven obligados a huir. 
-            Con agentes federales y los mejores cazarrecompensas del país pisándoles los talones, 
-            la banda debe robar, hurtar y luchar a través del escarpado corazón de América para sobrevivir. 
-            Mientras las crecientes divisiones internas amenazan con destrozar a la banda, 
-            Arthur debe elegir entre sus propios ideales y la lealtad a la banda que lo crió.
-        </p>
+  <div class="pelicula-principalRDR">
+    <div class="contenedor">
+      <h3 class="titulo">RED DEAD REDEMPTION 2</h3>
+      <p class="descripcion">
+        En Red Dead Redemption 2, sigues a Arthur Morgan, un forajido en los últimos días del Salvaje Oeste. 
+        Mientras su banda huye de la ley, Arthur debe elegir entre la lealtad y su propia redención.
+      </p>
     </div>
+  </div>
 
-    <section style="color: white; padding: 20px; font-family: 'Chinese Rocks', sans-serif;">
-      <h2 style="text-align: center; font-size: 36px;">Especificaciones del Sistema</h2>
-      <div style="color:rgb(31, 31, 31); display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1000px; margin: 0 auto;">
-          <div style="width: 400px; height: 565px; background-image: url('../../img/papelanttext.png'); background-size: cover; background-position: center; padding: 20px; border-radius: 10px;">
-              <h3 style="margin-bottom: 40px;text-align: center; font-size: 48px;">Mínimas</h3>
-              <ul style="list-style: none; padding: 0; font-size: 18px; margin-top: 15px;">
-                  <li style="margin-bottom: 30px;">Sistema Operativo: Windows 7 - Service Pack 1 (6.1.7601)</li>
-                  <li style="margin-bottom: 30px;">Procesador: Intel Core i5-2500K / AMD FX-6300</li>
-                  <li style="margin-bottom: 30px;">Memoria RAM: 8 GB</li>
-                  <li style="margin-bottom: 30px;">Tarjeta Gráfica: Nvidia GeForce GTX 770 2GB / AMD Radeon R9 280 3GB</li>
-                  <li>Almacenamiento: 150 GB disponibles</li>
-              </ul>
-          </div>
-          <div style="width: 400px; height: 565px; background-image: url('../../img/papelanttext.png'); background-size: cover; background-position: center; padding: 20px; border-radius: 10px;">
-              <h3 style="margin-bottom: 40px; text-align: center; font-size: 48px;">Recomendadas</h3>
-              <ul style="list-style: none; padding: 0; font-size: 18px; margin-top: 15px;">
-                  <li style="margin-bottom: 30px;">Sistema Operativo: Windows 10 - April 2018 Update (v1803)</li>
-                  <li style="margin-bottom: 30px;">Procesador: Intel Core i7-4770K / AMD Ryzen 5 1500X</li>
-                  <li style="margin-bottom: 30px;">Memoria RAM: 12 GB</li>
-                  <li style="margin-bottom: 30px;">Tarjeta Gráfica: Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB</li>
-                  <li>Almacenamiento: 150 GB disponibles</li>
-              </ul>
-          </div>
+  <div style="text-align: center; margin: 20px auto; padding: 20px; max-width: 60%; font-family: 'Chinese Rocks', sans-serif; color: white; font-size: 22px">
+    <p>
+      América, 1899. El final de la era del Salvaje Oeste ha comenzado. 
+      Después de que un robo salga terriblemente mal en la ciudad occidental de Blackwater, 
+      Arthur Morgan y la banda de Van der Linde se ven obligados a huir. 
+      Con agentes federales y los mejores cazarrecompensas del país pisándoles los talones, 
+      la banda debe robar, hurtar y luchar a través del escarpado corazón de América para sobrevivir. 
+      Mientras las crecientes divisiones internas amenazan con destrozar a la banda, 
+      Arthur debe elegir entre sus propios ideales y la lealtad a la banda que lo crió.
+    </p>
+  </div>
+
+  <!-- Especificaciones -->
+  <section style="color: rgb(0, 0, 0); padding: 20px; font-family: 'Chinese Rocks', sans-serif;">
+    <h2 style="text-align: center; font-size: 36px;">Especificaciones del Sistema</h2>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1000px; margin: 0 auto;">
+      <div style="width: 400px; height: 565px; background-image: url('../../img/papelanttext.png'); background-size: cover; padding: 20px; border-radius: 10px;">
+        <h3 style="margin-bottom: 40px; text-align: center; font-size: 48px;">Mínimas</h3>
+        <ul style="list-style: none; padding: 0; font-size: 18px;">
+          <li style="margin-bottom: 30px;">Sistema Operativo: Windows 7</li>
+          <li style="margin-bottom: 30px;">Procesador: Intel Core i5-2500K / AMD FX-6300</li>
+          <li style="margin-bottom: 30px;">Memoria RAM: 8 GB</li>
+          <li style="margin-bottom: 30px;">Gráfica: GTX 770 2GB / R9 280 3GB</li>
+          <li>Almacenamiento: 150 GB</li>
+        </ul>
       </div>
-    </section>
+      <div style="width: 400px; height: 565px; background-image: url('../../img/papelanttext.png'); background-size: cover; padding: 20px; border-radius: 10px;">
+        <h3 style="margin-bottom: 40px; text-align: center; font-size: 48px;">Recomendadas</h3>
+        <ul style="list-style: none; padding: 0; font-size: 18px;">
+          <li style="margin-bottom: 30px;">Sistema Operativo: Windows 10</li>
+          <li style="margin-bottom: 30px;">Procesador: Intel Core i7-4770K / Ryzen 5 1500X</li>
+          <li style="margin-bottom: 30px;">Memoria RAM: 12 GB</li>
+          <li style="margin-bottom: 30px;">Gráfica: GTX 1060 6GB / RX 480 4GB</li>
+          <li>Almacenamiento: 150 GB</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    <!-- Tres galerías alineadas horizontalmente -->
-    <section style="padding: 20px; text-align: center; color: white;">
-      <h2 style="color: white; font-family: 'Chinese Rocks', sans-serif; font-size: 36px;">Galerías</h2>
-      <div style="display: flex; justify-content: center; gap: 20px;">
-        <!-- Galería 1 -->
-        <div style="text-align: center;">
-          <a href="../../img/rdr2paisaje1.jpg" data-fancybox="gallery1" data-caption="Paisaje de RDR2">
-            <img src="../../img/rdr2paisaje1.jpg" alt="Paisaje de RDR2" style="width: 450px; height: auto; border-radius: 10px;">
-          </a>
-        </div>
-        
-        <!-- Galería 2 -->
-        <div style="text-align: center;">
-          <a href="../../img/arthurmorgan.webp" data-fancybox="gallery2" data-caption="Arthur Morgan">
-            <img src="../../img/arthurmorgan.webp" alt="Arthur Morgan" style="width: 450px; height: auto; border-radius: 10px;">
-          </a>
-        </div>
-        
-        <!-- Galería 3 -->
-      <div style="text-align: center;">
+  <!-- Galerías -->
+  <section style="padding: 20px; text-align: center; color: white; font-family: 'Chinese Rocks', sans-serif;">
+    <h2 style="font-size: 36px;">Galerías</h2>
+    <div style="display: flex; justify-content: center; gap: 20px;">
+      <div>
+        <a href="../../img/rdr2paisaje1.jpg" data-fancybox="gallery1" data-caption="Paisaje de RDR2">
+          <img src="../../img/rdr2paisaje1.jpg" alt="Paisaje de RDR2" style="width: 450px; border-radius: 10px;" />
+        </a>
+      </div>
+      <div>
+        <a href="../../img/arthurmorgan.webp" data-fancybox="gallery2" data-caption="Arthur Morgan">
+          <img src="../../img/arthurmorgan.webp" alt="Arthur Morgan" style="width: 450px; border-radius: 10px;" />
+        </a>
+      </div>
+      <div>
         <a href="../../img/vanderlindegang.png" data-fancybox="gallery3" data-caption="Banda Van der Linde">
-          <img src="../../img/vanderlindegang.png" alt="Banda Van der Linde" style="width: 450px; height: auto; border-radius: 10px;">
+          <img src="../../img/vanderlindegang.png" alt="Banda Van der Linde" style="width: 450px; border-radius: 10px;" />
         </a>
-        <!-- Imágenes adicionales -->
-        <a href="../../img/vanderlindegang2.png" data-fancybox="gallery3" style="display:none;"></a>
-        <a href="../../img/vanderlindegang3.jpg" data-fancybox="gallery3" style="display:none;"></a>
+        <a href="../../img/vanderlindegang2.png" data-fancybox="gallery3" style="display: none;"></a>
+        <a href="../../img/vanderlindegang3.jpg" data-fancybox="gallery3" style="display: none;"></a>
       </div>
-    </div
-    </section>
+    </div>
+  </section>
 
-    <section style="padding: 20px; text-align: center; color: white;">
-      <h2 style="font-size: 36px;">Descargas</h2>
-      <div style="margin-top: 20px;">
-        <a href="../../files/rdr2-download.zip" download="rdr2-download.zip" 
-           style="background-color: #28a745; color: white; padding: 15px 30px; text-decoration: none; font-size: 20px; border-radius: 5px; font-family: 'Chinese Rocks', sans-serif;">
-            Descargar
-        </a>
-      </div>
-    </section>
+  <!-- Botón de descarga -->
+  <section style="padding: 20px; text-align: center; color: white; font-family: 'Chinese Rocks', sans-serif;">
+    <h2 style="font-size: 36px;">Descargas</h2>
+    <div style="margin-top: 20px;">
+      <a id="descargarBtn" href="../../files/rdr2-download.zip" download="rdr2-download.zip"
+         style="background-color: #28a745; color: white; padding: 15px 30px; text-decoration: none; font-size: 20px; border-radius: 5px; font-family: 'Chinese Rocks', sans-serif;">
+        Descargar
+      </a>
+    </div>
+  </section>
 
-    <section style="background-image: url('../../img/rdrfooter.png'); font-family: 'Chinese Rocks'; color: white; text-align: center; font-size: 60px; height: 250px; display: flex; align-items: center; justify-content: center;">
-        <h1>Outlaws For Life</h1>
-    </section>
-
+  <!-- Footer -->
+  <section style="background-image: url('../../img/rdrfooter.png'); font-family: 'Chinese Rocks'; color: white; text-align: center; font-size: 60px; height: 250px; display: flex; align-items: center; justify-content: center;">
+    <h1>Outlaws For Life</h1>
+  </section>
 </main>
 
-<!-- JQuery y Fancybox JS -->
+<!-- Scripts -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.0/dist/jquery.fancybox.min.js"></script>
-
 <script>
-  // Inicializa Fancybox en los enlaces
+  // Fancybox
   $('[data-fancybox]').fancybox({
-    loop: true, // Habilita el bucle
-    protect: true // Protege las imágenes de descarga
+    loop: true,
+    protect: true
+  });
+
+  // Animación de carga y descarga
+  document.addEventListener('DOMContentLoaded', () => {
+    const loadingContainer = document.querySelector('.loading-container');
+    const downloadButton = document.querySelector('a[download]');
+
+    if (loadingContainer) {
+      loadingContainer.style.display = 'none'; // Aseguramos que esté oculto al cargar la página
+    }
+
+    if (downloadButton && loadingContainer) {
+      downloadButton.addEventListener('click', (event) => {
+        event.preventDefault(); // Evita la acción predeterminada
+        downloadButton.disabled = true; // Desactiva el botón temporalmente
+        loadingContainer.style.display = 'flex'; // Mostrar el contenedor
+
+        setTimeout(() => {
+          loadingContainer.style.display = 'none'; // Ocultar después de 6 segundos
+          downloadButton.disabled = false; // Reactivar el botón
+
+          // Crear un enlace temporal para forzar la descarga
+          const tempLink = document.createElement('a');
+          tempLink.href = downloadButton.href;
+          tempLink.download = downloadButton.getAttribute('download');
+          document.body.appendChild(tempLink);
+          tempLink.click();
+          document.body.removeChild(tempLink);
+        }, 6000);
+      });
+    }
   });
 </script>
-
 </body>
 </html>

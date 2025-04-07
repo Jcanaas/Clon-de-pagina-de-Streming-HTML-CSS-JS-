@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 404 - Página no encontrada</title>
+    <link rel="stylesheet" href="error.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+   
+</head>
+<body>
+    <img style="position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 9999;
+    width: 450px; /* Tamaño aumentado */
+    height: auto;
+    pointer-events: none;
+    filter: invert(100%) brightness(100%) contrast(100%);
+    opacity: 0.5;" 
+    src="brokenscreen.png" 
+    alt="Pantalla rota" 
+    class="broken-screen">
+    <header>
+        <div class="contenedor">
+            <h2 class="logotipo" onclick="location.href='#'">JoJo-flix</h2>
+            <nav>
+                
+            </nav>
+        </div>
+    </header>
+    <section class="waves">
+        <div class="air air1"></div>
+        <div class="air air2"></div>
+        <div class="air air3"></div>
+        <div class="air air4"></div>
+    </section>
+
+    <!-- Contenedor de error 404 -->
+    <main style="align-items: center; text-align: center; margin-top: 100px;">
+        <h1 style="font-family: 'Bebas Neue', cursive;
+        font-weight: normal;
+        font-size:200px;
+        background: -webkit-linear-gradient(#df2892, #ffffff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: #df2892;">403</h1>
+        <p style="font-family: 'Bebas Neue', cursive;
+        font-weight: normal;
+        font-size:50px;
+        background: -webkit-linear-gradient(#df2892, #ffffff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: #df2892;">Acceso Denegado</p>
+         <p style="font-family: 'Bebas Neue', cursive;
+         font-weight: normal;
+         font-size:25px;
+         background: -webkit-linear-gradient(#df2892, #ffffff);
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent; margin-left: 10%; margin-right: 10%;
+         color: #df2892;">No tienes permiso para acceder a esta página. Esto puede deberse a que la página requiere credenciales especiales o a que tu cuenta no tiene los privilegios necesarios. Revisa que hayas iniciado sesión correctamente o, si crees que deberías tener acceso, contacta al administrador del sitio.</p>
+
+        
+    </main>
+
+    <script src="js/login.js"></script> 
+</body>
+</html>
