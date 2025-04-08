@@ -845,18 +845,27 @@ video {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 2%;
     padding: 15px;
     background-color: #2c2c2c; /* Un negro un poco menos oscuro */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añadir sombra */
     transition: transform 0.2s; /* Añadir transición para el hover */
+	margin-left: 10%;
+	margin-right: 10%;
+
 }
 
 .lista-episodios li:hover {
-    transform: scale(1.02); /* Aumentar ligeramente el tamaño al pasar el ratón */
+    transform: scale(1.15); /* Aumentar ligeramente el tamaño al pasar el ratón */
+	background-color: #ffffff;
+	
 }
 
+.lista-episodios li:hover span {
+    color: #000000; /* Cambiar el color del texto dentro del span */
+	text-shadow: 0 0 5px #000000;
+}
 
 
 
