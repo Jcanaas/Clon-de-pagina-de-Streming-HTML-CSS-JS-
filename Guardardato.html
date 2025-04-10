@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Glitch Cyberpunk</title>
+  <style>
+    body {
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .titulo {
+      position: relative;
+      font-size: 4rem;
+      font-weight: 700;
+      color: #00ffff;
+      text-transform: uppercase;
+      font-family: 'Arial', sans-serif;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    }
+
+    .titulo::before,
+    .titulo::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      color: #ff00cc;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .titulo::after {
+      color: #00ff88;
+    }
+
+    .titulo:hover::before {
+      animation: glitch1 0.3s infinite;
+      opacity: 1;
+    }
+
+    .titulo:hover::after {
+      animation: glitch2 0.3s infinite;
+      opacity: 1;
+    }
+
+    @keyframes glitch1 {
+      0% {
+        transform: translate(2px, -2px);
+      }
+      20% {
+        transform: translate(-2px, 2px);
+      }
+      40% {
+        transform: translate(2px, 2px);
+      }
+      60% {
+        transform: translate(-2px, -2px);
+      }
+      80% {
+        transform: translate(2px, -2px);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+
+    @keyframes glitch2 {
+      0% {
+        transform: translate(-2px, 2px);
+      }
+      20% {
+        transform: translate(2px, -2px);
+      }
+      40% {
+        transform: translate(-2px, -2px);
+      }
+      60% {
+        transform: translate(2px, 2px);
+      }
+      80% {
+        transform: translate(-2px, 2px);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="titulo" data-text="CYBERPUNK">CYBERPUNK</h1>
+
+</body>
+</html>
