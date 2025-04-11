@@ -11,7 +11,18 @@
     <title>JoJo-Flix</title>
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script type="module" src="https://esm.sh/@vfx-js/core"></script>
+    <script type="module">
+        import { VFX } from "https://esm.sh/@vfx-js/core";
 
+        document.addEventListener("DOMContentLoaded", () => {
+            const cyberpunkTitle = document.querySelector(".titulo-glitch");
+            if (cyberpunkTitle) {
+                const vfx = new VFX();
+                vfx.add(cyberpunkTitle, { shader: "rgbShift", overflow: 100 });
+            }
+        });
+    </script>
 </head>
 <div id="popup" class="popup">
     <div class="popup-content">
@@ -174,6 +185,5 @@
     </main>
 
     <script src="js/main.js"></script>
-    
 </body>
 </html>
