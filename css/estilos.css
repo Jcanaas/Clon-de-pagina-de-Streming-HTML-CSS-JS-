@@ -9,19 +9,9 @@ footer {
 	width: 90%;
 }
 
-
-
 @font-face {
   font-family: 'BECK_FONT';
   src: url('../fonts/BECK_FONT.ttf') format('truetype');
-}
-
-.beck-font {
-  font-family: 'BECK_FONT', sans-serif;
-}
-
-.beck-font {
-  font-family: 'BECK_FONT', sans-serif;
 }
 
 .beck-font {
@@ -80,13 +70,11 @@ header nav a.activo {
 	color: #FFF;
 }
 
-/* ---- ----- ----- Pelicula Principal ----- ----- ----- */
 .pelicula-principal {
 	font-size: 16px;
 	min-height: 40.62em;
 	color: #fff;
 	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/jojobaner2.jpg), center;
-
 	background-size: cover;
 	margin-bottom: 3.12em;
 	display: flex;
@@ -107,9 +95,7 @@ header nav a.activo {
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	color: #df2892;
-	max-width: 110%; /* Asegura que el título no exceda el ancho de su contenedor */
-
-
+	max-width: 110%;
 }
 
 .pelicula-principal .descripcion {
@@ -120,9 +106,6 @@ header nav a.activo {
 	margin-bottom: 1.25em;
 }
 
-
-
-/* ---- ----- ----- Media Queries ----- ----- ----- */
 @media screen and (max-width: 800px) {
 	header .logotipo {
 		margin-bottom: 10px;
@@ -143,8 +126,6 @@ header nav a.activo {
 	}
 }
 
-
-/* ---- ----- ----- Temporada1 ----- ----- ----- */
 .pelicula-principal1 {
 	font-size: 16px;
 	min-height: 40.62em;
@@ -180,7 +161,6 @@ header nav a.activo {
 	margin-bottom: 1.25em;
 }
 
-/* ---- ----- ----- Temporada2 ----- ----- ----- */
 .pelicula-principal2 {
 	font-size: 16px;
 	min-height: 40.62em;
@@ -216,7 +196,6 @@ header nav a.activo {
 	margin-bottom: 1.25em;
 }
 
-/* ---- ----- ----- Temporada3 ----- ----- ----- */
 .pelicula-principal3 {
 	font-size: 16px;
 	min-height: 40.62em;
@@ -252,7 +231,6 @@ header nav a.activo {
 	margin-bottom: 1.25em;
 }
 
-/* ---- ----- ----- Temporada4 ----- ----- ----- */
 .pelicula-principal4 {
 	font-size: 16px;
 	min-height: 40.62em;
@@ -288,9 +266,6 @@ header nav a.activo {
 	margin-bottom: 1.25em;
 }
 
-
-
-/* ---- ----- ----- Temporada5 ----- ----- ----- */
 .pelicula-principal5 {
 	font-size: 16px;
 	min-height: 40.62em;
@@ -326,7 +301,6 @@ header nav a.activo {
 	margin-bottom: 1.25em;
 }
 
-/* ---- ----- ----- Temporada6 ----- ----- ----- */
 .pelicula-principal6 {
 	font-size: 16px;
 	min-height: 40.62em;
@@ -362,7 +336,6 @@ header nav a.activo {
 	margin-bottom: 1.25em;
 }
 
-/* ---- ----- ----- Temporada1 ----- ----- ----- */
 .ep {
 	font-size: 16px;
 	min-height: 40.62em;
@@ -413,7 +386,6 @@ header nav a.activo {
 	margin-right: 1.25em;
 }
 
-/* ---- ----- ----- Monster ----- ----- ----- */
 .pelicula-principalMonster {
 	font-size: 16px;
 	font-family:'Monster', serif;
@@ -438,7 +410,6 @@ header nav a.activo {
 	font-family: "EB Garamond", serif;
 	text-shadow: 0 0 12px #FF0000;
 	text-align: left;
-
 }
 
 .pelicula-principalMonster .descripcion {
@@ -449,9 +420,6 @@ header nav a.activo {
 	margin-bottom: 1.25em;
 }
 
-
-
-/* ---- ----- ----- Berserk ----- ----- ----- */
 .pelicula-principalBerserk {
 	font-size: 16px;
 	min-height: 40.62em;
@@ -472,9 +440,9 @@ header nav a.activo {
     font-weight: 600;
     font-size: 6.12em;
     margin-bottom: 0.4em;
-    color: #ff0000; /* Rojo brillante */
-    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000; /* Efecto de brillo */
-    animation: parpadeo 15s infinite alternate; /* Animación de parpadeo */
+    color: #ff0000;
+    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000;
+    animation: parpadeo 15s infinite alternate;
 }
 
 .pelicula-principalBerserk .descripcion {
@@ -485,7 +453,6 @@ header nav a.activo {
 	margin-bottom: 1.25em;
 }
 
-/* ---- ----- ----- Berserk La Edad Dorada ----- ----- ----- */
 .pelicula-principalBerserk1 {
 	font-size: 16px;
 	min-height: 40.62em;
@@ -506,12 +473,11 @@ header nav a.activo {
     font-weight: 600;
     font-size: 6.12em;
     margin-bottom: 0.4em;
-    color: #ff0000; /* Rojo brillante */
-    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000; /* Efecto de brillo */
-    animation: parpadeo 15s infinite alternate; /* Animación de parpadeo */
+    color: #ff0000;
+    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000;
+    animation: parpadeo 15s infinite alternate;
 }
 
-/* Animación de parpadeo */
 @keyframes parpadeo {
     0% {
         opacity: 1;
@@ -524,7 +490,6 @@ header nav a.activo {
     }
 }
 
-
 .pelicula-principalBerserk1 .descripcion {
 	font-weight: normal;
 	font-size: 1em;
@@ -533,8 +498,6 @@ header nav a.activo {
 	margin-bottom: 1.25em;
 }
 
-
-/* ---- ----- ----- Berserk El espadachin negro ----- ----- ----- */
 .pelicula-principalBerserk2 {
 	font-size: 16px;
 	min-height: 40.62em;
@@ -555,9 +518,9 @@ header nav a.activo {
     font-weight: 600;
     font-size: 6.12em;
     margin-bottom: 0.4em;
-    color: #ff0000; /* Rojo brillante */
-    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000; /* Efecto de brillo */
-    animation: parpadeo 15s infinite alternate; /* Animación de parpadeo */
+    color: #ff0000;
+    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000;
+    animation: parpadeo 15s infinite alternate;
 }
 
 .pelicula-principalBerserk2 .descripcion {
@@ -568,8 +531,6 @@ header nav a.activo {
 	margin-bottom: 1.25em;
 }
 
-
-/* ---- ----- ----- Berserk Castigo ----- ----- ----- */
 .pelicula-principalBerserk3 {
 	font-size: 16px;
 	min-height: 40.62em;
@@ -590,9 +551,9 @@ header nav a.activo {
     font-weight: 600;
     font-size: 6.12em;
     margin-bottom: 0.4em;
-    color: #ff0000; /* Rojo brillante */
-    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000; /* Efecto de brillo */
-    animation: parpadeo 15s infinite alternate; /* Animación de parpadeo */
+    color: #ff0000;
+    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000;
+    animation: parpadeo 15s infinite alternate;
 }
 
 .pelicula-principalBerserk3 .descripcion {
@@ -603,8 +564,6 @@ header nav a.activo {
 	margin-bottom: 1.25em;
 }
 
-
-/* ---- ----- ----- Berserk ----- ----- ----- */
 .pelicula-principalBerserk4 {
 	font-size: 16px;
 	min-height: 40.62em;
@@ -625,9 +584,9 @@ header nav a.activo {
     font-weight: 600;
     font-size: 6.12em;
     margin-bottom: 0.4em;
-    color: #ff0000; /* Rojo brillante */
-    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000; /* Efecto de brillo */
-    animation: parpadeo 15s infinite alternate; /* Animación de parpadeo */
+    color: #ff0000;
+    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000;
+    animation: parpadeo 15s infinite alternate;
 }
 
 .pelicula-principalBerserk4 .descripcion {
@@ -638,7 +597,6 @@ header nav a.activo {
 	margin-bottom: 1.25em;
 }
 
-/* ---- ----- ----- Berserk Fantasia ----- ----- ----- */
 .pelicula-principalBerserk5 {
 	font-size: 16px;
 	min-height: 40.62em;
@@ -659,9 +617,9 @@ header nav a.activo {
     font-weight: 600;
     font-size: 6.12em;
     margin-bottom: 0.4em;
-    color: #ff0000; /* Rojo brillante */
-    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000; /* Efecto de brillo */
-    animation: parpadeo 15s infinite alternate; /* Animación de parpadeo */
+    color: #ff0000;
+    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000;
+    animation: parpadeo 15s infinite alternate;
 }
 
 .pelicula-principalBerserk5 .descripcion {
@@ -671,9 +629,6 @@ header nav a.activo {
 	max-width: 50%;
 	margin-bottom: 1.25em;
 }
-
-
-/* ---- ----- ----- Video ----- ----- ----- */
 
 video {
 	align-items: center;
@@ -722,7 +677,6 @@ video {
     font-size: 0.9em; 
 }
 
-
 .pelicula-principal .contenedor {
     display: flex;
     flex-direction: column;
@@ -737,7 +691,6 @@ video {
 .pelicula-principal .descripcion {
     margin-bottom: 20px;
 }
-
 
 .pelicula-principalMonster {
 	font-size: 16px;
@@ -762,7 +715,6 @@ video {
 	margin-bottom: 0.4em;
 	font-family: "EB Garamond", serif;
 	text-shadow: 0 0 12px #FF0000;
-
 }
 
 .pelicula-principal .descripcion {
@@ -773,8 +725,6 @@ video {
 	margin-bottom: 1.25em;
 }
 
-
-/* BECK */
 .pelicula-principalBECK {
     font-size: 16px;
     font-family: 'BECK', serif;
@@ -790,13 +740,13 @@ video {
 .pelicula-principalBECK .contenedor {
     margin: 0 auto 6.25em;
     display: flex;
-    flex-direction: column; /* Align items in a column */
-    align-items: flex-start; /* Align items to the left */
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .pelicula-principalBECK .titulo {
     font-weight: 600;
-    font-size: 2em; /* Adjust the font size */
+    font-size: 2em;
     color: red;
     margin-bottom: 0.4em;
     font-family: "EB Garamond", serif;
@@ -805,8 +755,8 @@ video {
 
 .pelicula-principalBECK .titulo img {
 	height: auto;
-    margin-bottom: 2px; /* Add some space between the image and the text */
-    margin-left: -20px; /* Move the image more to the left */
+    margin-bottom: 2px;
+    margin-left: -20px;
 }
 
 .pelicula-principalBECK .texto {
@@ -820,9 +770,8 @@ video {
     line-height: 1.75em;
     max-width: 50%;
     margin-bottom: 1.25em;
-    text-align: justify; /* Justify the text */
+    text-align: justify;
 }
-
 
 @font-face {
 	font-family: 'BECK_FONT';
@@ -830,11 +779,11 @@ video {
 		 url('/Fonts/HouseBrokenClean.otf') format('opentype');
 	font-weight: normal;
 	font-style: normal;
-  }
-  
-  ol.titulo.beck-font {
+}
+
+ol.titulo.beck-font {
 	font-family: 'BECK_FONT', sans-serif;
-  }
+}
 
 .lista-episodios ul {
     list-style-type: none;
@@ -847,41 +796,36 @@ video {
     align-items: center;
     margin-bottom: 2%;
     padding: 15px;
-    background-color: #2c2c2c; /* Un negro un poco menos oscuro */
+    background-color: #2c2c2c;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añadir sombra */
-    transition: transform 0.2s; /* Añadir transición para el hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
 	margin-left: 10%;
 	margin-right: 10%;
-
 }
 
 .lista-episodios li:hover {
-    transform: scale(1.15); /* Aumentar ligeramente el tamaño al pasar el ratón */
+    transform: scale(1.15);
 	background-color: #ffffff;
-	
 }
 
 .lista-episodios li:hover span {
-    color: #000000; /* Cambiar el color del texto dentro del span */
+    color: #000000;
 	text-shadow: 0 0 5px #000000;
 }
 
-
-
-
 .lista-episodios li span {
-    color: #ffffff; /* Blanco para el nombre de los episodios */
+    color: #ffffff;
     font-weight: 600;
-    letter-spacing: 0.5px; /* Añadir espaciado entre letras */
-    font-family: "EB Garamond", serif; /* Aplicar la misma tipografía que el título Monster */
-    text-shadow: 0 0 10px #ffffff; /* Añadir brillo blanco */
-    font-size: 1.8em; /* Ajustar el tamaño de la letra */
+    letter-spacing: 0.5px;
+    font-family: "EB Garamond", serif;
+    text-shadow: 0 0 10px #ffffff;
+    font-size: 1.8em;
 }
 
 .titulo-episodio {
-    color: #ffffff; /* Blanco para el título del episodio */
-    font-size: 2em; /* Ajustar el tamaño del título */
+    color: #ffffff;
+    font-size: 2em;
     margin-bottom: 1em;
     text-align: center;
 }
@@ -893,10 +837,9 @@ video {
     margin-bottom: 1em;
 }
 
-
 .titulo-episodio {
     font-weight: 600;
-    font-size: 3em; /* Ajusta el tamaño de la fuente según sea necesario */
+    font-size: 3em;
     color: red;
     margin-bottom: 0.4em;
     font-family: "EB Garamond", serif;
@@ -906,7 +849,7 @@ video {
 nav {
   display: flex;
   align-items: center;
-  gap: 1rem; /* Espacio entre los elementos del nav */
+  gap: 1rem;
 }
 
 .group {
@@ -977,8 +920,8 @@ nav {
 }
 
 .boton .play-icon {
-    width: 20px; /* Ajusta el tamaño según tus necesidades */
-    height: auto; /* Mantiene la proporción del ícono */
+    width: 20px;
+    height: auto;
     margin-right: 0.5em;
     vertical-align: middle;
     transition: transform 0.3s ease;
@@ -989,17 +932,13 @@ nav {
 	transition: .3s ease all;
 }
 
-
 .boton-container {
     display: flex;
-    justify-content: center; /* Alinea horizontalmente al centro */
-    align-items: center; /* Alinea verticalmente al centro */
-    margin-top: 20px; /* Espaciado superior opcional */
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }
 
-
-
-/* ---- ----- ----- DevilMan CryBaby ----- ----- ----- */
 .pelicula-principalDMCB {
 	font-size: 16px;
 	font-family:'Monster', serif;
@@ -1024,7 +963,6 @@ nav {
 	font-family: "EB Garamond", serif;
 	text-shadow: 0 0 12px #000000;
 	text-align: left;
-
 }
 
 .pelicula-principalDMCB .descripcion {
@@ -1035,8 +973,6 @@ nav {
 	margin-bottom: 1.25em;
 }
 
-
-/* ---- ----- ----- Aqui no hay quien viva ----- ----- ----- */
 .pelicula-principalANHQV {
 	font-size: 16px;
 	font-family:'Monster', serif;
@@ -1061,7 +997,6 @@ nav {
 	font-family: "EB Garamond", serif;
 	text-shadow: 0 0 12px #000000;
 	text-align: left;
-
 }
 
 .pelicula-principalANHQV .descripcion {
@@ -1072,15 +1007,8 @@ nav {
 	margin-bottom: 1.25em;
 }
 
-
-
-
-
-
-/* ---- ----- ----- DMC ----- ----- ----- */
 .pelicula-principalDMC {
 	font-size: 16px;
-
 	min-height: 40.62em;
 	color: #fff;
 	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/DMC_Banner.png) center;
@@ -1101,7 +1029,6 @@ nav {
 	margin-bottom: 0.4em;
 	text-shadow: 0 0 12px #FF0000;
 	text-align: left;
-
 }
 
 .pelicula-principalDMC .descripcion {
@@ -1112,28 +1039,24 @@ nav {
 	margin-bottom: 1.25em;
 }
 
-
-/* Asegúrate de que el canvas esté en la capa superior */
 #cenizasCanvas {
-    position: fixed; /* Fija el canvas en la pantalla */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%; /* Ocupa todo el ancho */
-    height: 100%; /* Ocupa todo el alto */
-    z-index: 9999; /* Asegura que esté por encima de todos los elementos */
-    pointer-events: none; /* Permite que los clics pasen a los elementos debajo */
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    pointer-events: none;
 }
 
-/* ---- Cargar la fuente Chinese Rocks ---- */
 @font-face {
     font-family: 'Chinese Rocks';
     src: url('../Fonts/chineserocksrg.otf') format('opentype');
 }
 
-/* ---- ----- ----- RED DEAD REDEMPTION ----- ----- ----- */
 .pelicula-principalRDR {
     font-size: 16px;
-	font-family: 'Chinese Rocks', serif; /* Cambiar a Chinese Rocks */
+	font-family: 'Chinese Rocks', serif;
     min-height: 40.62em;
     color: #fff;
     background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/rdr2.webp) center;
@@ -1152,22 +1075,19 @@ nav {
     font-size: 5.12em;
     color: rgb(255, 255, 255);
     margin-bottom: 0.4em;
-    font-family: 'Chinese Rocks', serif; /* Cambiar a Chinese Rocks */
+    font-family: 'Chinese Rocks', serif;
     text-shadow: 0 0 12px #000000;
     text-align: left;
 }
 
 .pelicula-principalRDR .descripcion {
-	font-family: 'Chinese Rocks', serif; /* Cambiar a Chinese Rocks */
+	font-family: 'Chinese Rocks', serif;
     font-weight: normal;
     font-size: 1em;
     line-height: 1.75em;
     max-width: 50%;
     margin-bottom: 1.25em;
 }
-
-
-/* ---- ----- ----- Cancion de Hielo y Fuego----- ----- ----- */
 
 @font-face {
     font-family: 'GameofThrones';
@@ -1192,15 +1112,13 @@ nav {
 .pelicula-principalHF .titulo {
     font-weight: 600;
     font-size: 5.12em;
-    color: rgb(255, 255, 255); /* Color de respaldo */
+    color: rgb(255, 255, 255);
     margin-bottom: 0.4em;
     font-family: 'GameofThrones', serif;
     text-align: left;
-
-    /* Efecto de cobre */
-    background: linear-gradient(90deg, #b87333, #d4af37, #b87333); /* Degradado de cobre */
-    -webkit-background-clip: text; /* Recorta el fondo al texto */
-    -webkit-text-fill-color: transparent; /* Hace el texto transparente para mostrar el fondo */
+    background: linear-gradient(90deg, #b87333, #d4af37, #b87333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .pelicula-principalHF .descripcion {
@@ -1210,15 +1128,13 @@ nav {
     line-height: 1.75em;
     max-width: 50%;
     margin-bottom: 1.25em; 
-	color: rgb(255, 255, 255); /* Color de respaldo */
+	color: rgb(255, 255, 255);
     margin-bottom: 0.4em;
     font-family: 'GameofThrones', serif;
     text-align: left;
-
-    /* Efecto de cobre */
-    background: linear-gradient(90deg, #b87333, #d4af37, #b87333); /* Degradado de cobre */
-    -webkit-background-clip: text; /* Recorta el fondo al texto */
-    -webkit-text-fill-color: transparent; /* Hace el texto transparente para mostrar el fondo */
+    background: linear-gradient(90deg, #b87333, #d4af37, #b87333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .titulo-episodiohf {
@@ -1229,8 +1145,8 @@ nav {
 	color: rgb(255, 255, 255);
     margin-bottom: 0.4em;
     font-family: 'GameofThrones', serif;
-    background: linear-gradient(90deg, #b87333, #d4af37, #b87333); /* Degradado de cobre */
-    -webkit-background-clip: text; /* Recorta el fondo al texto */
+    background: linear-gradient(90deg, #b87333, #d4af37, #b87333);
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 

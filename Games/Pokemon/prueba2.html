@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emulador GBA</title>
+    <script src="emulator/gbajs/GBAJsEmulator.js"></script> <!-- Ruta al archivo JS del emulador -->
+    <style>
+        body {
+            text-align: center;
+        }
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Emulador GBA</h1>
+    <canvas id="gba-canvas" width="240" height="160"></canvas>
+    <br>
+    <input type="file" id="gba-rom" accept=".gba">
+    <script>
+        const canvas = document.getElementById('gba-canvas');
+        const gbaRomInput = document.getElementById('gba-rom');
+
+        gbaRomInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const arrayBuffer = e.target.result;
+                    const gba = new GBA();
+                    gba.loadROM(arrayBuffer);
+                    gba.start(canvas);
+                };
+                reader.readAsArrayBuffer(file);
+            }
+        });
+    </script>
+</body>
+</html>

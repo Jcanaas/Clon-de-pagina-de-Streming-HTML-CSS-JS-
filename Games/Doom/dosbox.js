@@ -174,7 +174,10 @@
         };
     
         Module.prototype.setStatus = function(text) {
-          return typeof console !== "undefined" && console !== null ? typeof console.log === "function" ? console.log(text) : void 0 : void 0;
+          // Log the status message to the console instead of changing the page title
+          if (text) {
+              console.log(`DOSBox Status: ${text}`);
+          }
         };
     
         Module.prototype.monitorRunDependencies = function(left) {

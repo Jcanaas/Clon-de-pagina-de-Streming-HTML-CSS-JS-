@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOJOFLIX - GBA Emulator</title>
+    <link rel="stylesheet" href="../../css/login.css">
+    <link rel="stylesheet" href="../../css/spiner.css">
+    <link rel="stylesheet" href="../../css/nav.css">
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+    <style>
+        .gba-container {
+            width: 640px;
+            height: 480px;
+            margin: auto;
+            border: none;
+            background-color: transparent;
+        }
+        .fullscreen-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: rgb(229, 8, 152);
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+        .fullscreen-btn:hover {
+            animation: pump 1.7s infinite;
+        }
+        @keyframes pump {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-slate-300">
+    <header>
+        <div class="contenedor">
+            <h2 class="logotipo" onclick="location.href='index.html'">JoJo-flix</h2>
+            <nav>
+                <a href="../../index.html" class="activo">Inicio</a>
+                <a href="../../Content/BECK/BECK_List_Ep.html">Temporadas</a>
+                <a href="../../form.html">Formulario de satisfacción</a>
+                <a href="../../signin.html">SIGN IN</a>
+                <a href="../../login.html">LOG IN</a>
+            </nav>
+        </div>
+    </header>
+    <section class="waves">
+        <div class="air air1"></div>
+        <div class="air air2"></div>
+        <div class="air air3"></div>
+        <div class="air air4"></div>
+    </section>
+
+    <div class="max-w-3xl mx-auto p-10 relative z-10 login-container">
+        <img src="../../img/gba-logo.png" alt="GBA Logo" style="display: block; margin: 0 auto; max-width: 30%; height: auto;">
+        <div id="gba-canvas" class="gba-container"></div>
+        <button class="fullscreen-btn" onclick="toggleFullScreen();">Pantalla completa</button>
+    </div>
+
+    <!-- Cargar el script del emulador (ajusta la ruta a donde esté el archivo emulator.js) -->
+    <script src="emulator/emulator.js"></script>
+    <script>
+        var gba;
+
+        function initEmulator() {
+            // Crear el emulador
+            gba = new EmulatorJS({
+                canvas: document.getElementById('gba-canvas'),
+                scale: 2
+            });
+
+            // Cargar el archivo ROM automáticamente
+            var romUrl = "Esmeralda.gba"; // Asegúrate de que el archivo ROM esté en la misma carpeta o ajusta la ruta
+            gba.loadROM(romUrl)
+                .then(() => gba.start())
+                .catch(error => console.error('Error al cargar ROM:', error));
+        }
+
+        // Función para activar o desactivar la pantalla completa
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        // Inicializar el emulador cuando se cargue la página
+        window.onload = initEmulator;
+    </script>
+</body>
+</html>
+    
