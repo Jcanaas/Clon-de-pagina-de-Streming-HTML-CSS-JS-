@@ -1373,3 +1373,43 @@ nav {
     display: flex;
     align-items: end;
 }
+
+
+.pelicula-principalOOT .contenedor {
+    
+}
+
+.pelicula-principalOOT .titulo {
+    font-weight: 600;
+    font-size: 5.12em;
+    color: rgb(0, 0, 0);
+    margin-bottom: 0.4em;
+    font-family: 'minecrafter', serif;
+    /* text-shadow: 0 0 12px #000000; */
+    text-align: left;
+}
+
+.pelicula-principalOOT .descripcion {
+    font-family: 'minecrafter', serif;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.5em;
+    max-width: 50%;
+    margin-bottom: 1.25em;
+    background-clip: text;
+}
+
+
+
+
+.pelicula-principalOOT {
+    font-size: 16px;
+	font-family: 'minecrafter', serif;
+    min-height: 40.62em;
+    color: 	#ffffff;
+    background: linear-gradient(rgba(0, 0, 0, .50) 100%, rgba(0,0,0,.50) 100%), url(../img/zeldaoot.jpg) center;
+    background-size: cover;
+    margin-bottom: 3.12em;
+    display: flex;
+    align-items: end;
+}
