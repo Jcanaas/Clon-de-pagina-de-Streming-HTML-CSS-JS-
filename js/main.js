@@ -54,7 +54,7 @@ window.onload = function() {
     const randomChance = Math.random();
 
     // Si el número es menor o igual a 0.1 (10% de probabilidad), muestra el pop-up
-    if (randomChance <= 0.1) {
+    if (randomChance <= 0.75) {
         const popup = document.getElementById("popup");
         popup.style.display = "flex"; // Muestra el modal
     }
@@ -70,14 +70,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const buttonContainer = document.querySelector('.button-container');
 
     // Maneja el intercambio de posiciones al pasar el ratón sobre el botón "Cerrar"
-    closeButton.addEventListener('mouseenter', () => {
-        closeButton.style.order = '2';
-        openButton.style.order = '1';
-    });
+    // closeButton.addEventListener('mouseenter', () => {
+    //     closeButton.style.order = '2';
+    //     openButton.style.order = '1';
+    // });
 
     // Restaura las posiciones originales cuando el ratón sale del contenedor
-    buttonContainer.addEventListener('mouseleave', () => {
-        closeButton.style.order = '1';
-        openButton.style.order = '2';
-    });
+    // buttonContainer.addEventListener('mouseleave', () => {
+    //     closeButton.style.order = '1';
+    //     openButton.style.order = '2';
+    // });
 });
