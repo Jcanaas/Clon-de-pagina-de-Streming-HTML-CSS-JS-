@@ -1453,3 +1453,38 @@ nav {
     display: flex;
     align-items: end;
 }
+
+
+.pelicula-principalTLOU {
+	font-size: 16px;
+	font-family:'Monster', serif;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Anhqv.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalTLOU .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalTLOU .titulo {
+	font-weight: 600;
+	font-size: 8.12em;
+	color: rgb(240, 236, 17);
+	margin-bottom: 0.4em;
+	font-family: "EB Garamond", serif;
+	text-shadow: 0 0 12px #000000;
+	text-align: left;
+}
+
+.pelicula-principalTLOU .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
