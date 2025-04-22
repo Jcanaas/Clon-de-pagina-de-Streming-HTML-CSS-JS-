@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/estilos.css">
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/popup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>JoJo-Flix</title>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script type="module" src="https://esm.sh/@vfx-js/core"></script>
+    <script type="module">
+        import { VFX } from "https://esm.sh/@vfx-js/core";
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const cyberpunkTitle = document.querySelector(".titulo-glitch");
+            if (cyberpunkTitle) {
+                const vfx = new VFX();
+                vfx.add(cyberpunkTitle, { shader: "rgbShift", overflow: 100 });
+            }
+        });
+    </script>
+</head>
+<div id="popup" class="popup">
+    <div style="max-width: 600px; " class="popup-content">
+        <p>Hola querido usuario, recientemente he añadido una ventana de Videojuegos que me gustaria que probaras y me comentes mediante el <a href="form.html">"Formulario de satisfacción"</a> como van.</p>
+        <!-- <p>Marta está a 5km de ti  (5 fotos 🔥🔥🔥)</p> -->
+        <div class="button-container">
+            <button id="closeButton" onclick="closePopup()">Cerrar</button>
+            <button id="openButton" onclick="window.location.href='Games/games.html';">Abrir</button>
+            <!-- <button id="openButton" onclick="alert('Abrir')">Abrir</button> -->
+        </div>
+    </div>
+</div>
+<body>
+    <header>
+        <div class="contenedor">
+            <h2 class="logotipo" onclick="location.href='../../index.html'">JoJo-flix</h2>
+            <nav>
+                <a href="form.html">Formulario de satisfacción</a>
+                <a href="signin.html">SIGN IN</a>
+                <a href="login.html">LOG IN</a>
+                <div class="group">
+                    <input type="text" id="searchInput" class="input" placeholder="Buscar..." onkeyup="searchMovie()">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M10 2a8 8 0 105.293 14.707l5.387 5.387a1 1 0 001.414-1.414l-5.387-5.387A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/>
+                    </svg>
+                </div>
+                <a href="user.html" class="user-button">
+                    <img id="userProfileImage" src="img/user_default.png" alt="User Profile" class="user-icon">
+                </a>
+                
+                <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    let savedImage = localStorage.getItem("profileImage");
+                    if (savedImage) {
+                        document.getElementById("userProfileImage").src = savedImage;
+                    }
+                });
+                </script>
+                
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        
+        <div class="pelicula-principalTLOU" style="background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../../img/tloutemp1.webp) center;">            <div class="contenedor">
+                <img style="max-width: 200px; margin-top: 1em;" src="../../img/The_Last_of_Us_logo.png" alt="Aqui no hay quien viva Title">
+                <p class="Temporada">Temporada 1</p>
+                <p class="descripcion">
+The Last of Us sigue a Joel, un hombre endurecido por la pérdida, que debe escoltar a Ellie, una joven inmune a una infección que ha devastado al mundo.
+
+Juntos cruzan un Estados Unidos postapocalíptico lleno de peligros humanos e infectados, enfrentando desafíos que pondrán a prueba su vínculo, su moral y su voluntad de sobrevivir.   
+                 </p>
+<button role="button" class="boton" onclick="location.href='#'" aria-label="Ver Aqui no hay quien viva">       
+                    <img src="../../img/play.png" alt="Play Icon" class="play-icon"> Ver
+                </button>
+            </div>
+        </div> 
+        <iframe src="https://drive.google.com/file/d/1iHH9ddPCLQgt5OEoudUfvkGmCV3RZ7jS/preview" width="640" height="480" allow="autoplay"></iframe>
+    </main>
+
+    <footer class="footer bg-gray-900 text-white py-6">
+        <div class="contenedor flex items-start justify-between">
+            <div class="footer-logo">
+                <h2 style="text-align:left;" class="logotipo" onclick="location.href='index.html'">JoJo-flix</h2>
+                <p class="text-sm text-gray-400">Tu portal de entretenimiento</p>
+            </div>
+            <div class="footer-links flex gap-4 text-right">
+                <a href="#" class="text-gray-400 hover:text-white">Acerca deㅤㅤ</a>
+                <a href="#" class="text-gray-400 hover:text-white">Privacidadㅤㅤ</a>
+                <a href="form.html" class="text-gray-400 hover:text-white">Contacto</a>
+            </div>
+        </div>
+        <div class="text-center text-gray-500 mt-4">
+            &copy; 2025 JoJo-Flix. Ninguno de los derechos reservados.
+        </div>
+    </footer>
+    
+
+    <script src="js/main.js"></script>
+</body>
+</html>
