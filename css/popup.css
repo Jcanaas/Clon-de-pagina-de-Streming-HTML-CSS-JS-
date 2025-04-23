@@ -9,21 +9,25 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    
 }
 
 .popup-content {
-    background: white;
+    background: rgb(22, 21, 21);
     padding: 20px;
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: latido 2s infinite ease-in-out;
+
 }
 
 .popup-content p {
     margin-bottom: 20px;
     font-size: 16px;
-    color: #333;
+	color: #df2892;
 }
+
 
 .button-container {
     display: flex;
@@ -34,14 +38,35 @@
 
 .button-container button {
     padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
+    background-color: #df2892;
+
+    color: rgb(21, 20, 20);
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 1s ease;
 }
 
 .button-container button:hover {
-    background-color: #0056b3;
+    background-color: #ff00ea68;
+    transform: scale(1.6);
 }
+
+
+@keyframes latido {
+    0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.03); /* Ligero aumento */
+      }
+    }
+  
+  .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      position: relative;
+      animation: latido 2s infinite ease-in-out;
+  }
+  
