@@ -9,6 +9,2188 @@ r<!DOCTYPE html>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
    
 </head>
+<style>
+    /*
+! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com
+*/
+
+/*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+*/
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  /* 1 */
+  border-width: 0;
+  /* 2 */
+  border-style: solid;
+  /* 2 */
+  border-color: #e5e7eb;
+  /* 2 */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+::before,
+::after {
+  --tw-content: '';
+}
+
+/*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
+*/
+
+html {
+  line-height: 1.5;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -moz-tab-size: 4;
+  /* 3 */
+  -o-tab-size: 4;
+     tab-size: 4;
+  /* 3 */
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  /* 4 */
+}
+
+/*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/
+
+body {
+  margin: 0;
+  background-color: black;
+  height: 100vh;
+  overflow-y: auto; /* Añade esto */
+}
+
+
+/*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/
+
+hr {
+  height: 0;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  border-top-width: 1px;
+  /* 3 */
+}
+
+/*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+abbr:where([title]) {
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+}
+
+/*
+Remove the default font size and weight for headings.
+*/
+
+h1{
+  font-family: 'Bebas Neue', cursive;
+	font-weight: normal;
+	font-size: 40px;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/*
+Add the correct font weight in Edge and Safari.
+*/
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/*
+1. Use the user's configured `mono` font family by default.
+2. Correct the odd `em` font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/*
+Add the correct font size in all browsers.
+*/
+
+small {
+  font-size: 80%;
+}
+
+/*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
+
+table {
+  text-indent: 0;
+  /* 1 */
+  border-color: inherit;
+  /* 2 */
+  border-collapse: collapse;
+  /* 3 */
+}
+
+/*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  font-weight: inherit;
+  /* 1 */
+  line-height: inherit;
+  /* 1 */
+  color: inherit;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+  padding: 0;
+  /* 3 */
+}
+
+/*
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+button,
+select {
+  text-transform: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
+*/
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+  /* 1 */
+  background-color: transparent;
+  /* 2 */
+  background-image: none;
+  /* 2 */
+}
+
+/*
+Use the modern Firefox focus style for all focusable elements.
+*/
+
+:-moz-focusring {
+  outline: auto;
+}
+
+/*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+/*
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+progress {
+  vertical-align: baseline;
+}
+
+/*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+[type='search'] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+
+/*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+
+summary {
+  display: list-item;
+}
+
+/*
+Removes the default spacing and border for appropriate elements.
+*/
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+Prevent resizing textareas horizontally by default.
+*/
+
+textarea {
+  resize: vertical;
+}
+
+/*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  opacity: 1;
+  /* 1 */
+  color: #9ca3af;
+  /* 2 */
+}
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 1;
+  /* 1 */
+  color: #9ca3af;
+  /* 2 */
+}
+
+/*
+Set the default cursor for buttons.
+*/
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+
+:disabled {
+  cursor: default;
+}
+
+/*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  /* 1 */
+  vertical-align: middle;
+  /* 2 */
+}
+
+/*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: transparent;
+  overflow: hidden;
+}
+
+section.waves {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+}
+
+section .air {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url(https://1.bp.blogspot.com/-xQUc-TovqDk/XdxogmMqIRI/AAAAAAAACvI/AizpnE509UMGBcTiLJ58BC6iViPYGYQfQCLcBGAsYHQ/s1600/wave.png);
+  background-size: 1000px 100px;
+  filter: invert(50%) sepia(100%) saturate(700%) hue-rotate(300deg) brightness(90%);}
+
+section .air.air1 {
+  animation: wave 30s linear infinite;
+  z-index: 1000;
+  opacity: 1;
+  animation-delay: 0s;
+  bottom: 0;
+}
+
+section .air.air2 {
+  animation: wave2 15s linear infinite;
+  z-index: 999;
+  opacity: 0.5;
+  animation-delay: -5s;
+  bottom: 10px;
+}
+
+section .air.air3 {
+  animation: wave 30s linear infinite;
+  z-index: 998;
+  opacity: 0.2;
+  animation-delay: -2s;
+  bottom: 15px;
+}
+
+section .air.air4 {
+  animation: wave2 5s linear infinite;
+  z-index: 997;
+  opacity: 0.7;
+  animation-delay: -5s;
+  bottom: 20px;
+}
+
+@keyframes wave {
+  0% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: 1000px;
+  }
+}
+
+@keyframes wave2 {
+  0% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: -1000px;
+  }
+}
+
+*, ::before, ::after {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+}
+
+::backdrop {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mt-5 {
+  margin-top: 1.25rem;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.hidden {
+  display: none;
+}
+
+.h-36 {
+  height: 9rem;
+}
+
+.h-6 {
+  height: 1.5rem;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.w-6 {
+  width: 1.5rem;
+}
+
+.max-w-3xl {
+  max-width: 48rem;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.gap-5 {
+  gap: 1.25rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.space-y-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+}
+
+.space-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.border {
+  border-width: 1px;
+}
+
+.border-gray-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+
+.bg-slate-300 {
+  --tw-bg-opacity: 1;
+  background-color: #141414;
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-pink-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(219 39 119 / var(--tw-bg-opacity));
+}
+
+.bg-gray-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
+.bg-green-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+}
+
+.bg-red-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+}
+
+.p-10 {
+  padding: 2.5rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.pt-32 {
+  padding-top: 8rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-4xl {
+  font-size: 4.25rem;
+  line-height: 4.5rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.text-gray-700 {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity));
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.opacity-50 {
+  opacity: 0.5;
+}
+
+.shadow-xl {
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.text-blue {
+  color: #1E3A8A; /* Tailwind's blue-800 color */
+  text-decoration: underline;
+}
+
+/* From Uiverse.io by andrew-demchenk0 */ 
+.rating {
+  display: flex;
+  flex-direction: row; /* Cambia a row para alinear de izquierda a derecha */
+  justify-content: flex-start;
+}
+
+.rating:not(:checked) > input {
+  position: absolute;
+  appearance: none;
+}
+
+.rating:not(:checked) > label {
+  float: none; /* Elimina el float */
+  cursor: pointer;
+  font-size: 30px;
+  color: #666;
+}
+
+.rating:not(:checked) > label:before {
+  content: '★';
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+  color: #e58e09;
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: #ff9e0b;
+}
+
+.rating > input:checked ~ label {
+  color: #ffa723;
+}
+
+
+.text-blue {
+  color: #1E3A8A; /* Tailwind's blue-800 color */
+  text-decoration: underline;
+}
+
+
+.loader {
+  font-family: "proxima-nova", sans-serif;
+  background-image: linear-gradient(90deg, #df2892 0%, #e0188d 10%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+  position: relative;
+}
+
+.loader::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #df2892;
+  box-shadow: 0 0 10px rgba(230, 169, 169, 0.316);
+  margin: 1rem auto;
+}
+.loader::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #df2892;
+  box-shadow: 0 0 10px rgba(230, 169, 169, 0.316);
+  margin: 1rem auto;
+}
+.Particle_heart {
+  position: absolute;
+  font-size: 1.5rem;
+  color: #df2892;
+  opacity: 0;
+  animation: floatHeart 5s linear infinite;
+}
+
+.Particle_heart:nth-child(1) {
+  left: 10%;
+  animation-delay: 0.5s;
+}
+
+.Particle_heart:nth-child(2) {
+  left: 30%;
+  animation-delay: 2.5s;
+}
+
+.Particle_heart:nth-child(3) {
+  left: 50%;
+  animation-delay: 1.5s;
+}
+
+.Particle_heart:nth-child(4) {
+  left: 70%;
+  animation-delay: 1s;
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(-100px) translateX(30px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-150px) translateX(60px);
+    opacity: 0;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.border-red-500 {
+  border-color: red;
+}
+
+
+.error-message {
+  color: white; /* Texto en blanco */
+  background-color: red; /* Fondo rojo */
+  padding: 5px; /* Espaciado interno */
+  margin-top: 5px; /* Espaciado superior */
+  border-radius: 8px; /* Bordes más redondeados */
+  font-size: 0.9rem; /* Tamaño de fuente */
+}
+
+footer {
+	text-align: right;
+	color: #ffffff;
+	margin-right: 3%;
+	text-size-adjust: auto;
+	font-size: large;
+	background: var(--fondo);
+	font-family: 'Open Sans', sans-serif;
+	width: 90%;
+}
+
+
+
+@font-face {
+  font-family: 'BECK_FONT';
+  src: url('../fonts/BECK_FONT.ttf') format('truetype');
+}
+
+.beck-font {
+  font-family: 'BECK_FONT', sans-serif;
+}
+
+.beck-font {
+  font-family: 'BECK_FONT', sans-serif;
+}
+
+.beck-font {
+  font-family: 'BECK_FONT', sans-serif;
+}
+
+:root {
+	--rojo: #9c09e5;
+	--fondo: #141414;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: var(--fondo);
+	font-family: 'Open Sans', sans-serif;
+}
+
+.contenedor {
+	width: 90%;
+	margin: auto;
+}
+
+header {
+	padding: 30px 0;
+}
+
+header .contenedor {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+header .logotipo {
+	font-family: 'Bebas Neue', cursive;
+	font-weight: normal;
+	font-size: 40px;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+}
+
+header nav a {
+	color: #AAA;
+	text-decoration: none;
+	margin-right: 20px;
+}
+
+header nav a:hover,
+header nav a.activo {
+	color: #FFF;
+}
+
+/* ---- ----- ----- Pelicula Principal ----- ----- ----- */
+.pelicula-principal {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/jojobaner2.jpg), center;
+
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principal .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principal .titulo {
+	font-weight: 600;
+	font-family: Impact, serif;
+	font-size: 6.12em;
+	font-style: italic;
+	margin-bottom: 0.4em;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+	max-width: 110%; /* Asegura que el título no exceda el ancho de su contenedor */
+
+
+}
+
+.pelicula-principal .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+
+
+/* ---- ----- ----- Media Queries ----- ----- ----- */
+@media screen and (max-width: 800px) {
+	header .logotipo {
+		margin-bottom: 10px;
+		font-size: 30px;
+	}
+
+	header .contenedor {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.pelicula-principal {
+		font-size: 14px;
+	}
+
+	.pelicula-principal .descripcion {
+		max-width: 100%;
+	}
+}
+
+
+/* ---- ----- ----- Temporada1 ----- ----- ----- */
+.pelicula-principal1 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/phantomblood.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principal1 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principal1 .titulo {
+	font-weight: 600;
+	font-family: Impact, serif;
+	font-size: 3.12em;
+	font-style: italic;
+	margin-bottom: 0.4em;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+}
+
+.pelicula-principal1 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+/* ---- ----- ----- Temporada2 ----- ----- ----- */
+.pelicula-principal2 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/bt.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principal2 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principal2 .titulo {
+	font-weight: 600;
+	font-family: Impact, serif;
+	font-size: 3.12em;
+	font-style: italic;
+	margin-bottom: 0.4em;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+}
+
+.pelicula-principal2 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+/* ---- ----- ----- Temporada3 ----- ----- ----- */
+.pelicula-principal3 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/sc.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principal3 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principal3 .titulo {
+	font-weight: 600;
+	font-family: Impact, serif;
+	font-size: 3.12em;
+	font-style: italic;
+	margin-bottom: 0.4em;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+}
+
+.pelicula-principal3 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+/* ---- ----- ----- Temporada4 ----- ----- ----- */
+.pelicula-principal4 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/uib.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principal4 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principal4 .titulo {
+	font-weight: 600;
+	font-family: Impact, serif;
+	font-size: 3.12em;
+	font-style: italic;
+	margin-bottom: 0.4em;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+}
+
+.pelicula-principal4 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+
+
+/* ---- ----- ----- Temporada5 ----- ----- ----- */
+.pelicula-principal5 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/gw.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principal5 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principal5 .titulo {
+	font-weight: 600;
+	font-family: Impact, serif;
+	font-size: 3.12em;
+	font-style: italic;
+	margin-bottom: 0.4em;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+}
+
+.pelicula-principal5 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+/* ---- ----- ----- Temporada6 ----- ----- ----- */
+.pelicula-principal6 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Stone-Ocean-Header-1000x600.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principal6 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principal6 .titulo {
+	font-weight: 600;
+	font-family: Impact, serif;
+	font-size: 3.12em;
+	font-style: italic;
+	margin-bottom: 0.4em;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+}
+
+.pelicula-principal6 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+/* ---- ----- ----- Temporada1 ----- ----- ----- */
+.ep {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background-position: center center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.ep .contenedor {
+	margin: 8px auto 6.25em;
+}
+
+.ep .titulo {
+	font-weight: 600;
+	font-size: 3.12em;
+	margin-bottom: 0.4em;
+}
+
+.ep .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.ep .boton {
+	background: rgba(51, 49, 49, 0.5);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 40%;
+}
+
+.ep .boton:hover {
+	background: #fff;
+	color: #333131;
+}
+
+.ep .boton i {
+	margin-right: 1.25em;
+}
+
+/* ---- ----- ----- Monster ----- ----- ----- */
+.pelicula-principalMonster {
+	font-size: 16px;
+	font-family:'Monster', serif;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Monster.png) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalMonster .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalMonster .titulo {
+	font-weight: 600;
+	font-size: 8.12em;
+	color: red;
+	margin-bottom: 0.4em;
+	font-family: "EB Garamond", serif;
+	text-shadow: 0 0 12px #FF0000;
+	text-align: left;
+
+}
+
+.pelicula-principalMonster .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+
+
+/* ---- ----- ----- Berserk ----- ----- ----- */
+.pelicula-principalBerserk {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Berserkbanner.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalBerserk .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalBerserk .titulo {
+    font-family:"Times New Roman", serif;
+    font-weight: 600;
+    font-size: 6.12em;
+    margin-bottom: 0.4em;
+    color: #ff0000; /* Rojo brillante */
+    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000; /* Efecto de brillo */
+    animation: parpadeo 15s infinite alternate; /* Animación de parpadeo */
+}
+
+.pelicula-principalBerserk .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+/* ---- ----- ----- Berserk La Edad Dorada ----- ----- ----- */
+.pelicula-principalBerserk1 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Berserkbannerlaedaddorada.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalBerserk1 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalBerserk1 .titulo {
+    font-family:"Times New Roman", serif;
+    font-weight: 600;
+    font-size: 6.12em;
+    margin-bottom: 0.4em;
+    color: #ff0000; /* Rojo brillante */
+    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000; /* Efecto de brillo */
+    animation: parpadeo 15s infinite alternate; /* Animación de parpadeo */
+}
+
+/* Animación de parpadeo */
+@keyframes parpadeo {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.pelicula-principalBerserk1 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+
+/* ---- ----- ----- Berserk El espadachin negro ----- ----- ----- */
+.pelicula-principalBerserk2 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Berserkbannerelespadachin.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalBerserk2 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalBerserk2 .titulo {
+    font-family:"Times New Roman", serif;
+    font-weight: 600;
+    font-size: 6.12em;
+    margin-bottom: 0.4em;
+    color: #ff0000; /* Rojo brillante */
+    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000; /* Efecto de brillo */
+    animation: parpadeo 15s infinite alternate; /* Animación de parpadeo */
+}
+
+.pelicula-principalBerserk2 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+
+/* ---- ----- ----- Berserk Castigo ----- ----- ----- */
+.pelicula-principalBerserk3 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Berserkbannercondena.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalBerserk3 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalBerserk3 .titulo {
+    font-family:"Times New Roman", serif;
+    font-weight: 600;
+    font-size: 6.12em;
+    margin-bottom: 0.4em;
+    color: #ff0000; /* Rojo brillante */
+    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000; /* Efecto de brillo */
+    animation: parpadeo 15s infinite alternate; /* Animación de parpadeo */
+}
+
+.pelicula-principalBerserk3 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+
+/* ---- ----- ----- Berserk ----- ----- ----- */
+.pelicula-principalBerserk4 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Berserkbannerhalcon.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalBerserk4 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalBerserk4 .titulo {
+    font-family:"Times New Roman", serif;
+    font-weight: 600;
+    font-size: 6.12em;
+    margin-bottom: 0.4em;
+    color: #ff0000; /* Rojo brillante */
+    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000; /* Efecto de brillo */
+    animation: parpadeo 15s infinite alternate; /* Animación de parpadeo */
+}
+
+.pelicula-principalBerserk4 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+/* ---- ----- ----- Berserk Fantasia ----- ----- ----- */
+.pelicula-principalBerserk5 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Berserkbannerfantasia.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalBerserk5 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalBerserk5 .titulo {
+    font-family:"Times New Roman", serif;
+    font-weight: 600;
+    font-size: 6.12em;
+    margin-bottom: 0.4em;
+    color: #ff0000; /* Rojo brillante */
+    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000; /* Efecto de brillo */
+    animation: parpadeo 15s infinite alternate; /* Animación de parpadeo */
+}
+
+.pelicula-principalBerserk5 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+
+/* ---- ----- ----- Video ----- ----- ----- */
+
+video {
+	align-items: center;
+	align-content: center;
+	text-align: center;
+}
+
+@keyframes slidebg {
+	to {
+		background-position:20vw;
+	}
+}
+
+.follow{
+	margin-top: 40px;
+}
+
+.follow a{
+	color: black;
+	padding: 8px 16px;
+	text-decoration: none;
+}
+
+.ep ol {
+    list-style-type: none;
+    padding: 0;
+}
+
+.ep ol li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #1a1a1a; 
+    border-radius: 5px;
+}
+
+.ep ol li a {
+    text-decoration: none;
+    color: #ff0000;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-family: "EB Garamond", serif; 
+    text-shadow: 0 0 10px #ff0000;
+    font-size: 0.9em; 
+}
+
+
+.pelicula-principal .contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.pelicula-principal .titulo {
+    align-self: flex-start;
+    margin-bottom: 10px;
+}
+
+.pelicula-principal .descripcion {
+    margin-bottom: 20px;
+}
+
+
+.pelicula-principalMonster {
+	font-size: 16px;
+	font-family:'Monster', serif;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Monster.png) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalMonster .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalMonster .titulo {
+	font-weight: 600;
+	font-size: 8.12em;
+	color: red;
+	margin-bottom: 0.4em;
+	font-family: "EB Garamond", serif;
+	text-shadow: 0 0 12px #FF0000;
+
+}
+
+.pelicula-principal .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+
+/* BECK */
+.pelicula-principalBECK {
+    font-size: 16px;
+    font-family: 'BECK', serif;
+    min-height: 40.62em;
+    color: #fff;
+    background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Fondobeck.jpg) center;
+    background-size: cover;
+    margin-bottom: 3.12em;
+    display: flex;
+    align-items: center;
+}
+
+.pelicula-principalBECK .contenedor {
+    margin: 0 auto 6.25em;
+    display: flex;
+    flex-direction: column; /* Align items in a column */
+    align-items: flex-start; /* Align items to the left */
+}
+
+.pelicula-principalBECK .titulo {
+    font-weight: 600;
+    font-size: 2em; /* Adjust the font size */
+    color: red;
+    margin-bottom: 0.4em;
+    font-family: "EB Garamond", serif;
+    text-shadow: 0 0 12px #FF0000;
+}
+
+.pelicula-principalBECK .titulo img {
+	height: auto;
+    margin-bottom: 2px; /* Add some space between the image and the text */
+    margin-left: -20px; /* Move the image more to the left */
+}
+
+.pelicula-principalBECK .texto {
+    display: flex;
+    flex-direction: column;
+}
+
+.pelicula-principalBECK .descripcion {
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.75em;
+    max-width: 50%;
+    margin-bottom: 1.25em;
+    text-align: justify; /* Justify the text */
+}
+
+
+@font-face {
+	font-family: 'BECK_FONT';
+	src: url('/Fonts/HouseBrokenClean.otf') format('opentype'),
+		 url('/Fonts/HouseBrokenClean.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+  }
+  
+  ol.titulo.beck-font {
+	font-family: 'BECK_FONT', sans-serif;
+  }
+
+.lista-episodios ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.lista-episodios li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 15px;
+    background-color: #2c2c2c; /* Un negro un poco menos oscuro */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añadir sombra */
+    transition: transform 0.2s; /* Añadir transición para el hover */
+}
+
+.lista-episodios li:hover {
+    transform: scale(1.02); /* Aumentar ligeramente el tamaño al pasar el ratón */
+}
+
+
+
+
+
+.lista-episodios li span {
+    color: #ffffff; /* Blanco para el nombre de los episodios */
+    font-weight: 600;
+    letter-spacing: 0.5px; /* Añadir espaciado entre letras */
+    font-family: "EB Garamond", serif; /* Aplicar la misma tipografía que el título Monster */
+    text-shadow: 0 0 10px #ffffff; /* Añadir brillo blanco */
+    font-size: 1.8em; /* Ajustar el tamaño de la letra */
+}
+
+.titulo-episodio {
+    color: #ffffff; /* Blanco para el título del episodio */
+    font-size: 2em; /* Ajustar el tamaño del título */
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+
+.titulo-episodio {
+    font-weight: 600;
+    font-size: 3em; /* Ajusta el tamaño de la fuente según sea necesario */
+    color: red;
+    margin-bottom: 0.4em;
+    font-family: "EB Garamond", serif;
+    text-shadow: 0 0 12px #FF0000;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Espacio entre los elementos del nav */
+}
+
+.group {
+  display: flex;
+  line-height: 28px;
+  align-items: center;
+  position: relative;
+  max-width: 190px;
+}
+
+.input {
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  height: 45px;
+  padding-left: 2.5rem;
+  box-shadow: 0 0 0 1.5px #2b2c37, 0 0 25px -17px #000;
+  border: 0;
+  border-radius: 12px;
+  background-color: #16171d;
+  outline: none;
+  color: #bdbecb;
+  transition: all 0.25s cubic-bezier(0.19, 1, 0.22, 1);
+  cursor: text;
+  z-index: 0;
+}
+
+.input::placeholder {
+  color: #bdbecb;
+}
+
+.input:hover {
+  box-shadow: 0 0 0 2.5px #2f303d, 0px 0px 25px -15px #000;
+}
+
+.input:active {
+  transform: scale(0.95);
+}
+
+.input:focus {
+  box-shadow: 0 0 0 2.5px #2f303d;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  fill: #bdbecb;
+  width: 1rem;
+  height: 1rem;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.boton {
+    background: rgba(0,0,0, 0.5);
+    border: none;
+    border-radius: 0.31em;
+    padding: 0.93em 1.87em;
+    color: #fff;
+    margin-right: 1.25em;
+    cursor: pointer;
+    transition: .3s ease all;
+    font-size: 1.12em;
+}
+
+.boton:hover {
+    background: #fff;
+    color: #000;
+}
+
+.boton .play-icon {
+    width: 20px; /* Ajusta el tamaño según tus necesidades */
+    height: auto; /* Mantiene la proporción del ícono */
+    margin-right: 0.5em;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+.boton:hover .play-icon {
+    filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(50%) contrast(100%);
+	transition: .3s ease all;
+}
+
+
+.boton-container {
+    display: flex;
+    justify-content: center; /* Alinea horizontalmente al centro */
+    align-items: center; /* Alinea verticalmente al centro */
+    margin-top: 20px; /* Espaciado superior opcional */
+}
+
+
+
+/* ---- ----- ----- DevilMan CryBaby ----- ----- ----- */
+.pelicula-principalDMCB {
+	font-size: 16px;
+	font-family:'Monster', serif;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/DMCB_Banner.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalDMCB .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalDMCB .titulo {
+	font-weight: 600;
+	font-size: 8.12em;
+	color: rgb(255, 255, 255);
+	margin-bottom: 0.4em;
+	font-family: "EB Garamond", serif;
+	text-shadow: 0 0 12px #000000;
+	text-align: left;
+
+}
+
+.pelicula-principalDMCB .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+
+/* ---- ----- ----- Aqui no hay quien viva ----- ----- ----- */
+.pelicula-principalANHQV {
+	font-size: 16px;
+	font-family:'Monster', serif;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Anhqv.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalANHQV .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalANHQV .titulo {
+	font-weight: 600;
+	font-size: 8.12em;
+	color: rgb(240, 236, 17);
+	margin-bottom: 0.4em;
+	font-family: "EB Garamond", serif;
+	text-shadow: 0 0 12px #000000;
+	text-align: left;
+
+}
+
+.pelicula-principalANHQV .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+
+
+
+
+
+/* ---- ----- ----- DMC ----- ----- ----- */
+.pelicula-principalDMC {
+	font-size: 16px;
+
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/DMC_Banner.png) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalDMC .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalDMC .titulo {
+	font-weight: 600;
+	font-size: 8.12em;
+	color: red;
+	margin-bottom: 0.4em;
+	text-shadow: 0 0 12px #FF0000;
+	text-align: left;
+
+}
+
+.pelicula-principalDMC .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+
+/* Asegúrate de que el canvas esté en la capa superior */
+#cenizasCanvas {
+    position: fixed; /* Fija el canvas en la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho */
+    height: 100%; /* Ocupa todo el alto */
+    z-index: 9999; /* Asegura que esté por encima de todos los elementos */
+    pointer-events: none; /* Permite que los clics pasen a los elementos debajo */
+}
+
+/* ---- Cargar la fuente Chinese Rocks ---- */
+@font-face {
+    font-family: 'Chinese Rocks';
+    src: url('../Fonts/chineserocksrg.otf') format('opentype');
+}
+
+/* ---- ----- ----- RED DEAD REDEMPTION ----- ----- ----- */
+.pelicula-principalRDR {
+    font-size: 16px;
+	font-family: 'Chinese Rocks', serif; /* Cambiar a Chinese Rocks */
+    min-height: 40.62em;
+    color: #fff;
+    background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/rdr2.webp) center;
+    background-size: cover;
+    margin-bottom: 3.12em;
+    display: flex;
+    align-items: end;
+}
+
+.pelicula-principalRDR .contenedor {
+    
+}
+
+.pelicula-principalRDR .titulo {
+    font-weight: 600;
+    font-size: 5.12em;
+    color: rgb(255, 255, 255);
+    margin-bottom: 0.4em;
+    font-family: 'Chinese Rocks', serif; /* Cambiar a Chinese Rocks */
+    text-shadow: 0 0 12px #000000;
+    text-align: left;
+}
+
+.pelicula-principalRDR .descripcion {
+	font-family: 'Chinese Rocks', serif; /* Cambiar a Chinese Rocks */
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.75em;
+    max-width: 50%;
+    margin-bottom: 1.25em;
+}
+
+
+/* ---- ----- ----- Cancion de Hielo y Fuego----- ----- ----- */
+
+@font-face {
+    font-family: 'GameofThrones';
+    src: url('../Fonts/GameofThrones.otf') format('opentype');
+}
+.pelicula-principalHF {
+    font-size: 16px;
+	font-family: 'GameofThrones', serif;
+    min-height: 40.62em;
+    color: #fff;
+    background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/hfbanner.webp) center;
+    background-size: cover;
+    margin-bottom: 3.12em;
+    display: flex;
+    align-items: end;
+}
+
+.pelicula-principalHF .contenedor {
+    
+}
+
+.pelicula-principalHF .titulo {
+    font-weight: 600;
+    font-size: 5.12em;
+    color: rgb(255, 255, 255); /* Color de respaldo */
+    margin-bottom: 0.4em;
+    font-family: 'GameofThrones', serif;
+    text-align: left;
+
+    /* Efecto de cobre */
+    background: linear-gradient(90deg, #b87333, #d4af37, #b87333); /* Degradado de cobre */
+    -webkit-background-clip: text; /* Recorta el fondo al texto */
+    -webkit-text-fill-color: transparent; /* Hace el texto transparente para mostrar el fondo */
+}
+
+.pelicula-principalHF .descripcion {
+	font-family: 'GameofThrones', serif;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.75em;
+    max-width: 50%;
+    margin-bottom: 1.25em; 
+	color: rgb(255, 255, 255); /* Color de respaldo */
+    margin-bottom: 0.4em;
+    font-family: 'GameofThrones', serif;
+    text-align: left;
+
+    /* Efecto de cobre */
+    background: linear-gradient(90deg, #b87333, #d4af37, #b87333); /* Degradado de cobre */
+    -webkit-background-clip: text; /* Recorta el fondo al texto */
+    -webkit-text-fill-color: transparent; /* Hace el texto transparente para mostrar el fondo */
+}
+
+.titulo-episodiohf {
+    color: #ffffff;
+    font-size: 2em;
+    margin-bottom: 1em;
+    text-align: center;
+	color: rgb(255, 255, 255);
+    margin-bottom: 0.4em;
+    font-family: 'GameofThrones', serif;
+    background: linear-gradient(90deg, #b87333, #d4af37, #b87333); /* Degradado de cobre */
+    -webkit-background-clip: text; /* Recorta el fondo al texto */
+    -webkit-text-fill-color: transparent;
+}
+
+.error-message {
+    color: white;
+    background-color: red;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 3px;
+    font-size: 0.9rem;
+}
+</style>
 <body>
     <img style="position: fixed;
     top: 10px;
