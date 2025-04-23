@@ -1064,6 +1064,8 @@ nav {
     margin-bottom: 3.12em;
     display: flex;
     align-items: end;
+
+
 }
 
 .pelicula-principalRDR .contenedor {
@@ -1087,6 +1089,8 @@ nav {
     line-height: 1.75em;
     max-width: 50%;
     margin-bottom: 1.25em;
+	text-shadow: 2px 2px 1px rgba(0, 0, 0, 1);
+
 }
 
 @font-face {
