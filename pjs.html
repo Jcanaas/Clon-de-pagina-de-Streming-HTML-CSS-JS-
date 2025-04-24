@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JOJOFLIX-DOOM</title>
+  <link rel="stylesheet" href="../../css/login.css">
+  <link rel="stylesheet" href="../../css/spiner.css">
+  <link rel="stylesheet" href="../../css/nav.css">
+  <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython.min.js"></script>
+
+  <style>
+    .dosbox-container {
+      width: 640px;
+      height: 400px;
+      margin: auto;
+    }
+    .fullscreen-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: rgb(229, 8, 152);
+      color: rgb(255, 255, 255);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+    }
+    .fullscreen-btn:hover {
+      animation: pump 1.7s infinite;
+    }
+    @keyframes pump {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    #salida {
+      background: rgb(16, 15, 15);
+      color: lime;
+      padding: 10px;
+      margin: 20px auto;
+      width: 80%;
+      font-family: "Press Start 2P", system-ui;
+      font-size: 10px; /* Increased font size for terminal */
+      font-weight: bold; /* Make text bold */
+      letter-spacing: 1px; /* Add spacing between letters */
+      line-height: 1.5; /* Improve line height for readability */
+      border-radius: 5px;
+      text-align: left;
+      white-space: pre-wrap;
+      height: 60%;
+      overflow-y: scroll;
+      scrollbar-width: none; /* For Firefox */
+    }
+
+    #salida::-webkit-scrollbar {
+      display: none; /* For Chrome, Safari, and Edge */
+    }
+
+    #entrada {
+      display: none;
+      width: 80%;
+      margin: 10px auto;
+      display: block;
+      padding: 10px;
+      font-size: 16px; /* Default font size for input */
+      background-color: black;
+      color: rgb(229, 8, 152); /* Pink text */
+      border: 1px solid #252323;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+
+<body onload="brython()">
+  <header>
+    <div class="contenedor">
+      <h2 class="logotipo" onclick="location.href='../../index.html'">JoJo-flix</h2>
+      <nav>
+        <a href="../../index.html" class="activo">Inicio</a>
+        <a href="../../Content/BECK/BECK_List_Ep.html">Temporadas</a>
+        <a href="../../form.html">Formulario de satisfacción</a>
+        <a href="../../signin.html">SIGN IN</a>
+        <a href="../../login.html">LOG IN</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="waves">
+    <div class="air air1"></div>
+    <div class="air air2"></div>
+    <div class="air air3"></div>
+    <div class="air air4"></div>
+  </section>
+
+  <h2>Batalla Pokémon</h2>
+  <div id="salida"></div> <!-- This is the terminal-like display -->
+  <input type="text" id="entrada" placeholder="Escribe aquí..." autofocus>
+
+  <button class="fullscreen-btn" id="iniciar-btn">¡Iniciar Batalla!</button>
+  <button class="fullscreen-btn" id="siguiente-btn" style="display: none;">Siguiente Turno</button>
+
+  <script>
+    const salida = document.getElementById("salida");
+    const entrada = document.getElementById("entrada");
+    const iniciarBtn = document.getElementById("iniciar-btn");
+
+    let usuario1, usuario2;
+    let pokemon1, pokemon2;
+    let vida1, vida2;
+    let turno = 0; // Controla el flujo del juego
+    let estado = ""; // Controla el estado actual del juego
+
+    const Charizard = ["Charizard", 185, {"Llamarada": 84, "Garra Dragón": 70}];
+    const Venusaur = ["Venusaur", 187, {"Rayo Solar": 82, "Latigazo": 65}];
+    const Blastoise = ["Blastoise", 186, {"Hidrobomba": 83, "Pistola Agua": 60}];
+
+    // Queue for managing messages
+    const messageQueue = [];
+    let isWriting = false;
+
+    // Function to write text to the terminal with typing effect
+    function escribir(texto) {
+      messageQueue.push(texto);
+      if (!isWriting) processQueue();
+    }
+
+    function processQueue() {
+      if (messageQueue.length === 0) {
+        isWriting = false;
+        return;
+      }
+
+      isWriting = true;
+      const texto = messageQueue.shift();
+      let i = 0;
+
+      const interval = setInterval(() => {
+        if (i < texto.length) {
+          salida.textContent += texto[i];
+          i++;
+          salida.scrollTop = salida.scrollHeight; // Scroll to the bottom
+        } else {
+          clearInterval(interval);
+          salida.textContent += "\n"; // Add a newline at the end
+          salida.scrollTop = salida.scrollHeight; // Ensure scrolling
+          processQueue(); // Process the next message in the queue
+        }
+      }, 5); // Typing speed in milliseconds
+    }
+
+    // Function to handle user input
+    function manejarEntrada(event) {
+      if (event.key === "Enter") {
+        const input = entrada.value.trim();
+        entrada.value = "";
+        escribir(`> ${input}`);
+        procesarEntrada(input);
+      }
+    }
+
+    // Function to process user input based on game state
+    function procesarEntrada(input) {
+      if (estado === "nombre1") {
+        usuario1 = input;
+        escribir(`¡Hola, ${usuario1}!`);
+        estado = "nombre2";
+        escribir("Segundo jugador, ¿cómo te llamas?");
+      } else if (estado === "nombre2") {
+        usuario2 = input;
+        escribir(`¡Hola, ${usuario2}!`);
+        estado = "pokemon1";
+        escribir(`${usuario1}, ¿Qué Pokémon quieres escoger? a)Charizard b)Venusaur c)Blastoise`);
+      } else if (estado === "pokemon1") {
+        if (input === "a") pokemon1 = Charizard;
+        else if (input === "b") pokemon1 = Venusaur;
+        else if (input === "c") pokemon1 = Blastoise;
+        else {
+          escribir("Opción no válida. Escoge de nuevo.");
+          return;
+        }
+        escribir(`${usuario1} ha obtenido a ${pokemon1[0]}!`);
+        estado = "renombrar1";
+        escribir(`¿Quieres cambiarle el nombre a tu ${pokemon1[0]}? (Escribe el nuevo nombre o deja en blanco para mantenerlo)`);
+      } else if (estado === "renombrar1") {
+        if (input) pokemon1[0] = input;
+        escribir(`${usuario1} ahora tiene a ${pokemon1[0]}!`);
+        estado = "pokemon2";
+        escribir(`${usuario2}, ¿Qué Pokémon quieres escoger? a)Charizard b)Venusaur c)Blastoise`);
+      } else if (estado === "pokemon2") {
+        if (input === "a") pokemon2 = Charizard;
+        else if (input === "b") pokemon2 = Venusaur;
+        else if (input === "c") pokemon2 = Blastoise;
+        else {
+          escribir("Opción no válida. Escoge de nuevo.");
+          return;
+        }
+        escribir(`${usuario2} ha obtenido a ${pokemon2[0]}!`);
+        estado = "renombrar2";
+        escribir(`¿Quieres cambiarle el nombre a tu ${pokemon2[0]}? (Escribe el nuevo nombre o deja en blanco para mantenerlo)`);
+      } else if (estado === "renombrar2") {
+        if (input) pokemon2[0] = input;
+        escribir(`${usuario2} ahora tiene a ${pokemon2[0]}!`);
+        vida1 = pokemon1[1];
+        vida2 = pokemon2[1];
+        estado = "batalla";
+        turno = 1;
+        escribir(`${pokemon1[0]} y ${pokemon2[0]} ¡ahora entrarán en batalla!`);
+        escribir(`${usuario1}, elige un ataque: 1) ${Object.keys(pokemon1[2])[0]} 2) ${Object.keys(pokemon1[2])[1]}`);
+      } else if (estado === "batalla") {
+        if (turno === 1 && estado === "batalla") {
+          const movimientos = Object.keys(pokemon1[2]);
+          let ataque, dano;
+          if (input === "1" || input.toLowerCase().replace(/\s+/g, "") === movimientos[0].toLowerCase().replace(/\s+/g, "")) {
+            ataque = movimientos[0];
+            dano = pokemon1[2][ataque];
+          } else if (input === "2" || input.toLowerCase().replace(/\s+/g, "") === movimientos[1].toLowerCase().replace(/\s+/g, "")) {
+            ataque = movimientos[1];
+            dano = pokemon1[2][ataque];
+          } else {
+            escribir("Opción no válida. Intenta de nuevo.");
+            return;
+          }
+          escribir(`${usuario1} ataca con ${ataque}, causando ${dano} de daño!`);
+          vida2 -= dano;
+          escribir(`La vida de ${pokemon2[0]} ahora es ${vida2}`);
+          if (vida2 <= 0) {
+            escribir(`${pokemon2[0]} ha sido derrotado. ¡${usuario1} gana!`);
+            entrada.style.display = "none";
+            return;
+          }
+          turno = 2;
+          escribir(`${usuario2}, elige un ataque: 1) ${Object.keys(pokemon2[2])[0]} 2) ${Object.keys(pokemon2[2])[1]}`);
+        } else if (turno === 2 && estado === "batalla") {
+          const movimientos = Object.keys(pokemon2[2]);
+          let ataque, dano;
+          if (input === "1" || input.toLowerCase().replace(/\s+/g, "") === movimientos[0].toLowerCase().replace(/\s+/g, "")) {
+            ataque = movimientos[0];
+            dano = pokemon2[2][ataque];
+          } else if (input === "2" || input.toLowerCase().replace(/\s+/g, "") === movimientos[1].toLowerCase().replace(/\s+/g, "")) {
+            ataque = movimientos[1];
+            dano = pokemon2[2][ataque];
+          } else {
+            escribir("Opción no válida. Intenta de nuevo.");
+            return;
+          }
+          escribir(`${usuario2} ataca con ${ataque}, causando ${dano} de daño!`);
+          vida1 -= dano;
+          escribir(`La vida de ${pokemon1[0]} ahora es ${vida1}`);
+          if (vida1 <= 0) {
+            escribir(`${pokemon1[0]} ha sido derrotado. ¡${usuario2} gana!`);
+            entrada.style.display = "none";
+            return;
+          }
+          turno = 1;
+          escribir(`${usuario1}, elige un ataque: 1) ${Object.keys(pokemon1[2])[0]} 2) ${Object.keys(pokemon1[2])[1]}`);
+        }
+      }
+    }
+
+    // Function to start or restart the game
+    function iniciarJuego() {
+      salida.textContent = ""; // Clear terminal content
+      escribir("Hola, somos los entrenadores: Jordi, Alejandro i Claudia");
+      escribir("Ahora entraremos al mundo de Pokémon para comenzar una batalla entre dos Pokémons.");
+      estado = "nombre1";
+      escribir("Primer jugador, ¿cómo te llamas?");
+      entrada.style.display = "block";
+      entrada.focus();
+
+      // Change button to "Reiniciar"
+      iniciarBtn.textContent = "Reiniciar Batalla";
+      iniciarBtn.onclick = reiniciarJuego;
+    }
+
+    // Function to reset the game
+    function reiniciarJuego() {
+      usuario1 = usuario2 = pokemon1 = pokemon2 = vida1 = vida2 = null;
+      turno = 0;
+      estado = "";
+      iniciarJuego();
+    }
+
+    // Attach events
+    iniciarBtn.addEventListener("click", iniciarJuego);
+    entrada.addEventListener("keydown", manejarEntrada);
+  </script>
+</body>
+</html>
