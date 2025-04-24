@@ -47,20 +47,20 @@
       margin: 20px auto;
       width: 80%;
       font-family: "Press Start 2P", system-ui;
-      font-size: 10px; /* Increased font size for terminal */
-      font-weight: bold; /* Make text bold */
-      letter-spacing: 1px; /* Add spacing between letters */
-      line-height: 1.5; /* Improve line height for readability */
+      font-size: 10px; 
+      font-weight: bold;
+      letter-spacing: 1px; 
+      line-height: 1.5; 
       border-radius: 5px;
       text-align: left;
       white-space: pre-wrap;
       height: 60%;
       overflow-y: scroll;
-      scrollbar-width: none; /* For Firefox */
+      scrollbar-width: none; 
     }
 
     #salida::-webkit-scrollbar {
-      display: none; /* For Chrome, Safari, and Edge */
+      display: none; 
     }
 
     #entrada {
@@ -69,9 +69,9 @@
       margin: 10px auto;
       display: block;
       padding: 10px;
-      font-size: 16px; /* Default font size for input */
+      font-size: 16px; 
       background-color: black;
-      color: rgb(229, 8, 152); /* Pink text */
+      color: rgb(229, 8, 152); 
       border: 1px solid #252323;
       border-radius: 5px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -101,7 +101,7 @@
   </section>
 
   <h2>Batalla Pokémon</h2>
-  <div id="salida"></div> <!-- This is the terminal-like display -->
+  <div id="salida"></div> 
   <input type="text" id="entrada" placeholder="Escribe aquí..." autofocus>
 
   <button class="fullscreen-btn" id="iniciar-btn">¡Iniciar Batalla!</button>
@@ -115,18 +115,16 @@
     let usuario1, usuario2;
     let pokemon1, pokemon2;
     let vida1, vida2;
-    let turno = 0; // Controla el flujo del juego
-    let estado = ""; // Controla el estado actual del juego
+    let turno = 0; 
+    let estado = ""; 
 
     const Charizard = ["Charizard", 185, {"Llamarada": 84, "Garra Dragón": 70}];
     const Venusaur = ["Venusaur", 187, {"Rayo Solar": 82, "Latigazo": 65}];
     const Blastoise = ["Blastoise", 186, {"Hidrobomba": 83, "Pistola Agua": 60}];
 
-    // Queue for managing messages
     const messageQueue = [];
     let isWriting = false;
 
-    // Function to write text to the terminal with typing effect
     function escribir(texto) {
       messageQueue.push(texto);
       if (!isWriting) processQueue();
@@ -146,17 +144,16 @@
         if (i < texto.length) {
           salida.textContent += texto[i];
           i++;
-          salida.scrollTop = salida.scrollHeight; // Scroll to the bottom
+          salida.scrollTop = salida.scrollHeight; 
         } else {
           clearInterval(interval);
-          salida.textContent += "\n"; // Add a newline at the end
-          salida.scrollTop = salida.scrollHeight; // Ensure scrolling
-          processQueue(); // Process the next message in the queue
+          salida.textContent += "\n";
+          salida.scrollTop = salida.scrollHeight; 
+          processQueue(); 
         }
-      }, 5); // Typing speed in milliseconds
+      }, 5);
     }
 
-    // Function to handle user input
     function manejarEntrada(event) {
       if (event.key === "Enter") {
         const input = entrada.value.trim();
@@ -166,7 +163,6 @@
       }
     }
 
-    // Function to process user input based on game state
     function procesarEntrada(input) {
       if (estado === "nombre1") {
         usuario1 = input;
@@ -265,9 +261,8 @@
       }
     }
 
-    // Function to start or restart the game
     function iniciarJuego() {
-      salida.textContent = ""; // Clear terminal content
+      salida.textContent = ""; 
       escribir("Hola, somos los entrenadores: Jordi, Alejandro i Claudia");
       escribir("Ahora entraremos al mundo de Pokémon para comenzar una batalla entre dos Pokémons.");
       estado = "nombre1";
@@ -275,7 +270,6 @@
       entrada.style.display = "block";
       entrada.focus();
 
-      // Change button to "Reiniciar"
       iniciarBtn.textContent = "Reiniciar Batalla";
       iniciarBtn.onclick = reiniciarJuego;
     }
@@ -294,3 +288,60 @@
   </script>
 </body>
 </html>
+
+
+
+
+FLUJO GENERAL DEL JUEGO
+El jugador presiona "Iniciar Juego".
+Se solicitan los nombres de ambos jugadores.
+Cada jugador elige un Pokémon.
+Comienza el combate por turnos.
+El juego finaliza cuando uno de los Pokémon queda sin vida.
+
+
+
+
+VARIABLES GLOBALES
+let usuario1, usuario2;
+let pokemon1, pokemon2;
+let vida1, vida2;
+let turno = 0;
+let estado = "";
+usuario1/usuario2: nombres de los jugadores
+pokemon1/pokemon2: arrays con la información de cada Pokémon
+vida1/vida2: HP actual de los Pokémon
+turno: 1 o 2 (esto indica de quién es el turno)
+estado: controla la fase actual del juego (FSM) escogiendo pokemon, renombrar, batalla, etc.
+const Charizard = [
+  "Charizard",     // Nombre
+  185,             // Vida
+  {                // Ataques
+    "Llamarada": 84,
+    "Garra Dragón": 70
+  }
+];
+
+
+
+
+
+FUNCIONALIDADES PRINCIPALES
+Función iniciarJuego()
+Resetea el terminal.
+Inicia la máquina de estados con "nombre1".
+Muestra el input del usuario.
+
+Función procesarEntrada(input)
+Controla la lógica del juego según el estado actual.
+Valida nombres, selección de Pokémon, y ataques.
+
+Función escribir(texto)
+Cola los mensajes y los escribe uno a uno en pantalla.
+Simula efecto máquina de escribir.
+
+Función atacar(pokemonAtacante, pokemonDefensor, ataque)
+Reduce la vida del defensor.
+Evalúa si el juego terminó.
+Función reiniciarJuego()
+Resetea variables y recarga la página.
