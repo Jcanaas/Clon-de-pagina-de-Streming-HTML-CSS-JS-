@@ -14,7 +14,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython.min.js"></script>
-
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        
+    
+        // Comprobación de usuario autorizado
+        let savedUsername = localStorage.getItem("usuario");
+        if (savedUsername !== "J.Cañas") {
+            window.location.href = "login.html"; // Redirige al login
+        }
+    });
+    </script>
+    
   <style>
     .dosbox-container {
       width: 640px;
