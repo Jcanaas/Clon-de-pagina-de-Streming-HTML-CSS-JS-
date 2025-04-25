@@ -251,39 +251,51 @@
       //     });
       // }
 
-      function sendLastWatchedEpisode(seriesName, episode) {
-  const url = 'https://script.google.com/macros/s/AKfycbzsORwapCu088hn1FW4aFLSxJas6lJp0VPK6nwJbWMhsS2T_AoGdiAt9jKXqUGaa6jfaQ/exec'; // Tu URL de la API
+      const usuario = localStorage.getItem("usuario"); // Obtener el usuario del localStorage
+      const serie = "Monster"; // Nombre de la serie
+      const episodio = episodeNumber; // Número del episodio actual
 
-  const data = {
-    accion: 'update_episode', // Esto depende de cómo esté configurada tu API
-    serie: seriesName, // Nombre de la serie
-    episodio: episode  // Episodio actual
-  };
+      // Enviar datos al servidor antes de que el usuario cierre la página
+      window.addEventListener("beforeunload", function() {
+        sendLastWatchedEpisode(serie, episodio, usuario);
+      });
 
-  fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  })
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Error en la solicitud: ' + response.statusText);
-    }
-    return response.json();
-  })
-  .then(data => {
-    console.log('Respuesta del servidor:', data);
-    // Aquí puedes manejar la respuesta del servidor si es necesario
-  })
-  .catch(error => {
-    console.log('Error al enviar la solicitud:', error);
-  });
-}
+      // Función para enviar los datos al servidor
+      function sendLastWatchedEpisode(serie, episodio, usuario) {
+        if (!usuario) {
+          console.error("No se encontró un usuario en el localStorage.");
+          return;
+        }
 
+        const data = {
+          accion: 'update_episode',
+          usuario: usuario,
+          serie: serie,
+          episodio: episodio
+        };
 
- 
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzsORwapCu088hn1FW4aFLSxJas6lJp0VPK6nwJbWMhsS2T_AoGdiAt9jKXqUGaa6jfaQ/exec';
+
+        fetch(scriptURL, {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Error en la solicitud: ' + response.status);
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log("Datos enviados al servidor:", data);
+        })
+        .catch(error => {
+          console.error("Error al enviar los datos al servidor:", error);
+        });
+      }
   });
 </script>
 </body>
