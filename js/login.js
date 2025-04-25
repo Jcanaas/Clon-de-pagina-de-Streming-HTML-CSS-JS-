@@ -58,8 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             console.log('Respuesta del servidor:', data);
             if (data.success) {
-                // Guardar el usuario en Local Storage
+                // Guardar el usuario y la contraseña en Local Storage
                 localStorage.setItem("usuario", loginData.usuario);
+                localStorage.setItem("password", loginData.password);
 
                 mostrarAlertaExito(data.message);
 

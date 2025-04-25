@@ -49,7 +49,8 @@
 <script src="../../js/episodeTitlesMonster.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-      const episodeLinks = [
+   
+    const episodeLinks = [
         "https://mega.nz/embed/OfgE3Azb#AEsgFwDBLFOQAz-trXRumQC_zwsAjuBmkB1vFa1lbIg",
         "https://mega.nz/embed/uCgU2IZQ#ABZkNgAN7RXj0QRNhrR5eQCdStgAMWll4_qJZIaCfh0",
         "https://mega.nz/embed/2LBxzALB#AGf1KgCAxIvAlzYFu4zrdABMv3YAuT-BwNBh07tr2kU",
@@ -86,10 +87,7 @@
         "https://mega.nz/embed/nGggEAaa#AD30DwAnTpv-2G_i-otMMABNJ-oAWixY_gDCofrejjg",
         "https://mega.nz/embed/CHpTgaTB#AB08qABVdYWQiJjETQuZAgA6mo4A7glYkH5wVU0A34w",
         "https://mega.nz/embed/Xa4hDIqD#AI1JFgCBPOXtDhdE6H_0FwDsSFUA9QRV7Uo7JegGF9Q",
-        "https://mega.nz/embed/6WQx0AJZ#AOGuNgCI-fSRcpEvmbMNOQAzOB8AgIGHkR3_jJlYbu0",
-        "https://mega.nz/embed/qXx2jZYI#ADjmNwCgL935RIhpWMorVABzBXEA8En--eb5O1jSzng",
-        "https://mega.nz/embed/Xb4REKgQ#APTCuwCuZF14JpmPWXSjuQACBsQAQ7rJeISWoVnczKw",
-        "https://mega.nz/embed/WCxV0BLS#AHIyOgD_nNCoYyR3w8lKfwAl0rgASBWjqF0bc8MLxGs",
+        "https://mega.nz/embed/6WQx0BLS#AHIyOgD_nNCoYyR3w8lKfwAl0rgASBWjqF0bc8MLxGs",
         "https://mega.nz/embed/yK413TiL#AAL7LQDmME2i7QDkt4stwgBOQbQAgYOrosGXpbeUAWM",
         "https://mega.nz/embed/mDImBSYJ#AMvKlAAn4RRB6lVdJUgH3QAKgy0AjlwgQf3HJCWs2yQ",
         "https://mega.nz/embed/jeIWRIza#AHMHNQChxdzRSL-Yr9HUegBEI38Awqlf0c2t06-Y9PU",
@@ -152,33 +150,168 @@
           episodeTitleElement.textContent = "Episodio no encontrado";
       }
   
-      // Ahora obtenemos el título después de que el contenido haya cargado
+      // Now get the episode title after the content has loaded
       const tituloEpisodio = episodeTitleElement.textContent;
   
       console.log("Capítulo actual:", tituloEpisodio);
   
       let tiempoVisualizacion = 0;
-      const tiempoLimite = 5 * 60;
+      const tiempoLimite = 1 * 1; // 5 minutes
       const intervalo = setInterval(function() {
           tiempoVisualizacion += 1;
   
           if (tiempoVisualizacion >= tiempoLimite) {
-              localStorage.setItem("ultimoCapituloVistoMonster", tituloEpisodio);
-              console.log("Guardado el último capítulo visto:", tituloEpisodio);
-  
-              clearInterval(intervalo);
+            function enviarLogin(e) {
+        e.preventDefault();
+
+        spinner.classList.add('flex');
+        spinner.classList.remove('hidden');
+
+        // Datos a enviar al Google Apps Script en formato JSON
+        const data = {
+            accion: 'login',
+            Serie: MonsterEpisode.usuario,
+            Episodio: loginData.password
+        };
+
+        console.log('Datos enviados:', data);
+
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzsORwapCu088hn1FW4aFLSxJas6lJp0VPK6nwJbWMhsS2T_AoGdiAt9jKXqUGaa6jfaQ/exec';
+
+        // Enviar datos al Google Apps Script
+        fetch(scriptURL, {
+            method: 'POST',
+            body: JSON.stringify(data), // Enviar datos como JSON
+            headers: {
+                'Content-Type': 'text/plain;charset=utf-8' // Encabezado simple para evitar preflight
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la solicitud: ' + response.status);
+            }
+            return response.json(); // Procesar la respuesta como JSON
+        })
+        .then(data => {
+            console.log('Respuesta del servidor:', data);
+            if (data.success) {
+                console.log('datos bien enviados');
+            } else {
+                mostrarAlertaError(data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error al enviar el formulario:', error);
+            mostrarAlertaError('Hubo un error al iniciar sesión. Por favor, inténtalo nuevamente.');
+        });
+    }
           }
       }, 1000);
   
       window.addEventListener("beforeunload", function() {
           if (tiempoVisualizacion < tiempoLimite) {
-              console.log("El tiempo no ha alcanzado 5 minutos, no se guarda.");
+              console.log("El tiempo no ha alcanzado 5 minutos, no se envía al servidor.");
           }
       });
-  });
   
-  </script>
+      // function sendLastWatchedEpisode(seriesName, episode) {
+      //     const usuario = localStorage.getItem("usuario");
+      //     if (!usuario) {
+      //         console.error("No se encontró un usuario en el localStorage.");
+      //         return;
+      //     }
+  
+      //     const data = {
+      //         accion: 'updateLastWatched',
+      //         usuario: usuario,
+      //         seriesName: seriesName,
+      //         episode: episode
+      //     };
+  
+      //     const scriptURL = 'https://script.google.com/macros/s/AKfycbzsORwapCu088hn1FW4aFLSxJas6lJp0VPK6nwJbWMhsS2T_AoGdiAt9jKXqUGaa6jfaQ/exec';
+  
+      //     fetch(scriptURL, {
+      //         method: 'POST',
+      //         body: JSON.stringify(data),
+      //         headers: {
+      //             'Content-Type': 'text/plain;charset=utf-8'
+      //         }
+      //     })
+      //     .then(response => {
+      //         if (!response.ok) {
+      //             throw new Error('Error en la solicitud: ' + response.status);
+      //         }
+      //         return response.json();
+      //     })
+      //     .then(data => {
+      //         console.log("Último episodio actualizado en el servidor:", data);
+      //     })
+      //     .catch(error => {
+      //         console.error("Error al enviar el último episodio al servidor:", error);
+      //     });
+      // }
 
+      const usuario = localStorage.getItem("usuario"); // Obtener el usuario del localStorage
+      const serie = "Monster"; // Nombre de la serie
+      const episodio = episodeNumber; // Número del episodio actual
+      let tiempoVisualizacion = 0; // Tiempo de visualización en segundos
+      const tiempoLimite = 300; // 5 minutos en segundos
 
+      // Incrementar el tiempo de visualización cada segundo
+      const intervalo = setInterval(function() {
+        tiempoVisualizacion += 1;
+
+        if (tiempoVisualizacion >= tiempoLimite) {
+          sendLastWatchedEpisode(serie, episodio, usuario, tiempoVisualizacion);
+          clearInterval(intervalo); // Detener el intervalo después de enviar los datos
+        }
+      }, 1000);
+
+      // Enviar datos al servidor antes de que el usuario cierre la página
+      window.addEventListener("beforeunload", function() {
+        if (tiempoVisualizacion < tiempoLimite) {
+          sendLastWatchedEpisode(serie, episodio, usuario, tiempoVisualizacion);
+        }
+      });
+
+      // Función para enviar los datos al servidor
+      function sendLastWatchedEpisode(serie, episodio, usuario, tiempoVisualizacion) {
+        if (!usuario) {
+          console.error("No se encontró un usuario en el localStorage.");
+          return;
+        }
+
+        const data = {
+          accion: 'updateLastWatched',
+          usuario: usuario,
+          serie: serie,
+          episodio: episodio,
+          tiempoVisualizacion: tiempoVisualizacion
+        };
+
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzsORwapCu088hn1FW4aFLSxJas6lJp0VPK6nwJbWMhsS2T_AoGdiAt9jKXqUGaa6jfaQ/exec';
+
+        fetch(scriptURL, {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Error en la solicitud: ' + response.status);
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log("Datos enviados al servidor:", data);
+        })
+        .catch(error => {
+          console.error("Error al enviar los datos al servidor:", error);
+        });
+      }
+  });
+</script>
 </body>
 </html>
