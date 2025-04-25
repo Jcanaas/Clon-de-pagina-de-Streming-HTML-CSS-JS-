@@ -251,66 +251,39 @@
       //     });
       // }
 
-      const usuario = localStorage.getItem("usuario"); // Obtener el usuario del localStorage
-      const serie = "Monster"; // Nombre de la serie
-      const episodio = episodeNumber; // Número del episodio actual
-      let tiempoVisualizacion = 0; // Tiempo de visualización en segundos
-      const tiempoLimite = 300; // 5 minutos en segundos
+      function sendLastWatchedEpisode(seriesName, episode) {
+  const url = 'https://script.google.com/macros/s/AKfycbzsORwapCu088hn1FW4aFLSxJas6lJp0VPK6nwJbWMhsS2T_AoGdiAt9jKXqUGaa6jfaQ/exec'; // Tu URL de la API
 
-      // Incrementar el tiempo de visualización cada segundo
-      const intervalo = setInterval(function() {
-        tiempoVisualizacion += 1;
+  const data = {
+    accion: 'update_episode', // Esto depende de cómo esté configurada tu API
+    serie: seriesName, // Nombre de la serie
+    episodio: episode  // Episodio actual
+  };
 
-        if (tiempoVisualizacion >= tiempoLimite) {
-          sendLastWatchedEpisode(serie, episodio, usuario, tiempoVisualizacion);
-          clearInterval(intervalo); // Detener el intervalo después de enviar los datos
-        }
-      }, 1000);
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Error en la solicitud: ' + response.statusText);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log('Respuesta del servidor:', data);
+    // Aquí puedes manejar la respuesta del servidor si es necesario
+  })
+  .catch(error => {
+    console.log('Error al enviar la solicitud:', error);
+  });
+}
 
-      // Enviar datos al servidor antes de que el usuario cierre la página
-      window.addEventListener("beforeunload", function() {
-        if (tiempoVisualizacion < tiempoLimite) {
-          sendLastWatchedEpisode(serie, episodio, usuario, tiempoVisualizacion);
-        }
-      });
 
-      // Función para enviar los datos al servidor
-      function sendLastWatchedEpisode(serie, episodio, usuario, tiempoVisualizacion) {
-        if (!usuario) {
-          console.error("No se encontró un usuario en el localStorage.");
-          return;
-        }
-
-        const data = {
-          accion: 'updateLastWatched',
-          usuario: usuario,
-          serie: serie,
-          episodio: episodio,
-          tiempoVisualizacion: tiempoVisualizacion
-        };
-
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzsORwapCu088hn1FW4aFLSxJas6lJp0VPK6nwJbWMhsS2T_AoGdiAt9jKXqUGaa6jfaQ/exec';
-
-        fetch(scriptURL, {
-          method: 'POST',
-          body: JSON.stringify(data),
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Error en la solicitud: ' + response.status);
-          }
-          return response.json();
-        })
-        .then(data => {
-          console.log("Datos enviados al servidor:", data);
-        })
-        .catch(error => {
-          console.error("Error al enviar los datos al servidor:", error);
-        });
-      }
+ 
   });
 </script>
 </body>
