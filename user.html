@@ -62,25 +62,26 @@
             <div class="air air4"></div>
         </section>
         <div class="max-w-3xl mx-auto p-10 relative z-10 login-container">
-        <div class="contenedor">
-            <h2 class="logotipo" onclick="location.href='index.html'">JoJo-flix</h2>
-            <nav>
-                <a href="form.html">Formulario de satisfacción</a>
-                <a href="signin.html">SIGN IN</a>
-                <a onclick="borrarLocalStorage()">Borrar Datos</a>
+            <div class="contenedor">
+                <h2 class="logotipo" onclick="location.href='index.html'">JoJo-flix</h2>
+                <nav>
+                    <a href="form.html">Formulario de satisfacción</a>
+                    <a href="signin.html">SIGN IN</a>
+                    <a onclick="borrarLocalStorage()">Borrar Datos</a>
 
-<script>
-    function borrarLocalStorage() {
-        localStorage.clear();
-        alert("Todos los datos han sido eliminados.");
-    }
-</script>
+                    <script>
+                        function borrarLocalStorage() {
+                            localStorage.clear();
+                            alert("Todos los datos han sido eliminados.");
+                        }
+                    </script>
 
-            </nav>
+                </nav>
+            </div>
         </div>
     </header>
     <main>
-        <section class="user-profile" >
+        <section class="user-profile">
             <div class="profile-header">
                 <h1 style="font-size: 2.5rem; font-weight: bold; color: #333;">Bienvenid@, <span id="nombreUsuario"></span>!</h1>
                 <img src="img/user_default.png" alt="Imagen de perfil" class="profile-image" id="profileImage">
@@ -97,19 +98,22 @@
                     <img src="img/user_beck.png" alt="User Beck">
                     <img src="img/user_ellietlou.png" alt="User Ellie">
                     <div style="font-size: 0.8rem;">Si quieres establezer una foto de perfil personalizada contacta conmigo atraves de:</div>
-                    <a style="font-size: 0.8rem;;"href="mailto:jordi2007cm@gmail.com">jordi2007cm@gmail.com</a>
+                    <a style="font-size: 0.8rem;;" href="mailto:jordi2007cm@gmail.com">jordi2007cm@gmail.com</a>
                 </div>
             </div>
             <div class="profile-content">
                 <h1 style="font-size: 2rem; font-weight: bold; color: #333;">Aquí tienes una lista de todas las series que estás viendo:</h1>
                 <ul id="user-list" class="user-list"></ul>
+            
+                <!-- Último capítulo visto de BECK -->
                 <h1>Último capítulo visto de BECK: Mongolian Chop Squad:</h1>
-                <p id="ultimoCapituloVistoBeck">Cargando...</p>
+
+                <!-- Último capítulo visto de Monster -->
                 <h1>Último capítulo visto de Monster:</h1>
-                <p id="ultimoCapituloVistoMonster">Cargando...</p>
+                <p id="ultimoCapituloVistoMonster">Cargando...</p> <!-- Aquí se mostrará el valor de ultimoepisodioMonster -->
+
             </div>
         </section>
-        
     </main>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -171,15 +175,36 @@
                         'Content-Type': 'text/plain;charset=utf-8'
                     }
                 })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Error en la solicitud: ' + response.status);
-                    }
-                    return response.json();
-                })
+                .then(response => response.json())
                 .then(data => {
+                    console.log("Credenciales verificadas correctamente.");
+                    console.log(data);  // Aquí puedes ver todo el objeto de datos recibido
+
                     if (data.success) {
-                        console.log("Credenciales verificadas correctamente.");
+                        // Ahora obtenemos el episodio de Monster
+                        const episodioData = {
+                            accion: 'episodioMonster',
+                            usuario: usuario
+                        };
+
+                        fetch(scriptURL, {
+                            method: 'POST',
+                            body: JSON.stringify(episodioData),
+                            headers: {
+                                'Content-Type': 'text/plain;charset=utf-8'
+                            }
+                        })
+                        .then(response => response.json())
+                        .then(episodioData => {
+                            console.log("Episodio de Monster:", data.ul);
+                            // Mostrar el valor de B2 (episodio de Monster)
+                            const ultimoCapituloVistoMonster = document.querySelector("#ultimoCapituloVistoMonster");
+                            if (ultimoCapituloVistoMonster) {
+                                ultimoCapituloVistoMonster.textContent = data.ultimoepisodioMonster || "No disponible";
+                            }
+                        })
+                        .catch(error => console.error("Error al obtener el episodio de Monster:", error));
+
                     } else {
                         console.log("Credenciales incorrectas. Por favor, inicie sesión nuevamente.");
                         localStorage.clear();
@@ -194,34 +219,6 @@
                 window.location.href = "signin.html";
             }
 
-            // Verificar y mostrar el último capítulo visto de BECK
-            let ultimoCapituloVistoBeck = localStorage.getItem("ultimoCapituloVistoBeck");
-            if (ultimoCapituloVistoBeck) {
-                document.querySelector("#ultimoCapituloVistoBeck").textContent = ultimoCapituloVistoBeck;
-            } else {
-                document.querySelector("#ultimoCapituloVistoBeck").style.display = "none";
-                document.querySelector("#ultimoCapituloVistoBeck").previousElementSibling.style.display = "none";
-            }
-
-            // Verificar y mostrar el último capítulo visto de Monster
-            let ultimoCapituloVistoMonster = localStorage.getItem("ultimoCapituloVistoMonster");
-            if (ultimoCapituloVistoMonster) {
-                document.querySelector("#ultimoCapituloVistoMonster").textContent = ultimoCapituloVistoMonster;
-            } else {
-                document.querySelector("#ultimoCapituloVistoMonster").style.display = "none";
-                document.querySelector("#ultimoCapituloVistoMonster").previousElementSibling.style.display = "none";
-            }
-
-            // Mostrar mensaje si no hay capítulos vistos
-            if (!ultimoCapituloVistoBeck && !ultimoCapituloVistoMonster) {
-                const profileContent = document.querySelector(".profile-content");
-                const noSeriesMessage = document.createElement("p");
-                noSeriesMessage.textContent = "Vaya, parece que no estás viendo ninguna serie :c";
-                noSeriesMessage.style.textAlign = "center";
-                noSeriesMessage.style.fontSize = "1.5rem";
-                noSeriesMessage.style.color = "#555";
-                profileContent.appendChild(noSeriesMessage);
-            }
         });
     </script>
 </body>
