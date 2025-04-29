@@ -215,7 +215,7 @@
                     } else {
                         console.log("Credenciales incorrectas. Por favor, inicie sesión nuevamente.");
                         localStorage.clear();
-                        window.location.href = "signin.html";
+                        window.location.href = "login.html";
                     }
                 })
                 .catch(error => {
@@ -223,7 +223,7 @@
                 });
             } else {
                 console.log("No hay credenciales almacenadas. Redirigiendo al inicio de sesión.");
-                window.location.href = "signin.html";
+                window.location.href = "login.html";
             }
 
         });
