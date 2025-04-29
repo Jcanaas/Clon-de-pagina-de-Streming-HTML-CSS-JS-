@@ -107,6 +107,7 @@
             
                 <!-- Último capítulo visto de BECK -->
                 <h1>Último capítulo visto de BECK: Mongolian Chop Squad:</h1>
+                <p id="ultimoCapituloVistoBeck">Cargando...</p> <!-- Aquí se mostrará el valor de ultimoepisodioMonster -->
 
                 <!-- Último capítulo visto de Monster -->
                 <h1>Último capítulo visto de Monster:</h1>
@@ -181,6 +182,12 @@
                     console.log(data);  // Aquí puedes ver todo el objeto de datos recibido
 
                     if (data.success) {
+                        // Mostrar el último capítulo visto de BECK
+                        const ultimoCapituloVistoBeck = document.querySelector("#ultimoCapituloVistoBeck");
+                        if (ultimoCapituloVistoBeck) {
+                            ultimoCapituloVistoBeck.textContent = data.ultimoepisodioBeck || "No disponible";
+                        }
+
                         // Ahora obtenemos el episodio de Monster
                         const episodioData = {
                             accion: 'episodioMonster',
