@@ -65,13 +65,14 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then(() => {
             console.log("Solicitud enviada correctamente");
+            window.location.href = "login.html"; // Redirigir a login.html
         })
         .catch(error => {
             console.error('Error al registrarse:', error);
             alert("Hubo un error al intentar registrarse.");
         });
     });
-
+    console.log (datos)
     // Función para mostrar mensajes de error
     function mostrarError(campoId, mensaje) {
         const campo = document.getElementById(campoId);

@@ -58,6 +58,8 @@
                     let savedImage = localStorage.getItem("profileImage");
                     if (savedImage) {
                         document.getElementById("userProfileImage").src = savedImage;
+                    } else {
+                        document.getElementById("userProfileImage").src = "https://raw.githubusercontent.com/Jcanaas/JoJo-Flix/refs/heads/main/img/user_pink.png"; // Valor por defecto
                     }
                 });
                 </script>
@@ -224,6 +226,20 @@
         </div>
     </footer>
     
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let profileImage = document.getElementById("profileImage");
+            let savedImage = localStorage.getItem("profileImage");
+
+            // Establecer la imagen por defecto si no hay una guardada
+            if (savedImage) {
+                profileImage.src = savedImage;
+            } else {
+                profileImage.src = "img/user_pink.png"; // Valor por defecto
+                localStorage.setItem("profileImage", "img/user_pink.png"); // Guardar el valor por defecto
+            }
+        });
+    </script>
 
     <script src="js/main.js"></script>
 </body>

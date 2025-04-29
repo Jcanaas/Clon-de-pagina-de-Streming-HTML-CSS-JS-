@@ -84,21 +84,26 @@
         <section class="user-profile">
             <div class="profile-header">
                 <h1 style="font-size: 2.5rem; font-weight: bold; color: #333;">Bienvenid@, <span id="nombreUsuario"></span>!</h1>
-                <img src="img/user_default.png" alt="Imagen de perfil" class="profile-image" id="profileImage">
+                <img src="https://raw.githubusercontent.com/Jcanaas/JoJo-Flix/refs/heads/mainimg/user_default.png" alt="Imagen de perfil" class="profile-image" id="profileImage">
                 <div class="image-selector" id="imageSelector">
-                    <img src="img/user_pink.png" alt="User 1">
-                    <img src="img/user_green.png" alt="User 2">
-                    <img src="img/user_blue.png" alt="User 3">
-                    <img src="img/user_grey.png" alt="User 4">
-                    <img src="img/user_orange.png" alt="User 5">
-                    <img src="img/user_purple.png" alt="User 3">
-                    <img src="img/user_red.png" alt="User 3">
-                    <img src="img/user_white.png" alt="User 3">
-                    <img src="img/user_yellow.png" alt="User 3">
-                    <img src="img/user_beck.png" alt="User Beck">
-                    <img src="img/user_ellietlou.png" alt="User Ellie">
+                    <img src="https://raw.githubusercontent.com/Jcanaas/JoJo-Flix/refs/heads/main/img/user_pink.png" alt="User 1">
+                    <img src="https://raw.githubusercontent.com/Jcanaas/JoJo-Flix/refs/heads/main/img/user_green.png" alt="User 2">
+                    <img src="https://raw.githubusercontent.com/Jcanaas/JoJo-Flix/refs/heads/main/img/user_blue.png" alt="User 3">
+                    <img src="https://raw.githubusercontent.com/Jcanaas/JoJo-Flix/refs/heads/main/img/user_grey.png" alt="User 4">
+                    <img src="https://raw.githubusercontent.com/Jcanaas/JoJo-Flix/refs/heads/main/img/user_orange.png" alt="User 5">
+                    <img src="https://raw.githubusercontent.com/Jcanaas/JoJo-Flix/refs/heads/main/img/user_purple.png" alt="User 3">
+                    <img src="https://raw.githubusercontent.com/Jcanaas/JoJo-Flix/refs/heads/main/img/user_red.png" alt="User 3">
+                    <img src="https://raw.githubusercontent.com/Jcanaas/JoJo-Flix/refs/heads/main/img/user_white.png" alt="User 3">
+                    <img src="https://raw.githubusercontent.com/Jcanaas/JoJo-Flix/refs/heads/main/img/user_yellow.png" alt="User 3">
+                    <img src="https://raw.githubusercontent.com/Jcanaas/JoJo-Flix/refs/heads/main/img/user_beck.png" alt="User Beck">
+                    <img src="https://raw.githubusercontent.com/Jcanaas/JoJo-Flix/refs/heads/main/img/user_ellietlou.png" alt="User Ellie">
                     <div style="font-size: 0.8rem;">Si quieres establezer una foto de perfil personalizada contacta conmigo atraves de:</div>
-                    <a style="font-size: 0.8rem;;" href="mailto:jordi2007cm@gmail.com">jordi2007cm@gmail.com</a>
+                    <a style="font-size: 0.8rem;" href="mailto:jordi2007cm@gmail.com">jordi2007cm@gmail.com</a>
+                    <div style="margin-top: 10px;">
+                        <label for="customImageUrl" style="font-size: 0.8rem;">URL:</label>
+                        <input type="text" id="customImageUrl" placeholder="Introduce la URL de la imagen" style="width: 80%; padding: 5px; font-size: 0.8rem;">
+                        <button id="saveCustomImage" style="padding: 5px 10px; font-size: 0.8rem; cursor: pointer;">Guardar</button>
+                    </div>
                 </div>
             </div>
             <div class="profile-content">
@@ -129,12 +134,9 @@
             let imageSelector = document.getElementById("imageSelector");
             let savedImage = localStorage.getItem("profileImage");
 
-            // Establecer la imagen por defecto si no hay una guardada
+            // No cambiar la imagen automáticamente si ya existe en localStorage
             if (savedImage) {
                 profileImage.src = savedImage;
-            } else {
-                profileImage.src = "img/user_pink.png"; // Valor por defecto
-                localStorage.setItem("profileImage", "img/user_pink.png"); // Guardar el valor por defecto
             }
 
             profileImage.addEventListener("click", function() {
@@ -156,16 +158,35 @@
                 }
             });
 
+            const customImageUrlInput = document.getElementById("customImageUrl");
+            const saveCustomImageButton = document.getElementById("saveCustomImage");
+
+            saveCustomImageButton.addEventListener("click", function() {
+                const customImageUrl = customImageUrlInput.value.trim();
+                if (customImageUrl) {
+                    profileImage.src = customImageUrl;
+                    localStorage.setItem("profileImage", customImageUrl);
+                    alert("Imagen personalizada guardada correctamente.");
+                    location.reload(); // Recargar la página
+                } else {
+                    alert("Por favor, introduce una URL válida.");
+                }
+            });
+
             // Verificar credenciales almacenadas en Local Storage
             const usuario = localStorage.getItem("usuario");
             const password = localStorage.getItem("password");
+            const fotoPerfil = localStorage.getItem("profileImage"); // Nueva variable para la imagen
 
             if (usuario && password) {
                 const data = {
                     accion: 'login',
                     usuario: usuario,
-                    contrasena: password
+                    contrasena: password,
+                    foto: fotoPerfil // Incluir la imagen en los datos enviados
                 };
+
+                console.log("Datos enviados:", data); // Log para verificar los datos enviados
 
                 const scriptURL = 'https://script.google.com/macros/s/AKfycbzsORwapCu088hn1FW4aFLSxJas6lJp0VPK6nwJbWMhsS2T_AoGdiAt9jKXqUGaa6jfaQ/exec';
 
@@ -180,6 +201,12 @@
                 .then(data => {
                     console.log("Credenciales verificadas correctamente.");
                     console.log(data);  // Aquí puedes ver todo el objeto de datos recibido
+
+                    // Actualizar la imagen de perfil solo si no existe en localStorage
+                    if (!savedImage && data.fotodeperfil) {
+                        profileImage.src = data.fotodeperfil;
+                        localStorage.setItem("profileImage", data.fotodeperfil); // Guardar en localStorage
+                    }
 
                     if (data.success) {
                         // Mostrar el último capítulo visto de BECK
