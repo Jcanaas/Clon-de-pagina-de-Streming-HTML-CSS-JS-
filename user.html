@@ -110,7 +110,7 @@
                 <p id="ultimoCapituloVistoBeck">Cargando...</p> <!-- Aquí se mostrará el valor de ultimoepisodioMonster -->
 
                 <!-- Último capítulo visto de Monster -->
-                <h1>Último capítulo visto de Monster:</h1>
+                <h1 style="margin-top: 20px;">Último capítulo visto de Monster:</h1>
                 <p id="ultimoCapituloVistoMonster">Cargando...</p> <!-- Aquí se mostrará el valor de ultimoepisodioMonster -->
 
             </div>
@@ -185,7 +185,7 @@
                         // Mostrar el último capítulo visto de BECK
                         const ultimoCapituloVistoBeck = document.querySelector("#ultimoCapituloVistoBeck");
                         if (ultimoCapituloVistoBeck) {
-                            ultimoCapituloVistoBeck.textContent = data.ultimoepisodioBeck || "No disponible";
+                            ultimoCapituloVistoBeck.textContent = data.ultimoepisodioBeck || "¡Oh no! parece que no has visto ningun capítulo de BECK: Mongolian Chop Squad :c";
                         }
 
                         // Ahora obtenemos el episodio de Monster
@@ -207,7 +207,7 @@
                             // Mostrar el valor de B2 (episodio de Monster)
                             const ultimoCapituloVistoMonster = document.querySelector("#ultimoCapituloVistoMonster");
                             if (ultimoCapituloVistoMonster) {
-                                ultimoCapituloVistoMonster.textContent = data.ultimoepisodioMonster || "No disponible";
+                                ultimoCapituloVistoMonster.textContent = data.ultimoepisodioMonster || "¡Oh no! parece que no has visto ningun capítulo de Monster :c";
                             }
                         })
                         .catch(error => console.error("Error al obtener el episodio de Monster:", error));

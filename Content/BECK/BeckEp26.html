@@ -55,33 +55,6 @@
 <br><br>
 <p>2025 JoJo-Flix. Todos los derechos reservados.</p>
 </footer>
-<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
-<script src="js/main.js"></script>
-<script>
-
-  const tituloEpisodio = document.querySelector(".titulo-episodio").textContent;
-  
-  console.log("Capítulo actual:", tituloEpisodio);
-  
-  let tiempoVisualizacion = 0; 
-  const tiempoLimite = 5 * 60;
-  const intervalo = setInterval(function() {
-      tiempoVisualizacion += 1;
-  
-      if (tiempoVisualizacion >= tiempoLimite) {
-          localStorage.setItem("ultimoCapituloVistoBeck", tituloEpisodio);
-          console.log("Guardado el último capítulo visto:", tituloEpisodio);
-  
-  
-          clearInterval(intervalo);
-      }
-  }, 1000);
-  
-  window.addEventListener("beforeunload", function() {
-      if (tiempoVisualizacion < tiempoLimite) {
-          console.log("El tiempo no ha alcanzado 5 minutos, no se guarda.");
-      }
-  });
-  </script>
+<script src="fetchBeck.js"></script>
 </body>
 </html>
