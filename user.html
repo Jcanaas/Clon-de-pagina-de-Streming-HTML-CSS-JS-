@@ -68,14 +68,13 @@
                     <a href="form.html">Formulario de satisfacción</a>
                     <a href="signin.html">SIGN IN</a>
                     <a onclick="borrarLocalStorage()">Borrar Datos</a>
-
                     <script>
                         function borrarLocalStorage() {
                             localStorage.clear();
                             alert("Todos los datos han sido eliminados.");
+                            window.location.href = "login.html"; // Redirigir al login
                         }
                     </script>
-
                 </nav>
             </div>
         </div>
@@ -101,48 +100,38 @@
                     <a style="font-size: 0.8rem;" href="mailto:jordi2007cm@gmail.com">jordi2007cm@gmail.com</a>
                     <div style="margin-top: 10px;">
                         <label for="customImageUrl" style="font-size: 0.8rem;">URL:</label>
-                        <input type="text" id="customImageUrl" placeholder="Introduce la URL de la imagen" style="width: 80%; padding: 5px; font-size: 0.8rem;">
-                        <button id="saveCustomImage" style="padding: 5px 10px; font-size: 0.8rem; cursor: pointer;">Guardar</button>
+                        <input type="text" id="customImageUrl" placeholder="Introduce la URL de la imagen" style="width: 80%; padding: 5px; font-size: 0.8rem; background-color: #df2892; color: white; border: none; border-radius: 5px;">
+                        <button id="saveCustomImage" style="padding: 5px 10px; font-size: 0.8rem; cursor: pointer; background-color: #df2892; color: white; border: none; border-radius: 5px;">Guardar</button>
                     </div>
                 </div>
             </div>
             <div class="profile-content">
                 <h1 style="font-size: 2rem; font-weight: bold; color: #333;">Aquí tienes una lista de todas las series que estás viendo:</h1>
                 <ul id="user-list" class="user-list"></ul>
-            
-                <!-- Último capítulo visto de BECK -->
                 <h1>Último capítulo visto de BECK: Mongolian Chop Squad:</h1>
-                <p id="ultimoCapituloVistoBeck">Cargando...</p> <!-- Aquí se mostrará el valor de ultimoepisodioMonster -->
-
-                <!-- Último capítulo visto de Monster -->
+                <p id="ultimoCapituloVistoBeck">Cargando...</p>
                 <h1 style="margin-top: 20px;">Último capítulo visto de Monster:</h1>
-                <p id="ultimoCapituloVistoMonster">Cargando...</p> <!-- Aquí se mostrará el valor de ultimoepisodioMonster -->
-
+                <p id="ultimoCapituloVistoMonster">Cargando...</p>
             </div>
         </section>
     </main>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            let usuarioLocal = localStorage.getItem("usuario"); // Renamed variable
+            let usuarioLocal = localStorage.getItem("usuario");
             if (usuarioLocal) {
                 document.querySelector("#nombreUsuario").textContent = usuarioLocal;
             } else {
                 window.location.href = "index.html";
             }
-
             let profileImage = document.getElementById("profileImage");
             let imageSelector = document.getElementById("imageSelector");
             let savedImage = localStorage.getItem("profileImage");
-
-            // No cambiar la imagen automáticamente si ya existe en localStorage
             if (savedImage) {
                 profileImage.src = savedImage;
             }
-
             profileImage.addEventListener("click", function() {
                 imageSelector.style.display = imageSelector.style.display === "block" ? "none" : "block";
             });
-
             document.querySelectorAll(".image-selector img").forEach(img => {
                 img.addEventListener("click", function() {
                     let newSrc = img.src;
@@ -151,108 +140,97 @@
                     imageSelector.style.display = "none";
                 });
             });
-
             document.addEventListener("click", function(event) {
                 if (!profileImage.contains(event.target) && !imageSelector.contains(event.target)) {
                     imageSelector.style.display = "none";
                 }
             });
-
             const customImageUrlInput = document.getElementById("customImageUrl");
             const saveCustomImageButton = document.getElementById("saveCustomImage");
-
             saveCustomImageButton.addEventListener("click", function() {
                 const customImageUrl = customImageUrlInput.value.trim();
                 if (customImageUrl) {
                     profileImage.src = customImageUrl;
                     localStorage.setItem("profileImage", customImageUrl);
                     alert("Imagen personalizada guardada correctamente.");
-                    location.reload(); // Recargar la página
+                    location.reload();
                 } else {
                     alert("Por favor, introduce una URL válida.");
                 }
             });
-
-            // Verificar credenciales almacenadas en Local Storage
             const usuario = localStorage.getItem("usuario");
             const password = localStorage.getItem("password");
-            const fotoPerfil = localStorage.getItem("profileImage"); // Nueva variable para la imagen
-
+            const fotoPerfil = localStorage.getItem("profileImage");
             if (usuario && password) {
-                const data = {
-                    accion: 'login',
-                    usuario: usuario,
-                    contrasena: password,
-                    foto: fotoPerfil // Incluir la imagen en los datos enviados
-                };
-
-                console.log("Datos enviados:", data); // Log para verificar los datos enviados
-
-                const scriptURL = 'https://script.google.com/macros/s/AKfycbzsORwapCu088hn1FW4aFLSxJas6lJp0VPK6nwJbWMhsS2T_AoGdiAt9jKXqUGaa6jfaQ/exec';
-
-                fetch(scriptURL, {
-                    method: 'POST',
-                    body: JSON.stringify(data),
-                    headers: {
-                        'Content-Type': 'text/plain;charset=utf-8'
-                    }
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log("Credenciales verificadas correctamente.");
-                    console.log(data);  // Aquí puedes ver todo el objeto de datos recibido
-
-                    // Actualizar la imagen de perfil solo si no existe en localStorage
-                    if (!savedImage && data.fotodeperfil) {
-                        profileImage.src = data.fotodeperfil;
-                        localStorage.setItem("profileImage", data.fotodeperfil); // Guardar en localStorage
-                    }
-
-                    if (data.success) {
-                        // Mostrar el último capítulo visto de BECK
-                        const ultimoCapituloVistoBeck = document.querySelector("#ultimoCapituloVistoBeck");
-                        if (ultimoCapituloVistoBeck) {
-                            ultimoCapituloVistoBeck.textContent = data.ultimoepisodioBeck || "¡Oh no! parece que no has visto ningun capítulo de BECK: Mongolian Chop Squad :c";
-                        }
-
-                        // Ahora obtenemos el episodio de Monster
-                        const episodioData = {
-                            accion: 'episodioMonster',
-                            usuario: usuario
+                fetch('https://api.ipify.org?format=json')
+                    .then(response => response.json())
+                    .then(ipData => {
+                        const data = {
+                            accion: 'login',
+                            usuario: usuario,
+                            contrasena: password,
+                            foto: fotoPerfil,
+                            ip: ipData.ip
                         };
-
+                        const { ip, ...dataWithoutIp } = data;
+                        console.log("Datos enviados:", dataWithoutIp);
+                        const scriptURL = 'https://script.google.com/macros/s/AKfycbzsORwapCu088hn1FW4aFLSxJas6lJp0VPK6nwJbWMhsS2T_AoGdiAt9jKXqUGaa6jfaQ/exec';
                         fetch(scriptURL, {
                             method: 'POST',
-                            body: JSON.stringify(episodioData),
+                            body: JSON.stringify(data),
                             headers: {
                                 'Content-Type': 'text/plain;charset=utf-8'
                             }
                         })
                         .then(response => response.json())
-                        .then(episodioData => {
-                            console.log("Episodio de Monster:", data.ul);
-                            // Mostrar el valor de B2 (episodio de Monster)
-                            const ultimoCapituloVistoMonster = document.querySelector("#ultimoCapituloVistoMonster");
-                            if (ultimoCapituloVistoMonster) {
-                                ultimoCapituloVistoMonster.textContent = data.ultimoepisodioMonster || "¡Oh no! parece que no has visto ningun capítulo de Monster :c";
+                        .then(data => {
+                            console.log("Credenciales verificadas correctamente.");
+                            console.log(data);
+                            if (!savedImage && data.fotodeperfil) {
+                                profileImage.src = data.fotodeperfil;
+                                localStorage.setItem("profileImage", data.fotodeperfil);
+                            }
+                            if (data.success) {
+                                const ultimoCapituloVistoBeck = document.querySelector("#ultimoCapituloVistoBeck");
+                                if (ultimoCapituloVistoBeck) {
+                                    ultimoCapituloVistoBeck.textContent = data.ultimoepisodioBeck || "¡Oh no! parece que no has visto ningun capítulo de BECK: Mongolian Chop Squad :c";
+                                }
+                                const episodioData = {
+                                    accion: 'episodioMonster',
+                                    usuario: usuario
+                                };
+                                fetch(scriptURL, {
+                                    method: 'POST',
+                                    body: JSON.stringify(episodioData),
+                                    headers: {
+                                        'Content-Type': 'text/plain;charset=utf-8'
+                                    }
+                                })
+                                .then(response => response.json())
+                                .then(episodioData => {
+                                    const ultimoCapituloVistoMonster = document.querySelector("#ultimoCapituloVistoMonster");
+                                    if (ultimoCapituloVistoMonster) {
+                                        ultimoCapituloVistoMonster.textContent = data.ultimoepisodioMonster || "¡Oh no! parece que no has visto ningun capítulo de Monster :c";
+                                    }
+                                })
+                                .catch(error => console.error("Error al obtener el episodio de Monster:", error));
+                            } else {
+                                console.log("Credenciales incorrectas. Por favor, inicie sesión nuevamente.");
+                                localStorage.clear();
+                                window.location.href = "login.html";
                             }
                         })
-                        .catch(error => console.error("Error al obtener el episodio de Monster:", error));
-
-                    } else {
-                        console.log("Credenciales incorrectas. Por favor, inicie sesión nuevamente.");
-                        localStorage.clear();
-                        window.location.href = "login.html";
-                    }
-                })
-                .catch(error => {
-                    console.error("Error al verificar las credenciales:", error);
-                });
+                        .catch(error => {
+                            console.error("Error al verificar las credenciales:", error);
+                        });
+                    })
+                    .catch(error => {
+                        console.error("Error al obtener la IP pública:", error);
+                    });
             } else {
                 console.log("No hay credenciales almacenadas. Redirigiendo al inicio de sesión.");
                 window.location.href = "login.html";
             }
-
         });
     </script>
 </body>
