@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu IP Pública</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/spiner.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/spores.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body class="min-h-screen bg-slate-300">
+    <canvas id="spores"></canvas>
+    <header>
+        <div class="contenedor">
+            <h2 class="logotipo" onclick="location.href='index.html'">JoJo-flix</h2>
+            <nav>
+                <a href="form.html">Formulario de satisfacción</a>
+                <a href="signin.html">SIGN IN</a>
+                <a href="login.html">LOG IN</a>
+                <div class="group">
+                    <input type="text" id="searchInput" class="input" placeholder="Buscar..." onkeyup="searchMovie()">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M10 2a8 8 0 105.293 14.707l5.387 5.387a1 1 0 001.414-1.414l-5.387-5.387A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/>
+                    </svg>
+                </div>
+                <a href="user.html" class="user-button">
+                    <img id="userProfileImage" src="img/user_default.png" alt="User Profile" class="user-icon">
+                </a>
+                
+                <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    let savedImage = localStorage.getItem("profileImage");
+                    if (savedImage) {
+                        document.getElementById("userProfileImage").src = savedImage;
+                    } else {
+                        document.getElementById("userProfileImage").src = "https://raw.githubusercontent.com/Jcanaas/JoJo-Flix/refs/heads/main/img/user_pink.png"; // Valor por defecto
+                    }
+                });
+                </script>
+                
+            </nav>
+        </div>
+    </header>
+    <section class="waves">
+        <div class="air air1"></div>
+        <div class="air air2"></div>
+        <div class="air air3"></div>
+        <div class="air air4"></div>
+    </section>
+
+    <div class="max-w-3xl mx-auto p-10 relative z-10 login-container text-center">
+        <h1 class="text-4xl pt-16">Tu Dirección IP Pública</h1>
+        <div style="margin-top: 5%;"; class="flex justify-center items-center mt-8"> <!-- Added margin-top -->
+            <h1 id="ip-address" class="text-4xl">Cargando...</h1>
+            <button id="copy-btn" class="ml-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 flex items-center">
+                <span>&#x1F4CB;</span> <!-- Clipboard icon -->
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const copyButton = document.getElementById('copy-btn');
+        const ipAddressElement = document.getElementById('ip-address');
+
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                ipAddressElement.textContent = data.ip;
+            })
+            .catch(error => {
+                ipAddressElement.textContent = 'Error al obtener la IP';
+                console.error('Error fetching IP:', error);
+            });
+
+        copyButton.addEventListener('click', () => {
+            const ip = ipAddressElement.textContent;
+            navigator.clipboard.writeText(ip).catch(err => {
+                console.error('Error al copiar la IP:', err);
+            });
+        });
+    </script>
+</body>
+</html>
