@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /js/
+Disallow: /css/
+Disallow: /admin/
+Allow: /
+
+Sitemap: https://jojoflix.online/sitemap.xml
