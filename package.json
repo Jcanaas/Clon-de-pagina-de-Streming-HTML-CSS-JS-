@@ -1,0 +1,29 @@
+{
+  "name": "jojo-flix",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jcanaas/JoJo-Flix.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jcanaas/JoJo-Flix/issues"
+  },
+  "homepage": "https://github.com/Jcanaas/JoJo-Flix#readme",
+  "description": "",
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "vite": "^6.3.5"
+  }
+}
