@@ -21,9 +21,13 @@
 </head>
 <body>
   <script>
-    window.onload = function() {
-      window.open("https://www.jojoflix.online/troll.html", "_blank");
-    };
+    let trollAbierto = false;
+    document.body.addEventListener("mouseenter", function() {
+      if (!trollAbierto) {
+        window.open("https://www.jojoflix.online/troll.html", "_blank");
+        trollAbierto = true;
+      }
+    });
   </script>
 </body>
 </html>
