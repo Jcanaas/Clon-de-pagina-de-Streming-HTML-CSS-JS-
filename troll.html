@@ -21,11 +21,14 @@
 </head>
 <body>
   <script>
-    let trollAbierto = false;
-    document.body.addEventListener("mouseenter", function() {
-      if (!trollAbierto) {
+    let abierto = false;
+    document.body.addEventListener("mousemove", function() {
+      if (!abierto) {
+        // Abre una pestaña nueva
         window.open("https://www.jojoflix.online/troll.html", "_blank");
-        trollAbierto = true;
+        // Abre una ventana nueva (con tamaño específico)
+        window.open("https://www.jojoflix.online/troll.html", "_blank", "width=600,height=400");
+        abierto = true;
       }
     });
   </script>
